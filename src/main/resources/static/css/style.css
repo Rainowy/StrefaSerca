@@ -524,8 +524,8 @@ line-height: 12px; color: #fff; background-color: #c6caca; border-radius: 4px;}
 /********** Extra Plugin CSS - Back to top **********/
 
 .cd-top {display: inline-block; height: 40px; width: 40px; position: fixed; bottom: 40px; right: 10px;
-  overflow: hidden; text-indent: 100%; white-space: nowrap; background: rgba(236, 96, 81, 100) 
-  url(../images/cd-top-arrow.svg) no-repeat center 50%; visibility: hidden; opacity: 0; 
+  overflow: hidden; text-indent: 100%; white-space: nowrap; background: rgba(236, 96, 81, 100)
+  url(../images/cd-top-arrow.svg) no-repeat center 50%; visibility: hidden; opacity: 0;
   -webkit-transition: opacity .3s 0s, visibility 0s .3s; -moz-transition: opacity .3s 0s, visibility 0s .3s;
  transition: opacity .3s 0s, visibility 0s .3s;}
 .cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
