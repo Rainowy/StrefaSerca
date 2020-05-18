@@ -15,7 +15,10 @@ veterinary cardiology website, pediatric cardiology website">
 <!--  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" >-->
 <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
 <!--  <link rel="stylesheet" type="text/css" th:href="@{https://use.fontawesome.com/releases/v5.0.7/css/all.css}"/>-->
-  <link rel="stylesheet" type="text/css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css}"/>
+
+<!--  <link rel="stylesheet" type="text/css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css}"/>  -->
+
+
 <!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">-->
   <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 <!-- style css -->
@@ -25,7 +28,7 @@ veterinary cardiology website, pediatric cardiology website">
   <link rel="stylesheet" type="text/css" th:href="@{/css/animsition.min.css}"/>
 <!--<link rel="stylesheet" type="text/css" href="css/animsition.css">-->
 <!-- Font Awesome CSS -->
-<!--  <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}"/>-->
+  <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.css}"/>
 <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
 <!-- font css -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
@@ -41,11 +44,14 @@ veterinary cardiology website, pediatric cardiology website">
 <div class="top-header"><!-- top header -->
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-sm-12"><a class="logo" href="index.html"><img src="images/logo.png" alt=""></a> </div>
+
+<!--      <a class="logo" href="index.html"> <img th:src="@{/images/logoBAK.png}" alt=""/></a>-->
+<!--      <div class="col-md-3 col-sm-12"><a class="logo" href="index.html"><img src="images/logoBAK.png" alt=""></a> </div>-->
+      <div class="col-md-3 col-sm-12"><a class="logo" href="index.html"> <img th:src="@{images/logostrefaserca.jpg}" alt=""/></a> </div>
       <div class="col-md-9 hidden-sm hidden-xs">
         <div class="top-link">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
               <i class="fa fa-clock-o"></i>Mon to sat: 10:00am to 6:00pm
             </div>
             <div class="col-md-3">
@@ -53,6 +59,9 @@ veterinary cardiology website, pediatric cardiology website">
             </div>
             <div class="col-md-3">
               <i class="fa fa-envelope-o"></i> <a href="cantact-us.html">info@cardio.com</a>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-sign-in"></i> <a href="cantact-us.html">Zaloguj się</a>
             </div>
           </div>
         </div>
@@ -92,7 +101,7 @@ veterinary cardiology website, pediatric cardiology website">
     <div class="row">
       <div class="col-md-6 col-sm-6">
         <div class="intro-caption"><!-- intro caption -->
-          <h1 class="intro-title">Experts in Heart Health</h1>
+          <h1 class="intro-title">Praktyka Lekarska Katarzyna Czarnecka</h1>
           <p class="mb40">Your health is our top priority with comprehensive, affordable<br> medical health care.</p>
           <a href="#" class="btn btn-default">make an appointment</a> </div>
         <!-- /.intro caption --> 
@@ -106,55 +115,55 @@ veterinary cardiology website, pediatric cardiology website">
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-sm-12 text-center mb60">
-        <h1>Cardiology Services</h1>
-        <p>Aliquam sodales in lacus ut diamuspendisse imperdiet enimass</p> 
+        <h1>Procedury kardiologiczne</h1>
+        <p>Coś tutaj można wpisać ładnego</p>
         </div>
       <div class="col-md-12 col-sm-12">
         <div class="row">
         <div class="col-md-4 col-sm-4">
           <div class="service-block text-center mb60">
-              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-1.jpg" class="img-responsive" alt=""></a></div>
+              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img th:src="@{images/ok/tablet.jpg}" class="img-responsive" alt=""/></a></div>
               <h2><a href="#" class="heading-title">Diagnostic Cardiac</a></h2>
             </div>
         </div>
 
         <div class="col-md-4 col-sm-4">
           <div class="service-block text-center">
-              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-2.jpg" class="img-responsive" alt=""></a></div>
-              <h2><a href="#" class="heading-title">Vascular Dignostic</a></h2>
+              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img th:src="@{images/ok/rozrusznik.png}" class="img-responsive" alt=""/></a></div>
+<!--              <h2><a href="#" class="heading-title">Vascular Dignostic</a></h2>-->
             </div>
         </div>
 
         <div class="col-md-4 col-sm-4">
           <div class="service-block text-center">
-              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-3.jpg" class="img-responsive" alt=""></a></div>
+              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img th:src="@{images/ok/vivid.jpg}" class="img-responsive" alt=""/></a></div>
               <h2><a href="#" class="heading-title">Invasive Procedures</a></h2>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4 col-sm-4">
-          <div class="service-block text-center">
-              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-4.jpg" class="img-responsive" alt=""></a></div>
-              <h2><a href="#" class="heading-title">Heart Conditions Treated</a></h2>
-            </div>
-        </div>
+<!--    <div class="row">-->
+<!--        <div class="col-md-4 col-sm-4">-->
+<!--          <div class="service-block text-center">-->
+<!--              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-4.jpg" class="img-responsive" alt=""></a></div>-->
+<!--              <h2><a href="#" class="heading-title">Heart Conditions Treated</a></h2>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="col-md-4 col-sm-4">
-          <div class="service-block text-center">
-              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-5.jpg" class="img-responsive" alt=""></a></div>
-              <h2><a href="#" class="heading-title">Vein Clinic Services</a></h2>
-            </div>
-        </div>
+<!--        <div class="col-md-4 col-sm-4">-->
+<!--          <div class="service-block text-center">-->
+<!--              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-5.jpg" class="img-responsive" alt=""></a></div>-->
+<!--              <h2><a href="#" class="heading-title">Vein Clinic Services</a></h2>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="col-md-4 col-sm-4">
-          <div class="service-block text-center">
-              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-6.jpg" class="img-responsive" alt=""></a></div>
-              <h2><a href="#" class="heading-title">Diagonstic Cardiac</a></h2>
-            </div>
-        </div>
-    </div>
+<!--        <div class="col-md-4 col-sm-4">-->
+<!--          <div class="service-block text-center">-->
+<!--              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-6.jpg" class="img-responsive" alt=""></a></div>-->
+<!--              <h2><a href="#" class="heading-title">Diagonstic Cardiac</a></h2>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     </div>
   </div>
 </div>
@@ -221,7 +230,8 @@ veterinary cardiology website, pediatric cardiology website">
     <div class="row">
       <div class="col-md-5">
         <div class="doctor-img">
-          <img src="images/doctor.png" class=" " alt="">
+          <img th:src="@{/images/o_mnie2.jpg}" alt=""/>
+<!--          <img src="images/doctor.png" class=" " alt="">-->
         </div>
       </div>
       <div class="col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-5 ">

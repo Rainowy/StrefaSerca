@@ -222,14 +222,14 @@ font-family: "FontAwesome"; font-size: 36px; }
 .top-header{margin: 20px 0; font-family: 'Roboto', sans-serif; font-weight: 600;
     color: #2e3433;}
 .top-link{margin-top: 13px; text-align: right;}
-.top-link i{margin-right: 12px; border: 1px solid #03af9e; width: 32px;
-height: 32px; border-radius: 100%; text-align: center; color: #03af9e;
+.top-link i{margin-right: 12px; border: 1px solid #ec6051; width: 32px;
+height: 32px; border-radius: 100%; text-align: center; color: #ec6051;
     padding-top: 6px;}
 .top-link ul li a{}
 
 /*------------------ Navigation ----------------*/
 
-.header{background-color: #03af9e; -webkit-transition: background-color .8s ease-out; 
+.header{background-color: #ec6051; -webkit-transition: background-color .8s ease-out;
   -moz-transition: background-color .8s ease-out; -o-transition:
   background-color .8s ease-out; transition: background-color .8s ease-out;
   position: relative; 
@@ -279,12 +279,12 @@ color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;  
 #navigation ul ul ul {margin-left: 100%; top: 0; }
 #navigation.align-right ul ul ul {margin-left: 0; margin-right: 100%; }
 #navigation ul ul li a {border-bottom: 1px solid rgba(150, 150, 150, 0.15); padding: 15px 15px; width: 130px;
-  font-size: 13px; text-decoration: none; color: #03af9e; font-weight: 500; background: #fff; 
-    text-transform: uppercase;}
+  font-size: 13px; text-decoration: none; color: #ec6051; font-weight: 500; background: #fff;
+    text-transform: uppercase;}#ec6051 #03af9e
 #navigation ul ul li:last-child > a,
 #navigation ul ul li.last-item > a {border-bottom: 0;}
 #navigation ul ul li:hover > a,
-#navigation ul ul li a:hover {color: #ff5448;}
+#navigation ul ul li a:hover {color: #03af9e;}
 #navigation ul ul li.has-sub > a:after {position: absolute; top: 16px; right: 11px; width: 8px; height: 2px;
   display: block; background: #dddddd; content: '';}
 #navigation.align-right ul ul li.has-sub > a:after {right: auto; left: 11px;}
@@ -353,8 +353,8 @@ background-size: cover; margin: 0;}
 .breadcrumb{}
 .breadcrumb>.active {}
 /*-------------- slider ------------*/
-.intro-section{background:linear-gradient(rgba(128, 153, 151, 0.7), rgba(128, 153, 151, 0.7), rgba(128, 153, 151, 0.7)),
- url(../images/hero-img.jpg) no-repeat center;  background-size: cover; }
+.intro-section{background:linear-gradient(rgba(128, 153, 151, 0.5), rgba(128, 153, 151, 0.5), rgba(128, 153, 151, 0.5)),
+ url(../images/ok/main2.jpg) no-repeat center;  background-size: cover; }
 .intro-caption{color: #fff; padding-top: 150px; padding-bottom: 150px; font-size: 18px;}
 .intro-title{font-size: 52px; color: #fff; line-height: 58px;}
 /*-------------- cta ------------*/
