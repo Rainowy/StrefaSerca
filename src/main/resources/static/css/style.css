@@ -167,7 +167,7 @@ padding space
  background & block color 
 ------------------------------------------*/
 .bg-light{background-color: #f5f7f7; }
-.bg-primary{background-color: #03af9e;}
+.bg-primary{background-color: #ec6051;}
 .bg-default{}
 .bg-white{background-color: #fff;}
 .outline{}
@@ -344,7 +344,7 @@ color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;  
 .navigation-search i{color: #fff; margin-top: 17px; float: right;}
 /*-------------- page header ------------*/
 .page-header{background: linear-gradient(rgba(128, 153, 151, 0.7),
-  rgba(128, 153, 151, 0.7)), rgba(128, 153, 151, 0.7) url(../images/page-header.jpg) no-repeat center;
+  rgba(128, 153, 151, 0.7)), rgba(128, 153, 151, 0.7) url(../images/ok/main2.jpg) no-repeat center;
 background-size: cover; margin: 0;}
 .page-caption{padding: 105px 0;}
 .page-title{color: #fff;}
