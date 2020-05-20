@@ -41,4 +41,9 @@ public class HomeController {
     public ModelAndView testimonials(){
         return new ModelAndView("testimonials");
     }
+
+    @GetMapping("/about")
+    public ModelAndView about(){
+        return new ModelAndView("about_me");
+    }
 }

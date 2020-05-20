@@ -258,7 +258,7 @@ visibility: hidden; line-height: 0; height: 0;}*/
 color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;  }
 #navigation > ul > li > a:hover {color: #fff;   padding: 18px 15px;}
 #navigation > ul > li.has-sub > a {padding-right: 30px;}
-/*#navigation > ul > li.has-sub > a:after {position: absolute; top: 22px; right: 11px; width: 8px; height: 2px; 
+/*#navigation > ul > li.has-sub > a:after {position: absolute; top: 22px; right: 11px; width: 8px; height: 2px;
   display: block; background: #dddddd; content: '';}*/
 #navigation > ul > li.has-sub > a:before {position: absolute; right: 14px; font-family: FontAwesome; content: "\f107";
   -webkit-transition: all .25s ease; -moz-transition: all .25s ease; -ms-transition: all .25s ease;
@@ -640,5 +640,11 @@ width: 30px; font-size: 18px; text-align: center; color: #03af9e;}
 .childern {padding-left: 0px;}
 #navigation.small-screen .submenu-button {height: 50px; width: 46px;}
 .widget-tags a {padding: 7px 7px; font-size: 10px; line-height: 8px;}
+}
+
+/*My Custom Style starts now*/
+.inactiveLink {
+  pointer-events: none;
+  cursor: default;
 }
 
