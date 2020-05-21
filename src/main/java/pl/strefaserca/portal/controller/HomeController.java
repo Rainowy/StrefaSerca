@@ -34,7 +34,7 @@ public class HomeController {
 
     @GetMapping("/blog")
     public ModelAndView blog(){
-        return new ModelAndView("blog");
+        return new ModelAndView("articles");
     }
 
     @GetMapping("/testimonials")

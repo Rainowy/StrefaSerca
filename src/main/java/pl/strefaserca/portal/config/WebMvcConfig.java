@@ -17,6 +17,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 @Bean
 RouterFunction staticResourceLocator(){
-    return RouterFunctions.resources("/blog/**", new FileSystemResource("/home/tomek/Documents/StrefaHtml/"));
+    return RouterFunctions.resources("/article/**", new FileSystemResource("/home/tomek/Documents/StrefaHtml/"));
 }
 }
