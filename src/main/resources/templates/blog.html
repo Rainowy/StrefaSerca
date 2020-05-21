@@ -136,32 +136,29 @@ veterinary cardiology website, pediatric cardiology website">
                         <div class="col-md-12 col-sm-12">
                             <div class="post-holder mb40">
                                 <div class="post-img mb40">
-                                    <a th:href="@{/article/1}" class=" imghover"><img
-                                            th:src="@{/images/blog/blog-post-1.jpg}" alt="" class="img-responsive"></a>
+                                    <a th:href="@{${'/blog' + article.getFileName()}}" class=" imghover"><img
+                                            th:src="@{${'/blog' + article.getImgSrc()}}" alt="" class="img-responsive"></a>
                                 </div>
                                 <div class="post-sticky"></div>
                                 <div class="post-block">
                                     <div class="post-header mb20">
-                                        <h1 class="post-title mb30"><a th:text="${article}" th:href="@{/blog/testimonials.html}"
+                                        <h1 class="post-title mb30"><a th:text="${article.getTitle()}"
+                                                                       th:href="@{${'/blog' + article.getFileName()}}"
                                                                        class="title"></a></h1>
                                         <div class="post-meta">
-                                            <!-- post meta -->
+
                                             <span class="meta-date"><i
                                                     class="fa fa-calendar"></i> August 24, 2017 </span>
                                             <span class="meta-comment"><i class="fa fa-comments"></i> <a href="#"
                                                                                                          class="meta-link">05 Comment </a></span>
                                         </div>
-                                        <!-- /.post meta -->
+
                                     </div>
                                     <hr>
                                     <div class="post-content">
-                                        <p style="text-indent: 50px">Zawał serca jest jedną z najczęstszych przyczyn
-                                            zgonów w Polsce, warto zatem zastanowić się, czym jest zawał, jakie są jego
-                                            objawy i co możemy zrobić żeby się przed nim uchronić. Zawał serca jest
-                                            jedną z najczęstszych przyczyn zgonów w Polsce, warto zatem zastanowić się,
-                                            czym jest zawał, jakie są jego objawy i co możemy zrobić żeby się przed nim
-                                            uchronić. </p>
-                                        <a th:href="@{/article/1}" class="btn btn-default">Czytaj więcej</a></div>
+                                        <p th:text="${article.getLead() + '.'}"></p>
+                                        <a th:href="@{${'/blog' + article.getFileName()}}" class="btn btn-default">Czytaj
+                                            więcej</a></div>
                                 </div>
                             </div>
                         </div>
