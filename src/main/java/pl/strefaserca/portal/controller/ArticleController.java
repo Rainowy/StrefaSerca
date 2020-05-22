@@ -29,63 +29,42 @@ public class ArticleController {
         return new ModelAndView("articles", "articles", articleService.getArticleInfo());
     }
 
-    @SneakyThrows
+
     @GetMapping("/next")
     ModelAndView nextPage(@RequestParam String fileName){
-        System.out.println(fileName);
 
         List<ArticleDto> articleInfo = articleService.getArticleInfo();
 
-        articleInfo.stream()
-                .forEach(e -> System.out.println(e.getFileName() + " nazwa"));
+        String name ="";
+        for (int i = 0; i <articleInfo.size() ; i++) {
+            if(articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() -1){
+                name = articleInfo.get(i +1).getFileName();
+                break;
+            } else name = articleInfo.get(0).getFileName();
+        }
+        return URLEncoder(name);
+    }
+
+
+    @GetMapping("/previous")
+    ModelAndView previousPage(@RequestParam String fileName){
+
+        List<ArticleDto> articleInfo = articleService.getArticleInfo();
 
         String name ="";
         for (int i = 0; i <articleInfo.size() ; i++) {
-            System.out.println(i);
-            if(articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() -1){
-                System.out.println(i);
-                name = articleInfo.get(i +1).getFileName();
+            if(articleInfo.get(i).getFileName().equals(fileName) && i != 0){
+                name = articleInfo.get(i -1).getFileName();
                 break;
-            }
-            else {
-                name = articleInfo.get(0).getFileName();
-            }
+            } else name = articleInfo.get(articleInfo.size() -1).getFileName();
         }
-
-        System.out.println(name + " NAZZWA");
-
-
-        String encodedId = URLEncoder.encode(name, "UTF-8");
-        ModelAndView m = new ModelAndView(new RedirectView("/article/" + encodedId, true, true, false));
-        return m;
+        return URLEncoder(name);
     }
 
     @SneakyThrows
-    @GetMapping("/previous")
-    ModelAndView previousPage(@RequestParam String fileName){
-        System.out.println(fileName);
-
-        List<ArticleDto> articleInfo = articleService.getArticleInfo();
-
-        String name ="";
-        for (int i = 0; i <articleInfo.size() ; i++) {
-            System.out.println(i);
-            if(articleInfo.get(i).getFileName().equals(fileName) && i != 0){
-                System.out.println(i);
-                name = articleInfo.get(i -1).getFileName();
-                break;
-            }
-            else {
-                name = articleInfo.get(articleInfo.size() -1).getFileName();
-            }
-        }
-
-        System.out.println(name + " NAZZWA");
-
-
-        String encodedId = URLEncoder.encode(name, "UTF-8");
-        ModelAndView m = new ModelAndView(new RedirectView("/article/" + encodedId, true, true, false));
-        return m;
+    private ModelAndView URLEncoder(String fileName){
+        String encodedName = URLEncoder.encode(fileName, "UTF-8");
+        return new ModelAndView(new RedirectView("/article/" + encodedName, true, true, false));
     }
 }
 
