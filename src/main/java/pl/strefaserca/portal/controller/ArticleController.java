@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+import pl.strefaserca.portal.model.dto.ArticleDto;
 import pl.strefaserca.portal.service.ArticleService;
 
 import java.net.URLEncoder;
+import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.IntStream;
 
 @Controller
 @AllArgsConstructor
@@ -28,17 +32,60 @@ public class ArticleController {
     @SneakyThrows
     @GetMapping("/next")
     ModelAndView nextPage(@RequestParam String fileName){
-//        (required = false)
         System.out.println(fileName);
 
-        String encodedId = URLEncoder.encode(fileName, "UTF-8");
+        List<ArticleDto> articleInfo = articleService.getArticleInfo();
+
+        articleInfo.stream()
+                .forEach(e -> System.out.println(e.getFileName() + " nazwa"));
+
+        String name ="";
+        for (int i = 0; i <articleInfo.size() ; i++) {
+            System.out.println(i);
+            if(articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() -1){
+                System.out.println(i);
+                name = articleInfo.get(i +1).getFileName();
+                break;
+            }
+            else {
+                name = articleInfo.get(0).getFileName();
+            }
+        }
+
+        System.out.println(name + " NAZZWA");
+
+
+        String encodedId = URLEncoder.encode(name, "UTF-8");
         ModelAndView m = new ModelAndView(new RedirectView("/article/" + encodedId, true, true, false));
         return m;
+    }
 
-//        return "redirect:/article/zawał-serca.html";
-//        return new ModelAndView("/article/zawał-serca.html");
+    @SneakyThrows
+    @GetMapping("/previous")
+    ModelAndView previousPage(@RequestParam String fileName){
+        System.out.println(fileName);
 
-//                ="@{${'/article' + article.getFileName()}
+        List<ArticleDto> articleInfo = articleService.getArticleInfo();
+
+        String name ="";
+        for (int i = 0; i <articleInfo.size() ; i++) {
+            System.out.println(i);
+            if(articleInfo.get(i).getFileName().equals(fileName) && i != 0){
+                System.out.println(i);
+                name = articleInfo.get(i -1).getFileName();
+                break;
+            }
+            else {
+                name = articleInfo.get(articleInfo.size() -1).getFileName();
+            }
+        }
+
+        System.out.println(name + " NAZZWA");
+
+
+        String encodedId = URLEncoder.encode(name, "UTF-8");
+        ModelAndView m = new ModelAndView(new RedirectView("/article/" + encodedId, true, true, false));
+        return m;
     }
 }
 

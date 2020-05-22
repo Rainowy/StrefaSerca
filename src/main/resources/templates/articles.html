@@ -136,7 +136,7 @@ veterinary cardiology website, pediatric cardiology website">
                         <div class="col-md-12 col-sm-12">
                             <div class="post-holder mb40">
                                 <div class="post-img mb40">
-                                    <a th:href="@{${'/article' + article.getFileName()}}" class=" imghover"><img
+                                    <a th:href="@{${'/article/' + article.getFileName()}}" class=" imghover"><img
                                             th:src="@{${'/article/' + article.getImgSrc()}}" alt=""
                                             class="img-responsive"></a>
                                 </div>
@@ -144,7 +144,7 @@ veterinary cardiology website, pediatric cardiology website">
                                 <div class="post-block">
                                     <div class="post-header mb20">
                                         <h1 class="post-title mb30"><a th:text="${article.getTitle()}"
-                                                                       th:href="@{${'/article' + article.getFileName()}}"
+                                                                       th:href="@{${'/article/' + article.getFileName()}}"
                                                                        class="title"></a></h1>
                                         <div class="post-meta">
 
@@ -157,7 +157,7 @@ veterinary cardiology website, pediatric cardiology website">
                                     <hr>
                                     <div class="post-content">
                                         <p th:text="${article.getLead() + '.'}"></p>
-                                        <a th:href="@{${'/article' + article.getFileName()}}" class="btn btn-default">Czytaj
+                                        <a th:href="@{${'/article/' + article.getFileName()}}" class="btn btn-default">Czytaj
                                             więcej</a></div>
                                 </div>
                             </div>

@@ -65,7 +65,7 @@ public class ArticleService {
     }
 
     private String parseFileName(String path) {
-        return (path.substring(path.lastIndexOf("/")));
+        return (path.substring(path.lastIndexOf("/") + 1));
     }
 
     private String parseLead(String path) {
