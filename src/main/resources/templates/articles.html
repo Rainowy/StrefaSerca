@@ -137,7 +137,7 @@ veterinary cardiology website, pediatric cardiology website">
                             <div class="post-holder mb40">
                                 <div class="post-img mb40">
                                     <a th:href="@{${'/article' + article.getFileName()}}" class=" imghover"><img
-                                            th:src="@{${'/article' + article.getImgSrc()}}" alt=""
+                                            th:src="@{${'/article/' + article.getImgSrc()}}" alt=""
                                             class="img-responsive"></a>
                                 </div>
                                 <div class="post-sticky"></div>
@@ -162,145 +162,248 @@ veterinary cardiology website, pediatric cardiology website">
                                 </div>
                             </div>
                         </div>
+                        <!--                        <div class="col-md-12 col-sm-12">-->
+                        <!--                            <div class="post-holder mb40">-->
+                        <!--                                <div class="post-img mb40">-->
+                        <!--                                    <a href="#" class=" imghover"><img src="images/blog-post-2.jpg" alt="" class="img-responsive"></a>-->
+                        <!--                                </div>-->
+                        <!--                                <div class="post-block">-->
+                        <!--                                    <div class="post-header mb20">-->
+                        <!--                                        <h1 class="post-title mb30"><a href="blog-single.html" class="title">Medication Management and Heart Diseasess</a></h1>-->
+                        <!--                                        <div class="post-meta">-->
+                        <!--                                            &lt;!&ndash; post meta &ndash;&gt;-->
+                        <!--                                            <span class="meta-date"><i class="fa fa-calendar"></i> August 24, 2017 </span>-->
+                        <!--                                            <span class="meta-comment"><i class="fa fa-comments"></i> <a href="#" class="meta-link">05 Comment </a></span> </div>-->
+                        <!--                                        &lt;!&ndash; /.post meta &ndash;&gt;-->
+                        <!--                                    </div>-->
+                        <!--                                    <hr>-->
+                        <!--                                    <div class="post-content">-->
+                        <!--                                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis at est ex. Sed accumsan quam eget eros impnt montes, nascetur ridiculus me accumsan quaendisse molestie urna lectus, in aliquet orci maximus et. Suspendisse molestie urna lectus, in aliquet orci maximus et. </p>-->
+                        <!--                                        <a href="#" class="btn btn-default">Read More</a> </div>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="col-md-12 col-sm-12">-->
+                        <!--                            <div class="post-holder mb40">-->
+                        <!--                                <div class="post-img mb40">-->
+                        <!--                                    <a href="#" class=" imghover"><img src="images/blog-post-3.jpg" alt="" class="img-responsive"></a>-->
+                        <!--                                </div>-->
+                        <!--                                <div class="post-block">-->
+                        <!--                                    <div class="post-header mb20">-->
+                        <!--                                        <h1 class="post-title mb30"><a href="#" class="title">The Importance of Good Medication Management</a></h1>-->
+                        <!--                                        <div class="post-meta">-->
+                        <!--                                            &lt;!&ndash; post meta &ndash;&gt;-->
+                        <!--                                            <span class="meta-date"><i class="fa fa-calendar"></i> August 24, 2017 </span>-->
+                        <!--                                            <span class="meta-comment"><i class="fa fa-comments"></i> <a href="#" class="meta-link">05 Comment </a></span> </div>-->
+                        <!--                                        &lt;!&ndash; /.post meta &ndash;&gt;-->
+                        <!--                                    </div>-->
+                        <!--                                    <hr>-->
+                        <!--                                    <div class="post-content">-->
+                        <!--                                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis at est ex. Sed accumsan quam eget eros impnt montes, nascetur ridiculus me accumsan quaendisse molestie urna lectus, in aliquet orci maximus et. Suspendisse molestie urna lectus, in aliquet orci maximus et. </p>-->
+                        <!--                                        <a href="#" class="btn btn-default">Read More</a> </div>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="col-md-12 col-sm-12">-->
+                        <!--                            <div class="post-holder mb40">-->
+                        <!--                                <div class="post-img mb40">-->
+                        <!--                                    <a href="blog-single.html" class=" imghover"><img src="images/blog-post-4.jpg" alt="" class="img-responsive"></a>-->
+                        <!--                                </div>-->
+                        <!--                                <div class="post-block">-->
+                        <!--                                    <div class="post-header mb20">-->
+                        <!--                                        <h1 class="post-title mb30"><a href="#" class="title">Don’t Miss A Beat</a></h1>-->
+                        <!--                                        <div class="post-meta">-->
+                        <!--                                            &lt;!&ndash; post meta &ndash;&gt;-->
+                        <!--                                            <span class="meta-date"><i class="fa fa-calendar"></i> August 24, 2017 </span>-->
+                        <!--                                            <span class="meta-comment"><i class="fa fa-comments"></i> <a href="#" class="meta-link">05 Comment </a></span> </div>-->
+                        <!--                                        &lt;!&ndash; /.post meta &ndash;&gt;-->
+                        <!--                                    </div>-->
+                        <!--                                    <hr>-->
+                        <!--                                    <div class="post-content">-->
+                        <!--                                        <p>Vestibulum vestibulum purus ante, nec facilisis augue ultricies in. Curabitur aliquam ac elit auctor sodales. Curabitur sagittis elit ut lorem feugiat ultrices. Maecenas venenatis felis quis metus tincidunt, dignissim aliquet lorem iaculis. Integer a vestibulum nisllorem ipsum dolor asirroin vel pretium ligula.</p>-->
+                        <!--                                        <a href="#" class="btn btn-default">Read More</a> </div>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="col-md-12 col-sm-12">-->
+                        <!--                            <div class="post-holder mb40">-->
+                        <!--                                <div class="post-block">-->
+                        <!--                                    <div class="post-header mb20">-->
+                        <!--                                        <h1 class="post-title mb30"><a href="#" class="title">Heart Disease Services</a></h1>-->
+                        <!--                                        <div class="post-meta">-->
+                        <!--                                            &lt;!&ndash; post meta &ndash;&gt;-->
+                        <!--                                            <span class="meta-date"><i class="fa fa-calendar"></i> August 24, 2017 </span>-->
+                        <!--                                            <span class="meta-comment"><i class="fa fa-comments"></i> <a href="#" class="meta-link">05 Comment </a></span> </div>-->
+                        <!--                                        &lt;!&ndash; /.post meta &ndash;&gt;-->
+                        <!--                                    </div>-->
+                        <!--                                    <hr>-->
+                        <!--                                    &lt;!&ndash; /.post meta &ndash;&gt;-->
+                        <!--                                </div>-->
+                        <!--                                <div class="post-content">-->
+                        <!--                                    <p>Serotibulum purus ante, nec facilisis augue ultricies in. Curabitur sagittis elit ut lorem feugiat ultrices. Maecenas venenatis felis quis metus tincidunt, dignissim aliquet lorem iaculis. Integer a vestibulum nisllorem ipsum dolor asirroin vel pretium ligulaurabitur aliquam ac elit auctor sodales.</p>-->
+                        <!--                                    <hr>-->
+                        <!--                                    <a href="#" class="btn btn-default">Read More</a> </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="col-md-12 col-sm-12">-->
+                        <!--                            <div class="post-holder mb40">-->
+                        <!--                                <div class="quote-block">-->
+                        <!--                                    <div class="post-header mb20">-->
+                        <!--                                        <h1 class="post-title mb30">Quote of The Day</h1>-->
+                        <!--                                        <div class="post-meta">-->
+                        <!--                                            &lt;!&ndash; post meta &ndash;&gt;-->
+                        <!--                                            <span class="meta-date">25 February, 2017 </span></div>-->
+                        <!--                                        &lt;!&ndash; /.post meta &ndash;&gt;-->
+                        <!--                                    </div>-->
+                        <!--                                    <blockquote>-->
+                        <!--                                        <p>“Architecture starts when you-->
+                        <!--                                            <br> carefully put two bricks together.-->
+                        <!--                                            <br> There is begins”</p>-->
+                        <!--                                        <div class="name">-->
+                        <!--                                            <h3 class="name">-  Ludwig Renouice</h3>-->
+                        <!--                                        </div>-->
+                        <!--                                    </blockquote>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                     </div>
-                </div>
-                <div class="col-md-12 col-sm-12 text-center">
-                    <div class="st-pagination">
-                        <!--st-pagination-->
-                        <ul class="pagination">
-                            <li><a href="#" aria-label="previous"><span aria-hidden="true">previous</span></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#" aria-label="Next"><span aria-hidden="true">next</span></a></li>
-                        </ul>
+
+                    <div class="col-md-12 col-sm-12 text-center">
+                        <div class="st-pagination">
+                            <!--st-pagination-->
+                            <ul class="pagination">
+                                <li><a href="#" aria-label="previous"><span aria-hidden="true">previous</span></a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#" aria-label="Next"><span aria-hidden="true">next</span></a></li>
+                            </ul>
+                        </div>
+                        <!--/.st-pagination-->
                     </div>
-                    <!--/.st-pagination-->
                 </div>
             </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="sidebar-area">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <div class="widget widget-search pinside30 mb40">
-                            <h2 class="widget-title mb30">Searchbar</h2>
-                            <hr>
-                            <form>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search Here"
-                                           aria-describedby="basic-addon2">
-                                    <span class="input-group-addon" id="basic-addon2"> <i
-                                            class="fa fa-search"></i></span>
-                                </div>
-                            </form>
+            <div class="col-md-4 col-sm-4">
+                <div class="sidebar-area">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="widget widget-search pinside30 mb40">
+                                <h2 class="widget-title mb30">Searchbar</h2>
+                                <hr>
+                                <form>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search Here"
+                                               aria-describedby="basic-addon2">
+                                        <span class="input-group-addon" id="basic-addon2"> <i class="fa fa-search"></i></span>
+                                    </div>
+                                    <!-- /input-group -->
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class=" widget widget-categories pinside30">
-                            <h2 class="widget-title">Categories</h2>
-                            <hr>
-                            <ul class="listnone bullet bullet-angle-right mb0">
-                                <li><a href="#">Diagnostic Cardiac</a></li>
-                                <li><a href="#">Vascular Dignostic</a></li>
-                                <li><a href="#">Invasive Procedures</a></li>
-                                <li><a href="#">Vein Clinic Services</a></li>
-                            </ul>
+                        <div class="col-md-12 col-sm-12">
+                            <div class=" widget widget-categories pinside30">
+                                <h2 class="widget-title">Categories</h2>
+                                <hr>
+                                <ul class="listnone bullet bullet-angle-right mb0">
+                                    <li><a href="#">Diagnostic Cardiac</a></li>
+                                    <li><a href="#">Vascular Dignostic</a></li>
+                                    <li><a href="#">Invasive Procedures</a></li>
+                                    <li><a href="#">Vein Clinic Services</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class=" widget widget-archives pinside30 mb40">
-                            <h2 class="widget-title">Archives</h2>
-                            <hr>
-                            <ul class="listnone bullet bullet-angle-right mb0">
-                                <li><a href="#">February (2017)</a></li>
-                                <li><a href="#">December (2016)</a></li>
-                                <li><a href="#">July (2016)</a></li>
-                                <li><a href="#">January (2016)</a></li>
-                            </ul>
+                        <div class="col-md-12 col-sm-12">
+                            <div class=" widget widget-archives pinside30 mb40">
+                                <h2 class="widget-title">Archives</h2>
+                                <hr>
+                                <ul class="listnone bullet bullet-angle-right mb0">
+                                    <li><a href="#">February (2017)</a></li>
+                                    <li><a href="#">December (2016)</a></li>
+                                    <li><a href="#">July (2016)</a></li>
+                                    <li><a href="#">January (2016)</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="widget widget-recent-post pinside30 mb40">
-                            <h2 class="widget-title">Recent post</h2>
-                            <hr>
-                            <div class="recent-block mb20">
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-5">
-                                        <div class="recent-pic">
-                                            <a href="#"><img src="images/recent-pic1.jpg" class="img-responsive"
-                                                             alt=""></a>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="widget widget-recent-post pinside30 mb40">
+                                <h2 class="widget-title">Recent post</h2>
+                                <hr>
+                                <div class="recent-block mb20">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-5">
+                                            <div class="recent-pic">
+                                                <a href="#"><img src="images/recent-pic1.jpg" class="img-responsive"
+                                                                 alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-sm-7">
+                                            <h3 class="recent-title mb10"><a href="#" class="title">Medication
+                                                Management and Heart Disease</a></h3>
+                                            <div class="post-meta">
+                                                <!-- post meta -->
+                                                <span class="meta-date"><i
+                                                        class="fa fa-calendar"></i> 25 April, 2017 </span></div>
+                                            <!-- /.post meta -->
                                         </div>
                                     </div>
-                                    <div class="col-md-8 col-sm-7">
-                                        <h3 class="recent-title mb10"><a href="#" class="title">Medication
-                                            Management and Heart Disease</a></h3>
-                                        <div class="post-meta">
-                                            <!-- post meta -->
-                                            <span class="meta-date"><i
-                                                    class="fa fa-calendar"></i> 25 April, 2017 </span></div>
-                                        <!-- /.post meta -->
+                                </div>
+                                <div class="recent-block mb20">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-5">
+                                            <div class="recent-pic">
+                                                <a href="#"><img src="images/recent-pic2.jpg" class="img-responsive"
+                                                                 alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-sm-7">
+                                            <h3 class="recent-title mb10"><a href="#" class="title">Medication
+                                                Management and Heart Disease</a></h3>
+                                            <div class="post-meta">
+                                                <!-- post meta -->
+                                                <span class="meta-date"><i
+                                                        class="fa fa-calendar"></i> 25 April, 2017 </span></div>
+                                            <!-- /.post meta -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recent-block mb20">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-5">
+                                            <div class="recent-pic">
+                                                <a href="#"><img src="images/recent-pic3.jpg" class="img-responsive"
+                                                                 alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-sm-7">
+                                            <h3 class="recent-title mb10"><a href="#" class="title">The Importance of
+                                                Good Medication Management</a></h3>
+                                            <div class="post-meta">
+                                                <!-- post meta -->
+                                                <span class="meta-date"><i
+                                                        class="fa fa-calendar"></i> 25 April, 2017 </span></div>
+                                            <!-- /.post meta -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="recent-block mb20">
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-5">
-                                        <div class="recent-pic">
-                                            <a href="#"><img src="images/recent-pic2.jpg" class="img-responsive"
-                                                             alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-sm-7">
-                                        <h3 class="recent-title mb10"><a href="#" class="title">Medication
-                                            Management and Heart Disease</a></h3>
-                                        <div class="post-meta">
-                                            <!-- post meta -->
-                                            <span class="meta-date"><i
-                                                    class="fa fa-calendar"></i> 25 April, 2017 </span></div>
-                                        <!-- /.post meta -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="recent-block mb20">
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-5">
-                                        <div class="recent-pic">
-                                            <a href="#"><img src="images/recent-pic3.jpg" class="img-responsive"
-                                                             alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-sm-7">
-                                        <h3 class="recent-title mb10"><a href="#" class="title">The Importance of
-                                            Good Medication Management</a></h3>
-                                        <div class="post-meta">
-                                            <!-- post meta -->
-                                            <span class="meta-date"><i
-                                                    class="fa fa-calendar"></i> 25 April, 2017 </span></div>
-                                        <!-- /.post meta -->
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <!--  tags -->
-                        <div class="widget widget-tags mb40">
-                            <h2 class="widget-title">Tags</h2>
-                            <hr>
-                            <!-- widget title -->
-                            <a href="#" title="Dignosis">Dignosis</a> <a href="#" title="Cardiac">Cardiac</a> <a
-                                href="#" title="Clinic">Clinic</a> <a href="#" title="Invasive Procedured">Invasive
-                            Procedured</a> <a href="#" title="Vascular">Vascular</a> <a href="#"
-                                                                                        title="Cardiac">Cardiac</a>
-                            <a href="#" title="medical">medical</a></div>
-                        <!-- /.widget well bg -->
+                        <div class="col-md-12 col-sm-12">
+                            <!--  tags -->
+                            <div class="widget widget-tags mb40">
+                                <h2 class="widget-title">Tags</h2>
+                                <hr>
+                                <!-- widget title -->
+                                <a href="#" title="Dignosis">Dignosis</a> <a href="#" title="Cardiac">Cardiac</a> <a
+                                    href="#" title="Clinic">Clinic</a> <a href="#" title="Invasive Procedured">Invasive
+                                Procedured</a> <a href="#" title="Vascular">Vascular</a> <a href="#" title="Cardiac">Cardiac</a>
+                                <a href="#" title="medical">medical</a></div>
+                            <!-- /.widget well bg -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 
