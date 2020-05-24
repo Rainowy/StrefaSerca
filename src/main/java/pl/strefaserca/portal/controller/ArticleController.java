@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import pl.strefaserca.portal.model.dto.ArticleDto;
@@ -25,8 +22,13 @@ public class ArticleController {
     private ArticleService articleService;
 
     @GetMapping("/articles")
-    ModelAndView parse() {
-        return new ModelAndView("nadcisnienie", "articles", articleService.getArticleInfo());
+    ModelAndView allArticles() {
+        return new ModelAndView("articles", "articles", articleService.getArticleInfo());
+    }
+
+    @GetMapping("/selected/{articleName}")
+    ModelAndView selectedArticle(@PathVariable String articleName){
+        return new ModelAndView(articleName);
     }
 
 
