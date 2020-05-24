@@ -10,13 +10,16 @@ import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.RouterFunctions;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-@Bean
-RouterFunction staticResourceLocator(){
-    return RouterFunctions.resources("/article/**", new FileSystemResource("/home/tomek/Documents/StrefaHtml/"));
-}
+//    @Bean
+//    RouterFunction staticResourceLocator() {
+//        return RouterFunctions.resources("/article/**", new FileSystemResource("/home/tomek/Documents/StrefaHtml/"));
+//    }
+
+
 }

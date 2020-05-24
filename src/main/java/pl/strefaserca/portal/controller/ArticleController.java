@@ -26,7 +26,7 @@ public class ArticleController {
 
     @GetMapping("/articles")
     ModelAndView parse() {
-        return new ModelAndView("articles", "articles", articleService.getArticleInfo());
+        return new ModelAndView("nadcisnienie", "articles", articleService.getArticleInfo());
     }
 
 
