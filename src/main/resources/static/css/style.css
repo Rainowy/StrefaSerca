@@ -42,7 +42,7 @@ text-align: center; border:none; text-transform: uppercase; letter-spacing: 1px;
   /*--------- btn primary --------*/
 
 .btn-primary {background-color: #ec6051; color: #fff;}
-.btn-primary:hover {background-color: #d75648; color: #fff;}
+.btn-primary:hover {background-color: #ec6051; color: #fff;}
 .btn-primary.focus, .btn-primary:focus {}
 
   /*--------- btn outline --------*/
@@ -167,7 +167,7 @@ padding space
  background & block color 
 ------------------------------------------*/
 .bg-light{background-color: #f5f7f7; }
-.bg-primary{background-color: #ec6051;}
+/*.bg-primary{background-color: #ec6051;}*/
 .bg-default{}
 .bg-white{background-color: #fff;}
 .outline{}
