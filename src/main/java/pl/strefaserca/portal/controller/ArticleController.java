@@ -11,8 +11,7 @@ import pl.strefaserca.portal.model.dto.ArticleDto;
 import pl.strefaserca.portal.service.ArticleService;
 
 import java.net.URLEncoder;
-import java.util.List;
-import java.util.OptionalInt;
+import java.util.*;
 import java.util.stream.IntStream;
 
 @Controller
@@ -27,47 +26,20 @@ public class ArticleController {
     }
 
     @GetMapping("/selected/{articleName}")
-    ModelAndView selectedArticle(@PathVariable String articleName){
-        return new ModelAndView(articleName);
+    ModelAndView selectedArticle(@PathVariable String articleName) {
+        ModelAndView model = new ModelAndView(articleName);
+        model.addObject("nextArticle", articleService.nextArticle(articleName));
+        model.addObject("prevArticle", articleService.prevArticle(articleName));
+        return model;
     }
 
 
-    @GetMapping("/next")
-    ModelAndView nextPage(@RequestParam String fileName){
 
-        List<ArticleDto> articleInfo = articleService.getArticleInfo();
-
-        String name ="";
-        for (int i = 0; i <articleInfo.size() ; i++) {
-            if(articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() -1){
-                name = articleInfo.get(i +1).getFileName();
-                break;
-            } else name = articleInfo.get(0).getFileName();
-        }
-        return URLEncoder(name);
-    }
-
-
-    @GetMapping("/previous")
-    ModelAndView previousPage(@RequestParam String fileName){
-
-        List<ArticleDto> articleInfo = articleService.getArticleInfo();
-
-        String name ="";
-        for (int i = 0; i <articleInfo.size() ; i++) {
-            if(articleInfo.get(i).getFileName().equals(fileName) && i != 0){
-                name = articleInfo.get(i -1).getFileName();
-                break;
-            } else name = articleInfo.get(articleInfo.size() -1).getFileName();
-        }
-        return URLEncoder(name);
-    }
-
-    @SneakyThrows
-    private ModelAndView URLEncoder(String fileName){
-        String encodedName = URLEncoder.encode(fileName, "UTF-8");
-        return new ModelAndView(new RedirectView("/article/" + encodedName, true, true, false));
-    }
+//    @SneakyThrows
+//    private ModelAndView URLEncoder(String fileName) {
+//        String encodedName = URLEncoder.encode(fileName, "UTF-8");
+//        return new ModelAndView(new RedirectView("/article/" + encodedName, true, true, false));
+//    }
 }
 
 

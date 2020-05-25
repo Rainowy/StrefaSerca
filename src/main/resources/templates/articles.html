@@ -137,7 +137,7 @@ veterinary cardiology website, pediatric cardiology website">
                             <div class="post-holder mb40">
                                 <div class="post-img mb40">
                                     <a th:href="@{${'/selected/' + article.getFileName()}}" class=" imghover"><img
-                                            th:src="@{${'/article/' + article.getImgSrc()}}" alt=""
+                                            th:src="@{${ article.getImgSrc()}}" alt=""
                                             class="img-responsive"></a>
                                 </div>
                                 <div class="post-sticky"></div>

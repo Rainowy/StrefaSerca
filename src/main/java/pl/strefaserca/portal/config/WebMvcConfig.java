@@ -16,9 +16,9 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Bean
-    RouterFunction staticResourceLocator() {
-        return RouterFunctions.resources("/article/**", new FileSystemResource("/home/tomek/Documents/StrefaHtml/"));
-    }
+//    @Bean
+//    RouterFunction staticResourceLocator() {
+//        return RouterFunctions.resources("/article/**", new FileSystemResource("/home/tomek/Documents/StrefaHtml/"));
+//    }
 
 }

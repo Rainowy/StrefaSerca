@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 @Service
 public class ArticleService {
 
+    /**Create List of articles in StrefaHtml directory */
     public List<ArticleDto> getArticleInfo() {
 
         List<ArticleDto> articles = new ArrayList<>();
@@ -33,7 +34,7 @@ public class ArticleService {
         }
         return articles;
     }
-
+    /** Parse img, name, title and lead from article */
     private String parseTitle(String path) {
 
         String htmlTitle = "";
@@ -61,6 +62,7 @@ public class ArticleService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(imgSrc);
         return imgSrc;
     }
 
@@ -84,5 +86,27 @@ public class ArticleService {
             articleLead = firstPTag.substring(0, firstDot);
         }
         return articleLead;
+    }
+    /** Previous or next Article */
+    public ArticleDto nextArticle(String fileName) {
+        List<ArticleDto> articleInfo = getArticleInfo();
+
+        for (int i = 0; i < articleInfo.size(); i++) {
+            if (articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() - 1) {
+                return new ArticleDto(articleInfo.get(i + 1).getFileName(), articleInfo.get(i + 1).getTitle());
+            }
+        }
+        return new ArticleDto(articleInfo.get(0).getFileName(), articleInfo.get(0).getTitle());
+    }
+
+    public ArticleDto prevArticle(String fileName) {
+        List<ArticleDto> articleInfo = getArticleInfo();
+
+        for (int i = 0; i < articleInfo.size(); i++) {
+            if (articleInfo.get(i).getFileName().equals(fileName) && i != 0) {
+                return new ArticleDto(articleInfo.get(i - 1).getFileName(), articleInfo.get(i - 1).getTitle());
+            }
+        }
+        return new ArticleDto(articleInfo.get(articleInfo.size() - 1).getFileName(), articleInfo.get(articleInfo.size() - 1).getTitle());
     }
 }
