@@ -27,6 +27,7 @@ public class ArticleService {
         try (Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"))) {
 
             articles = paths.map(Path::toString)
+                    .filter(p -> !p.contains("article"))
                     .filter(p -> p.endsWith(".html"))
                     .map(p -> new ArticleDto(parseTitle(p), parseImage(p), parseFileName(p), parseLead(p))).collect(Collectors.toList());
         } catch (IOException e) {
@@ -62,7 +63,6 @@ public class ArticleService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(imgSrc);
         return imgSrc;
     }
 
