@@ -26,7 +26,8 @@
                                             <a th:href="@{/certificates}" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
                                         </li>
                                         <li>
-                                            <a th:href="@{/about}" title="Pasja" class="animsition-link">Kardiologia moją pasją</a>
+                                            <a th:href="@{/about}" title="Pasja" class="animsition-link">Kardiologia
+                                                moją pasją</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -50,9 +51,9 @@
             <div class="col-md-6 col-sm-6">
                 <div class="intro-caption"><!-- intro caption -->
                     <h1 class="intro-title">Kardiolog <br> Katarzyna Czarnecka</h1>
-                    <p class="mb40">Your health is our top priority with comprehensive, affordable<br> medical health care.
-                    </p>
-                    <a href="#" class="btn btn-default">make an appointment</a></div>
+                    <!--                    <p class="mb40">Your health is our top priority with comprehensive, affordable<br> medical health care.-->
+                    <!--                    </p>-->
+                    <a href="#" class="btn btn-default">Umów wizytę</a></div>
                 <!-- /.intro caption -->
             </div>
         </div>
@@ -63,25 +64,26 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 text-center mb60">
-                <h1>Najnowsze artykuły</h1>
-                <p>Coś tutaj można wpisać ładnego</p>
+                <h1>Diagnostyka kardiologiczna</h1>
+                <p>Przeczytaj, zostań ekspertem i dowiedz się co Cię czeka</p>
             </div>
             <div class="col-md-12 col-sm-12">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
                         <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a href="service-detail.html" class="imghover"><img th:src="@{images/ok/tablet.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/cardioService?name=echokardiografia'}" class="imghover"><img th:src="@{images/ok/tablet.jpg}" class="img-responsive" alt=""/></a>
                             </div>
-                            <h2><a href="#" class="heading-title">Diagnostic Cardiac</a></h2>
+                            <h2><a th:href="@{'/cardioService?name=echokardiografia'}" class="heading-title">Echokardiografia</a></h2>
                         </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4">
                         <div class="service-block text-center">
                             <div class="service-img mb30">
-                                <a href="service-detail.html" class="imghover"><img th:src="@{images/ok/rozrusznik.png}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/cardioService?name=holter'}" class="imghover"><img th:src="@{images/ok/rozrusznik.png}" class="img-responsive" alt=""/></a>
                             </div>
+                            <h2><a th:href="@{'/cardioService?name=holter'}" class="heading-title">Holter EKG</a></h2>
                         </div>
                     </div>
 
@@ -94,29 +96,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!--    <div class="row">-->
-                <!--        <div class="col-md-4 col-sm-4">-->
-                <!--          <div class="service-block text-center">-->
-                <!--              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-4.jpg" class="img-responsive" alt=""></a></div>-->
-                <!--              <h2><a href="#" class="heading-title">Heart Conditions Treated</a></h2>-->
-                <!--            </div>-->
-                <!--        </div>-->
-
-                <!--        <div class="col-md-4 col-sm-4">-->
-                <!--          <div class="service-block text-center">-->
-                <!--              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-5.jpg" class="img-responsive" alt=""></a></div>-->
-                <!--              <h2><a href="#" class="heading-title">Vein Clinic Services</a></h2>-->
-                <!--            </div>-->
-                <!--        </div>-->
-
-                <!--        <div class="col-md-4 col-sm-4">-->
-                <!--          <div class="service-block text-center">-->
-                <!--              <div class="service-img mb30"><a href="service-detail.html" class="imghover"><img src="images/service-6.jpg" class="img-responsive" alt=""></a></div>-->
-                <!--              <h2><a href="#" class="heading-title">Diagonstic Cardiac</a></h2>-->
-                <!--            </div>-->
-                <!--        </div>-->
-                <!--    </div>-->
             </div>
         </div>
     </div>
@@ -135,7 +114,8 @@
                     <div class="feature-icon"><i class="fa fa-paper-plane"></i></div>
                     <div class="feature-content">
                         <h2>Our Mission</h2>
-                        <p>Phasellus varius molestie urnroin viverrais minec laoreet Pha arius lore molestie dingi urnroin viverra minec sit apeget est. </p>
+                        <p>Phasellus varius molestie urnroin viverrais minec laoreet Pha arius lore molestie dingi
+                            urnroin viverra minec sit apeget est. </p>
                     </div>
                 </div>
             </div>
@@ -145,7 +125,8 @@
                     <div class="feature-icon"><i class="fa fa-low-vision"></i></div>
                     <div class="feature-content">
                         <h2>Vision</h2>
-                        <p>Nunc cursus leo risus non ac efficitur vel sed mauris iaculis finibus ex et viverrras posuere vel ex at vulputate. </p>
+                        <p>Nunc cursus leo risus non ac efficitur vel sed mauris iaculis finibus ex et viverrras posuere
+                            vel ex at vulputate. </p>
                     </div>
                 </div>
             </div>
@@ -154,7 +135,8 @@
                     <div class="feature-icon"><i class="fa fa-clock-o"></i></div>
                     <div class="feature-content">
                         <h2>24 Hours Support</h2>
-                        <p>We offer a courtesy shuttle to patients one who need help getting to their scheduled is appointment.</p>
+                        <p>We offer a courtesy shuttle to patients one who need help getting to their scheduled is
+                            appointment.</p>
                     </div>
                 </div>
             </div>
@@ -194,7 +176,8 @@
                     </ul>
                 </div>
                 <p class="lead">He has been honoured by Doctorate from four prestigious universities in India. </p>
-                <p>To protect our patients and ourselves, we strictly maintain sterilization and cross, be confident knowing that we are a team of highly trained and skilled clinicians.</p>
+                <p>To protect our patients and ourselves, we strictly maintain sterilization and cross, be confident
+                    knowing that we are a team of highly trained and skilled clinicians.</p>
                 <a th:href="@{/certificates}" class="btn btn-default">Certyfikaty</a>
             </div>
         </div>
@@ -215,7 +198,8 @@
                     <i class="fa fa-quote-left"></i>
                 </div>
                 <div class="testimonial-info"><!-- testimonial info -->
-                    <p class="testimonial-content">The costs of treatments are very reaso able. I have always been impressed with the results. The fully medically qualified team. thank you so much.</p>
+                    <p class="testimonial-content">The costs of treatments are very reaso able. I have always been
+                        impressed with the results. The fully medically qualified team. thank you so much.</p>
                     <span class="testimonial-text">- Maria Willmore</span><br>
                     <span class="testimonial-meta">patients</span>
                 </div><!-- /.testimonial info -->
@@ -225,7 +209,8 @@
                     <i class="fa fa-quote-left"></i>
                 </div>
                 <div class="testimonial-info"><!-- testimonial info -->
-                    <p class="testimonial-content">Thank you for caring for me. Thank you also for taking time during office visit and not making me feel like a number lorem ipsum dolor sitamet nullas. </p>
+                    <p class="testimonial-content">Thank you for caring for me. Thank you also for taking time during
+                        office visit and not making me feel like a number lorem ipsum dolor sitamet nullas. </p>
                     <span class="testimonial-text">- Robert Porter</span><br>
                     <span class="testimonial-meta">patients</span>
                 </div><!-- /.testimonial info -->

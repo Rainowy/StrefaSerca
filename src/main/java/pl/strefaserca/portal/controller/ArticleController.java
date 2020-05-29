@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 import pl.strefaserca.portal.service.ArticleService;
 
 @Controller
-@AllArgsConstructor
 public class ArticleController {
 
     private ArticleService articleService;
@@ -23,6 +23,13 @@ public class ArticleController {
         model.addObject("nextArticle", articleService.nextArticle(articleName));
         model.addObject("prevArticle", articleService.prevArticle(articleName));
         return model;
+    }
+
+    @RequestMapping("/redirect")
+    public RedirectView redirectToUrl(@RequestParam String name) {
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://" + name);
+        return redirectView;
     }
 }
 

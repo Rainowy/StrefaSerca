@@ -113,12 +113,13 @@
 <script>
     function initMap() {
         var myLatLng = {
-            lat: 23.0225,
-            lng: 72.5714
+            lat: 49.973131,
+            lng:  18.947799
+
         };
 
         var map = new google.maps.Map(document.getElementById('googleMap'), {
-            zoom: 8,
+            zoom: 15,
             center: myLatLng,
             scrollwheel: false,
 
@@ -128,10 +129,14 @@
             position: myLatLng,
             map: map,
             icon: image,
-            title: 'Hello World!'
+            title: 'Tu mnie spotkasz'
         });
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?&callback=initMap" async defer></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATsgulDfXOI9g7JwR0LzZdbUZB6LqEQiY&callback=initMap">
+</script>
 </body>
 </html>
+
+<!--AIzaSyATsgulDfXOI9g7JwR0LzZdbUZB6LqEQiY-->
