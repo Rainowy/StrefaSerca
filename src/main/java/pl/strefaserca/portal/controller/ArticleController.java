@@ -8,11 +8,13 @@ import org.springframework.web.servlet.view.RedirectView;
 import pl.strefaserca.portal.service.ArticleService;
 
 @Controller
+@AllArgsConstructor
+@RequestMapping("/article")
 public class ArticleController {
 
     private ArticleService articleService;
 
-    @GetMapping("/articles")
+    @GetMapping("/list")
     ModelAndView allArticles() {
         return new ModelAndView("articles", "articles", articleService.getArticleInfo());
     }

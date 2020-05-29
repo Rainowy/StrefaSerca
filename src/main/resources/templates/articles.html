@@ -15,13 +15,13 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="post-holder mb40">
                                 <div class="post-img mb40">
-                                    <a th:href="@{${'/selected/' + article.getFileName()}}" class=" imghover"><img th:src="@{${ article.getImgSrc()}}" alt="" class="img-responsive"></a>
+                                    <a th:href="@{${'/article/selected/' + article.getFileName()}}" class=" imghover"><img th:src="@{${'/' + article.getImgSrc()}}" alt="" class="img-responsive"></a>
                                 </div>
                                 <div class="post-sticky"></div>
                                 <div class="post-block">
                                     <div class="post-header mb20">
                                         <h1 class="post-title mb30">
-                                            <a th:text="${article.getTitle()}" th:href="@{${'/selected/' + article.getFileName()}}" class="title"></a>
+                                            <a th:text="${article.getTitle()}" th:href="@{${'/article/selected/' + article.getFileName()}}" class="title"></a>
                                         </h1>
                                         <div class="post-meta">
                                             <span class="meta-date"><i class="fa fa-calendar"></i> August 24, 2017 </span>
@@ -31,7 +31,7 @@
                                     <hr>
                                     <div class="post-content">
                                         <p th:text="${article.getLead() + '.'}"></p>
-                                        <a th:href="@{${'/selected/' + article.getFileName()}}" class="btn btn-default">Czytaj więcej</a>
+                                        <a th:href="@{${'/article/selected/' + article.getFileName()}}" class="btn btn-default">Czytaj więcej</a>
                                     </div>
                                 </div>
                             </div>

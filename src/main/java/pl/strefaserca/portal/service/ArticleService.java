@@ -33,6 +33,8 @@ public class ArticleService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        articles.stream()
+                .forEach(e -> System.out.println(e.getImgSrc()));
         return articles;
     }
     /** Parse img, name, title and lead from article */

@@ -34,7 +34,7 @@
                                 <li><a th:href="@{/services}" title="Usługi" class="animsition-link">Usługi</a>
                                 <li><a th:href="@{/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
                                 </li>
-                                <li><a th:href="@{/articles}" title="Blog" class="animsition-link">Artykuły</a>
+                                <li><a th:href="@{/article/list}" title="Blog" class="animsition-link">Artykuły</a>
                                 </li>
                                 <li><a th:href="@{/contact}" title="Kontakt" class="animsition-link">Kontakt</a>
                                 </li>
@@ -72,18 +72,18 @@
                     <div class="col-md-4 col-sm-4">
                         <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/cardioService?name=echokardiografia'}" class="imghover"><img th:src="@{images/ok/tablet.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/echokardiografia'}" class="imghover"><img th:src="@{images/ok/tablet.jpg}" class="img-responsive" alt=""/></a>
                             </div>
-                            <h2><a th:href="@{'/cardioService?name=echokardiografia'}" class="heading-title">Echokardiografia</a></h2>
+                            <h2><a th:href="@{'/service/selected/echokardiografia'}" class="heading-title">Echokardiografia</a></h2>
                         </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4">
                         <div class="service-block text-center">
                             <div class="service-img mb30">
-                                <a th:href="@{'/cardioService?name=holter'}" class="imghover"><img th:src="@{images/ok/rozrusznik.png}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/holter'}" class="imghover"><img th:src="@{images/ok/rozrusznik.png}" class="img-responsive" alt=""/></a>
                             </div>
-                            <h2><a th:href="@{'/cardioService?name=holter'}" class="heading-title">Holter EKG</a></h2>
+                            <h2><a th:href="@{'/service/selected/holter'}" class="heading-title">Holter EKG</a></h2>
                         </div>
                     </div>
 
