@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/core_fragments.html :: headerfiles">
+    <title>Koronarografia</title>
+<body class="animsition">
+<div th:replace="fragments/core_fragments.html :: topHeader"></div>
+<div th:replace="fragments/core_fragments.html :: pageHeader"></div>
+<div class="content">
+    <div class="container">
+        <div class="content-area">
+            <div class="row">
+                <div class="col-md-10 col-sm-10">
+                    <div class="post-holder mb40">
+                        <div class="post-img mb30">
+                            <img th:src="@{/images/cardio_services/koro.jpg}" alt="" class="img-responsive">
+                        </div>
+                        <div class="post-block">
+                            <div class="post-header mb20">
+                                <h1 class="post-title mb30">Koronarografia</h1>
+                            </div>
+                            <hr>
+                            <div class="post-content">
+                                <p style="text-align: justify">Po wykonaniu wszystkich badań dostępnych w gabinecie
+                                    takich jak echo serca, test wysiłkowy, Holter EKG, kardiolog może zadecydowań o
+                                    konieczności wykonania koronarografii. Jest to badanie wykonywane w trakcie
+                                    hospitalizacji na oddziale kardiologii inwazyjnej.</p>
+                                <h2 class="mb30">Jak przygotować się do zabiegu?</h2>
+                                <p style="text-align: justify">Koronarografia jest badaniem inwazyjnym, poprzez cewniki
+                                    dostarczone w okolice ujść tętnic wieńcowych wstrzykujemy kontrast i uwidaczniamy w
+                                    ten sposób pod promieniami rentgena obraz naczyń. Aby dostać się „do środka” mamy
+                                    kilka sposobów: „z ręki” - poprzez nakłucie tętnicy promieniowej lub „z nogi” -
+                                    poprzez nakłucie tętnicy udowej w prawej lub lewej pachwinie. W chwili obecnej
+                                    częściej wykonuje się zabiegi z dostępu promieniowego, ale nie zawsze się to udaje,
+                                    lub nie zawsze jest to możliwe, zatem musimy być przygotowani na to że lekarz będzie
+                                    operował w okolicy naszej pachwiny. Do zabiegu pacjent musi być porządnie ogolony,
+                                    żeby włosy nie przeszkadzały w trakcie wprowadzania i manewrowania cewnikami. Jeśli
+                                    nie zrobisz tego sam w domu, pomoże Ci w tym pielęgniarka na oddziale.</p>
+                                <h2 class="mb30">Jak długo będę w szpitalu?</h2>
+                                <p style="text-align: justify">Trudno jest odpowiedzieć na to pytanie, należy
+                                    przygotować się na wszystkie scenariusze. W Polsce raczej nie praktykuje się
+                                    wykonywania koronarografii i wypisu ze szpitala w tym samym dniu, więc zakładając,
+                                    że wynik badania będzie prawidłowy, najkrótszy czas jaki będziemy musieli spędzić w
+                                    szpitalu to dwa dni. Jeśli w trakcie badania okaże się, że w naczyniach wieńcowych
+                                    są zmiany, które wymagają zabiegu angioplastyki wieńcowej (założenia stentu) lub
+                                    zabieg będzie powikłany np. krwiakiem, pobyt w szpitalu może się przedłużyć do kilku
+                                    dni. Musimy się przygotować także do trzeciego scenariusza, wcale nie takiego
+                                    rzadkiego, gdy po wykonanej koronarografii okazuje się, że aby naprawić wszystkie
+                                    zwężenia w naczyniach wieńcowych, potrzebna będzie operacja kardiochirurgiczna
+                                    (bajpasy, CABG). Jeśli zwężenia nie są zagrażające zawałem, wtedy pacjent jest
+                                    wypisany do domu i sam umawia się na konsultację z kardiochirurgiem aby omówić
+                                    wszystkie aspekty zabiegu, ale jeśli zwężenia w naczyniach zagrażają zamknięciu,
+                                    wtedy możliwe że na termin operacji będziemy oczekiwać w oddziale nawet 3 tygodnie i
+                                    nie będzie nam wolno iść w tym czasie do domu. </p>
+                                <blockquote>
+                                    <p>Jeśli zwężenia nie są zagrażające zawałem, wtedy pacjent jest wypisany do domu i
+                                        sam umawia się na konsultację z kardiochirurgiem aby omówić wszystkie aspekty
+                                        zabiegu.</p>
+                                </blockquote>
+                                <h2 class="mt30 mb30">Czy to boli?</h2>
+                                <p style="text-align: justify">Zabieg nie należy do przyjemności. Trzeba leżeć
+                                    nieruchomo i pozostać skupionym, aby wykonywać polecenia lekarza np. nabrać
+                                    powietrza, zmienić położenie ręki. Na sali zabiegowej jest zimno dla komfortu
+                                    zespołu pracującego w ołowianych fartuchach, a Ty leżysz pod cienkim papierowym
+                                    obłożeniem. Personel zwraca się do siebie używając dziwnych słów, z których nic nie
+                                    rozumiesz, więc do końca nie wiesz co jest grane i czy wszystko jest ok. Najbardziej
+                                    bolesne przy zabiegu jest manewrowanie w okolicy gdzie wprowadzany jest cewnik, w
+                                    miejscu wprowadzenia tzw. „koszulki”. Co prawda miejsce jest to wcześniej
+                                    znieczulone miejscowo, ale i tak trzeba się liczyć z nieprzyjemnym uczuciem
+                                    rozpierania i naciskania w okolicy nadgarstka lub pachwiny. Manewrowanie cewnikami w
+                                    sercu nie jest raczej odczuwalne dla pacjenta, chyba że wywołamy jakąś arytmię,
+                                    wtedy możemy czuć nierówne lub bardzo szybkie bicie serca. Może się zdarzyć, że
+                                    zabieg nie zakończy się na samej koronarografii (czyli diagnostyce), ale płynnie
+                                    przejdzie w zabieg angioplastyki wieńcowej (PCI). </p>
+                                <h2 style="text-align: right" class="mt30 mb30">Jak wygląda takie naprawianie?</h2>
+                                <img alt="" src="images/zawał-2.jpg" data-th-src="@{/images/cardio_services/koro-angio.jpg}" class="alignleft img-responsive">
+                                <p style="text-align: justify" class="mb30">Do chorego naczynia wprowadza się cienki
+                                    drucik, po nim nawleka się balonik. Balonik rozpręża się w miejscu przewężenia, aby
+                                    poszerzyć naczynie. Ten moment może być bolesny dla pacjenta, a odczuwane
+                                    dolegliwości mogą przypominać ból jak przy zawale, ponieważ w trakcie rozprężenia
+                                    balonika, na chwilę uniemożliwiamy przepływ krwi w naczyniu. Następnie dla
+                                    zabezpieczenia efektu rozprężenia w chorym miejscu wszczepialny jest stent. Jest to
+                                    taka malutka metalowa sprężynka, wprowadzana do naczynia w formie złożonej na
+                                    baloniku. W momencie napełnienia balonika stent ulega rozprężeniu (rozłożeniu) i
+                                    zostaje na stałe „wbity” w naczynie. Bardzo ważne jest abyś wykonywał polecania
+                                    lekarza, ponieważ poruszenie się „złym momencie” może np. spowodować wszczepienie
+                                    stentu nie w tym miejscu w którym planowaliśmy to zrobić.</p>
+                                <img alt="" src="images/zawał-2.jpg" data-th-src="@{/images/cardio_services/koro-angio-2.jpg}" class="alignright img-responsive">
+                                <br><br><br><br><br><br><br><br>
+                                <blockquote class="mt30">
+                                    <p>Bardzo ważne jest abyś wykonywał polecania lekarza, ponieważ poruszenie się „w
+                                        złym momencie” może np. spowodować wszczepienie stentu nie w tym miejscu w
+                                        którym planowaliśmy to zrobić.</p>
+                                </blockquote>
+                                <h2 class="mt30 mb30">Co po zabiegu?</h2>
+                                <p style="text-align: justify">Jeśli zabieg był wykonywany z „ręki” to po zabiegu ponad nadgarstkiem założona jest
+                                    specjalna opaska uciskająca tętnicę, ucisk jest stopniowo zwalniany, aż do momentu
+                                    kiedy można opaskę całkowicie zdjąć. Ważne aby nie opierać się na tej ręce w okresie
+                                    pozabiegowym. Gdy koronarografia jest przeprowadzona z „nogi” to już bardziej
+                                    skomplikowana historia. Jeśli był wykonany zabieg „stentowania” to podczas zabiegu
+                                    podaje się leki przeciwkrzepliwe. Leki te są metabolizowane przez organizm i trwa to
+                                    ok 3-5 godz. W tym czasie nie można bezpiecznie usunąć z tętnicy udowej wcześniej
+                                    wspomnianej „koszulki” - plastikowej rurki długości od 15-30 cm o szerokości ok.
+                                    2,5mm. Po zabiegu dla nas oznacza to, że przez kilka godzin musimy leżeć na plecach
+                                    i starać się nie poruszać nogą. Po tym czasie, gdy leki przeciwkrzepliwe przestają
+                                    działać usuwamy koszulkę i zazwyczaj zakładamy jeszcze ucisk w postaci wałka z
+                                    ligniny przyłożonego w pachwinie i zamocowanego poprzez obwiązanie pacjenta bandażem
+                                    uciskowym. No i niestety nadal czeka nas jeszcze kilka godzin leżenia z uciskiem.
+                                    Ten okres po zabiegu nieraz jest bardziej znienawidzony niż sama koronarografia.</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div data-th-replace="fragments/core_fragments.html :: previousNext"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-th-replace="fragments/core_fragments.html :: footer"></div>
+</body>
+</html>

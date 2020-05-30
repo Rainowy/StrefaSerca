@@ -1,7 +1,5 @@
 package pl.strefaserca.portal.service;
-
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,8 +8,11 @@ import java.util.List;
 public class CardioService {
 
     private List<String> services = new ArrayList<>(Arrays.asList(
-            "echokardiografia",
-            "holter"
+            "Echokardiografia",
+            "Holter_EKG",
+            "Test_wysiłkowy",
+            "Koronarografia",
+            "Kontrola_stymulatora"
     ));
 
     public String nextService(String fileName) {
