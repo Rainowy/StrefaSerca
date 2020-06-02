@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/core_fragments.html :: headerfiles">
     <title>O mnie</title>
 <body class="animsition">
 <div th:replace="fragments/core_fragments.html :: topHeader"></div>
-<div th:replace="fragments/core_fragments.html :: pageHeader"></div>
+<div class="header">
+    <!-- navigation -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-sm-12">
+                <div id="navigation" class="navigation">
+                    <ul>
+                        <li class="active"><a href="/index" title="Home" class="animsition-link">Home</a>
+                        </li>
+                        <li><a href="/#" title="O_mnie" class="inactiveLink">O mnie</a>
+                            <ul>
+                                <li>
+                                    <a href="/certificates" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
+                                </li>
+                                <li><a href="/about" title="Pasja" class="animsition-link">Kardiologia moją pasją</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/services" title="Usługi" class="animsition-link">Usługi</a>
+                        <li><a href="/testimonials" title="Opinie" class="animsition-link">Opinie</a>
+                        </li>
+                        <li><a href="/article/list" title="Blog" class="animsition-link">Artykuły</a>
+                        </li>
+                        <li><a href="/contact" title="Kontakt" class="animsition-link">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="content">
     <div class="container">
         <div class="content-area">
             <div class="row">
                 <div class="col-md-10 col-sm-10">
                     <div class="post-holder mb40">
-                        <div class="post-img mb30"><img th:src="@{/images/about/main.jpg}" alt="" class="img-responsive"></div>
+                        <div class="post-img mb30">
+                            <img th:src="@{/images/about/main.jpg}" alt="" class="img-responsive"></div>
                         <div class="post-block">
                             <div class="post-header mb20">
                                 <h1 class="post-title mb30">Kilka słów o mnie</h1>
@@ -31,10 +61,10 @@
                                     uzyskując Certyfikat Indywidualny Polskiego Towarzystwa Kardiologicznego operatora
                                     elektroterapii w zakresie implantacji stymulatorów serca oraz specjalisty kontroli
                                     urządzeń wszczepialnych. Pod nadzorem dr. Mariusza Hochuła szkoliłam się z podstaw
-                                    wykonywania zabiegów koronarografii i krioablacji żył płucnych.
-                                    Opiekuję się pacjentami włączonymi do badań klinicznych: EMPEROR, TWILIGHT, ABSORB,
-                                    DESSOLVE, AEGIS. Jestem członkiem Polskiego Towarzystwa Kardiologicznego oraz
-                                    European Heart Rhytm Association (EHRA).</p>
+                                    wykonywania zabiegów koronarografii i krioablacji żył płucnych. Opiekuję się
+                                    pacjentami włączonymi do badań klinicznych: EMPEROR, TWILIGHT, ABSORB, DESSOLVE,
+                                    AEGIS. Jestem członkiem Polskiego Towarzystwa Kardiologicznego oraz European Heart
+                                    Rhytm Association (EHRA).</p>
                                 <p class="mb30">Aliquam faucibus tortor massa, ac mattis elit facilisis sit amet.
                                     Vestibulum vestibulum purus ante, nec facilisis augue ultricies in. Curabitur
                                     aliquam ac elit auctor sodales. Curabitur sagittis elit ut lorem metus tincidunt,
@@ -42,13 +72,12 @@
                                 <img th:src="@{/images/about/second.jpg}" alt="" class="alignright img-responsive">
                                 <p style="text-indent: 50px">W trakcie trwania szkolenia specjalizacyjnego 2013-2015
                                     byłam stypendystką projektu DoktoRIS - Program stypendialny na rzecz innowacyjnego
-                                    Śląska.
-                                    Angażuję się aktywnie w profilaktykę i promocje zdrowia poprzez: Występ telewizyjny
-                                    w ramach akcji Milion uczynków dla zdrowia organizowanej przez Fundację Giesche,
-                                    artykuł w „Nasz Dziennik” 13 lipiec 2017 – Zdążyć przed zawałem, artykuł w „Nasz
-                                    Dziennik” 8 wrzesień 2016 – Zawał serca.
-                                    Uczestniczę w kursach i szkoleniach stale podnosząc swoją wiedzę i kwalifikacje aby
-                                    zapewnić moim pacjentom najlepszą możliwą opiekę.</p>
+                                    Śląska. Angażuję się aktywnie w profilaktykę i promocje zdrowia poprzez: Występ
+                                    telewizyjny w ramach akcji Milion uczynków dla zdrowia organizowanej przez Fundację
+                                    Giesche, artykuł w „Nasz Dziennik” 13 lipiec 2017 – Zdążyć przed zawałem, artykuł w
+                                    „Nasz Dziennik” 8 wrzesień 2016 – Zawał serca. Uczestniczę w kursach i szkoleniach
+                                    stale podnosząc swoją wiedzę i kwalifikacje aby zapewnić moim pacjentom najlepszą
+                                    możliwą opiekę.</p>
                                 <hr>
                             </div>
                         </div>

@@ -1,15 +1,20 @@
 package pl.strefaserca.portal.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+import pl.strefaserca.portal.service.ArticleService;
 
 @Controller
+@AllArgsConstructor
 public class HomeController {
+
+    ArticleService articleService;
 
     @GetMapping("/index")
     public ModelAndView index(){
-        return new ModelAndView("index");
+        return new ModelAndView("index", "recentArticles", articleService.recentArticles());
     }
 
     @GetMapping("/certificates")

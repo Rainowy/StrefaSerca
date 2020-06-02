@@ -1,5 +1,7 @@
 package pl.strefaserca.portal.service;
 
+import lombok.SneakyThrows;
+import org.apache.logging.log4j.util.PropertySource;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,7 +14,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.FileTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -20,24 +25,91 @@ import java.util.stream.Stream;
 @Service
 public class ArticleService {
 
-    /**Create List of articles in StrefaHtml directory */
+    /**
+     * Create List of articles in StrefaHtml directory
+     */
+    @SneakyThrows
+    private FileTime getCreated (String path){
+
+        return (FileTime) Files.getAttribute(Paths.get(path), "creationTime");
+    }
+
+    public List<ArticleDto> recentArticles(){
+        List<ArticleDto> recentArticles = new ArrayList<>();
+        for (int i = 0; i <3 ; i++) {
+            recentArticles.add(getArticleInfo().get(i));
+        }
+        return recentArticles;
+    }
+    @SneakyThrows
     public List<ArticleDto> getArticleInfo() {
 
-        List<ArticleDto> articles = new ArrayList<>();
-        try (Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"))) {
+        List<ArticleDto> articles;
+        Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
+        articles = paths.map(Path::toString)
+                .filter(p -> !p.contains("article"))
+                .filter(p -> p.endsWith(".html"))
+                .map(p -> new ArticleDto(parseTitle(p), parseImage(p), parseFileName(p), parseLead(p), getCreated(p) )).collect(Collectors.toList());
 
-            articles = paths.map(Path::toString)
-                    .filter(p -> !p.contains("article"))
-                    .filter(p -> p.endsWith(".html"))
-                    .map(p -> new ArticleDto(parseTitle(p), parseImage(p), parseFileName(p), parseLead(p))).collect(Collectors.toList());
-        } catch (IOException e) {
-            e.printStackTrace();
+        Collections.sort(articles, Comparator.comparing(ArticleDto::getCreated).reversed());
+
+        List<ArticleDto> recentArticles = new ArrayList<>();
+
+        for (int i = 0; i <3 ; i++) {
+            recentArticles.add(articles.get(i));
         }
-        articles.stream()
-                .forEach(e -> System.out.println(e.getImgSrc()));
+
+        recentArticles.forEach(a -> System.out.println(a.getImgSrc() + a.getFileName() + " nazwa" + a.getCreated() ));
+
+//        articles.forEach(a -> System.out.println(a.getFileName() + " utworzono" +  a.getCreated()));
+
+
+//        Stream<Path> paths2 = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
+//
+//        List<FileTime> creationTime = paths2.map(path -> {
+//            try {
+//                return (FileTime) Files.getAttribute(path, "creationTime");
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        })
+//                .collect(Collectors.toList());
+//
+//        creationTime.forEach(System.out::println);
+
+
+//        Stream<Path> paths2 = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
+//
+//        try (Stream<FileTime> creationTime = paths2.map(path -> (FileTime) Files.getAttribute(path, "creationTime"));
+
+
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+//        Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"))
+
+
+//        paths
+//                .map(s -> {
+//                            try {
+//                                FileTime creationTime = (FileTime) Files.getAttribute(s, "creationTime");
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+//
+//                        }
+//
+//                );
+
+
         return articles;
     }
-    /** Parse img, name, title and lead from article */
+
+    /**
+     * Parse img, name, title and lead from article
+     */
     private String parseTitle(String path) {
 
         String htmlTitle = "";
@@ -89,7 +161,10 @@ public class ArticleService {
         }
         return articleLead;
     }
-    /** Previous or next Article */
+
+    /**
+     * Previous or next Article
+     */
     public ArticleDto nextArticle(String fileName) {
         List<ArticleDto> articleInfo = getArticleInfo();
 
