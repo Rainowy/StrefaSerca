@@ -344,7 +344,7 @@ color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;  
 .navigation-search i{color: #fff; margin-top: 17px; float: right;}
 /*-------------- page header ------------*/
 .page-header{background: linear-gradient(rgba(128, 153, 151, 0.2),
-  rgba(128, 153, 151, 0.2)), rgba(128, 153, 151, 0.2) url(../images/page-header.jpeg) no-repeat center;
+  rgba(128, 153, 151, 0.2)), rgba(128, 153, 151, 0.2) url(../images/page-header.jpg) no-repeat center;
 background-size: cover; margin: 0;}
 .page-caption{padding: 105px 0;}
 .page-title{color: #fff;}
@@ -354,7 +354,7 @@ background-size: cover; margin: 0;}
 .breadcrumb>.active {}
 /*-------------- slider ------------*/
 .intro-section{background:linear-gradient(rgba(128, 153, 151, 0.2), rgba(128, 153, 151, 0.2), rgba(128, 153, 151, 0.2)),
- url(../images/page-header.jpeg) no-repeat center;  background-size: cover; }
+ url(../images/page-header.jpg) no-repeat center;  background-size: cover; }
 .intro-caption{color: #fff; padding-top: 150px; padding-bottom: 150px; font-size: 18px;}
 .intro-title{font-size: 52px; color: #fff; line-height: 58px;}
 /*-------------- cta ------------*/
