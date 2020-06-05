@@ -1,7 +1,6 @@
 package pl.strefaserca.portal.service;
 
 import lombok.SneakyThrows;
-import org.apache.logging.log4j.util.PropertySource;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,10 +14,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.FileTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,19 +27,6 @@ public class ArticleService {
      * Create List of articles in StrefaHtml directory
      */
     @SneakyThrows
-    private FileTime getCreated (String path){
-
-        return (FileTime) Files.getAttribute(Paths.get(path), "creationTime");
-    }
-
-    public List<ArticleDto> recentArticles(){
-        List<ArticleDto> recentArticles = new ArrayList<>();
-        for (int i = 0; i <3 ; i++) {
-            recentArticles.add(getArticleInfo().get(i));
-        }
-        return recentArticles;
-    }
-    @SneakyThrows
     public List<ArticleDto> getArticleInfo() {
 
         List<ArticleDto> articles;
@@ -49,61 +34,9 @@ public class ArticleService {
         articles = paths.map(Path::toString)
                 .filter(p -> !p.contains("article"))
                 .filter(p -> p.endsWith(".html"))
-                .map(p -> new ArticleDto(parseTitle(p), parseImage(p), parseFileName(p), parseLead(p), getCreated(p) )).collect(Collectors.toList());
+                .map(p -> new ArticleDto(parseTitle(p), parseImage(p), parseFileName(p), parseLead(p), getCreated(p))).collect(Collectors.toList());
 
         Collections.sort(articles, Comparator.comparing(ArticleDto::getCreated).reversed());
-
-        List<ArticleDto> recentArticles = new ArrayList<>();
-
-        for (int i = 0; i <3 ; i++) {
-            recentArticles.add(articles.get(i));
-        }
-
-        recentArticles.forEach(a -> System.out.println(a.getImgSrc() + a.getFileName() + " nazwa" + a.getCreated() ));
-
-//        articles.forEach(a -> System.out.println(a.getFileName() + " utworzono" +  a.getCreated()));
-
-
-//        Stream<Path> paths2 = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
-//
-//        List<FileTime> creationTime = paths2.map(path -> {
-//            try {
-//                return (FileTime) Files.getAttribute(path, "creationTime");
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            return null;
-//        })
-//                .collect(Collectors.toList());
-//
-//        creationTime.forEach(System.out::println);
-
-
-//        Stream<Path> paths2 = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
-//
-//        try (Stream<FileTime> creationTime = paths2.map(path -> (FileTime) Files.getAttribute(path, "creationTime"));
-
-
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-//        Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"))
-
-
-//        paths
-//                .map(s -> {
-//                            try {
-//                                FileTime creationTime = (FileTime) Files.getAttribute(s, "creationTime");
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//
-//                        }
-//
-//                );
-
-
         return articles;
     }
 
@@ -137,13 +70,11 @@ public class ArticleService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        return imgSrc;
         return imgSrc;
     }
 
     private String parseFileName(String path) {
-        String pathRefactored = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
-        return pathRefactored;
+        return path.substring(path.lastIndexOf('/') + 1, path.lastIndexOf('.'));
     }
 
     private String parseLead(String path) {
@@ -155,12 +86,34 @@ public class ArticleService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int firstDot = firstPTag.indexOf(".");
+        int firstDot = firstPTag.indexOf('.');
         String articleLead = "";
         if (firstDot != -1) {
             articleLead = firstPTag.substring(0, firstDot);
         }
         return articleLead;
+    }
+
+    /** Get file creation time as FileTime and converts to LocalDateTime */
+    @SneakyThrows
+    private LocalDateTime getCreated(String path) {
+        FileTime creationTime = (FileTime) Files.getAttribute(Paths.get(path), "creationTime");
+        return LocalDateTime.parse(creationTime.toInstant().toString(), DateTimeFormatter.ISO_DATE_TIME);
+    }
+
+    public List<ArticleDto> recentArticles() {
+        List<ArticleDto> recentArticles = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            recentArticles.add(getArticleInfo().get(i));
+        }
+        return recentArticles;
+    }
+
+    public ArticleDto currentArticle(String fileName){
+        return getArticleInfo().stream()
+                .filter(a -> a.getFileName().equals(fileName))
+                .findFirst()
+                .orElseThrow();
     }
 
     /**

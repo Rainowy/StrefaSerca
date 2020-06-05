@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.nio.file.attribute.FileTime;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -16,7 +17,7 @@ public class ArticleDto {
     private String imgSrc;
     private String fileName;
     private String lead;
-    private FileTime created;
+    private LocalDateTime created;
 
     public ArticleDto( String fileName, String title) {
         this.title = title;

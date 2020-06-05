@@ -15,19 +15,19 @@ public class ArticleController {
     private ArticleService articleService;
 
     @GetMapping("/list")
-    ModelAndView allArticles() {
+    public ModelAndView allArticles() {
         return new ModelAndView("articles", "articles", articleService.getArticleInfo());
     }
 
     @GetMapping("/selected/{articleName}")
-    ModelAndView selectedArticle(@PathVariable String articleName) {
-        ModelAndView model = new ModelAndView(articleName);
+    public ModelAndView selectedArticle(@PathVariable String articleName) {
+        ModelAndView model = new ModelAndView(articleName,"currentArticle",articleService.currentArticle(articleName));
         model.addObject("nextArticle", articleService.nextArticle(articleName));
         model.addObject("prevArticle", articleService.prevArticle(articleName));
         return model;
     }
 
-    @RequestMapping("/redirect")
+    @GetMapping("/redirect")
     public RedirectView redirectToUrl(@RequestParam String name) {
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl("http://" + name);

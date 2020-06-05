@@ -22,172 +22,194 @@ veterinary cardiology website, pediatric cardiology website">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i,900,900i" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body>
 
 <div th:fragment="topHeader" class="top-header">
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-12"><a class="logo" href="index.html">
-                    <img src="images/logostrefaserca.jpg" data-th-src="@{/images/logostrefaserca.jpg}" alt=""/></a>
-                </div>
-                <div class="col-md-3  hidden-sm hidden-xs top-link">
-                    <i class="fa fa-envelope-o"></i> <a href="cantact-us.html">strefaserca@gmail.com</a>
-                </div>
-                <div class="col-md-3  hidden-sm hidden-xs top-link">
-                    <i class="fa fa-phone"></i> <a href="cantact-us.html">+91 123 4567 789</a>
-                </div>
-                <div class="col-md-3  hidden-sm hidden-xs top-link">
-                    <i class="fa fa-sign-in"></i> <a href="cantact-us.html">Zaloguj się</a>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12"><a class="logo" href="index.html">
+                <img src="images/logostrefaserca.jpg" data-th-src="@{/images/logostrefaserca.jpg}" alt=""/></a>
+            </div>
+            <div class="col-md-3  hidden-sm hidden-xs top-link">
+                <i class="fa fa-envelope-o"></i> <a href="cantact-us.html">strefaserca@gmail.com</a>
+            </div>
+            <div class="col-md-3  hidden-sm hidden-xs top-link">
+                <i class="fa fa-phone"></i> <a href="cantact-us.html">+91 123 4567 789</a>
+            </div>
+            <div class="col-md-3  hidden-sm hidden-xs top-link">
+                <i class="fa fa-sign-in"></i> <a href="cantact-us.html">Zaloguj się</a>
             </div>
         </div>
     </div>
 </div>
 <div th:fragment="pageHeader" class="page-header">
-    <div>
-        <div class="">
-            <div class="header">
-                <!-- navigation -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 col-sm-10">
-                            <div id="navigation" class="navigation">
-                                <ul>
-                                    <li class="active"><a href="/index" title="Home" class="animsition-link">Home</a>
-                                    </li>
-                                    <li><a href="/#" title="O_mnie" class="inactiveLink">O mnie</a>
-                                        <ul>
-                                            <li>
-                                                <a href="/certificates" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
-                                            </li>
-                                            <li><a href="/about" title="Pasja" class="animsition-link">Kardiologia moją
-                                                pasją</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/services" title="Usługi" class="animsition-link">Usługi</a>
-                                    <li><a href="/testimonials" title="Opinie" class="animsition-link">Opinie</a>
-                                    </li>
-                                    <li><a href="/article/list" title="Blog" class="animsition-link">Artykuły</a>
-                                    </li>
-                                    <li><a href="/contact" title="Kontakt" class="animsition-link">Kontakt</a>
-                                    </li>
-                                </ul>
-                            </div>
+    <div class="">
+        <div class="header">
+            <!-- navigation -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-sm-10">
+                        <div id="navigation" class="navigation">
+                            <ul>
+                                <li class="active"><a href="/index" title="Home" class="animsition-link">Home</a>
+                                </li>
+                                <li><a href="/#" title="O_mnie" class="inactiveLink">O mnie</a>
+                                    <ul>
+                                        <li>
+                                            <a href="/certificates" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
+                                        </li>
+                                        <li><a href="/about" title="Pasja" class="animsition-link">Kardiologia moją
+                                            pasją</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="/services" title="Usługi" class="animsition-link">Usługi</a>
+                                <li><a href="/testimonials" title="Opinie" class="animsition-link">Opinie</a>
+                                </li>
+                                <li><a href="/article/list" title="Blog" class="animsition-link">Artykuły</a>
+                                </li>
+                                <li><a href="/contact" title="Kontakt" class="animsition-link">Kontakt</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 text-center">
-                    <div class="page-caption">
-                        <h1 class="page-title"></h1>
-                    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center">
+                <div class="page-caption">
+                    <h1 class="page-title"></h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div data-th-fragment="previousNext" class="post-navigation mb40">
+<div th:fragment="sideNavigation" class="col-md-2 col-sm-2">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="sidenav mb60">
+                <ul class="listnone no-padding">
+                    <li class="active">
+                        <a th:href="@{${'/service/selected/Echokardiografia'}}" title="Echokardiografia">Echokardiografia</a>
+                    </li>
+                    <li><a th:href="@{${'/service/selected/Holter_EKG'}}" title="Holter EKG">Holter EKG</a></li>
+                    <li><a th:href="@{${'/service/selected/Holter_RR'}}" title="Holter ciśnieniowy">Holter <br>
+                        ciśnieniowy</a></li>
+
+                    <li>
+                        <a th:href="@{${'/service/selected/Kontrola_stymulatora'}}" title="Kontrola stymulatora">Kontrola
+                            <br> stymulatora</a></li>
+                    <li>
+                        <a th:href="@{${'/service/selected/Koronarografia'}}" title="Koronarografia">Koronarografia</a>
+                    </li>
+                    <li>
+                        <a th:href="@{${'/service/selected/Test_wysiłkowy'}}" title="Test wysiłkowy">Test <br> wysiłkowy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--                                <div class="col-md-12">-->
+        <!--                                    <div class="widget">-->
+        <!--                                        <h2 class="widget-title">Opening Hours</h2>-->
+        <!--                                        <hr>-->
+        <!--                                        <div class="opening-time">-->
+        <!--                                            <span>Mon-Fri</span><strong class="pull-right">8:00am-7:00pm</strong> <br>-->
+        <!--                                            <span>Saturday </span><strong class="pull-right">9:00am–5:00pm</strong> <br>-->
+        <!--                                            <span>Sunday </span><strong class="pull-right">9:00am–3:00pm</strong>-->
+        <!--                                        </div>-->
+        <!--                                    </div>-->
+        <!--                                </div>-->
+    </div>
+</div>
+
+<div th:fragment="previousNext" class="post-navigation mb40">
     <div class="row">
         <div class="col-md-6 col-sm-6">
-            <div class="nav-previous"><a
-                    data-th-href="@{${'/service/selected/' + prevService}}"
-                    class="btn-link next-link mb30">Poprzedni artykuł</a>
-                <h3 class="related-title"><a
-                        data-th-href="@{${'/service/selected/' + prevService}}"
-                        class=""
-                        data-th-text="${prevService}"></a></h3>
+            <div class="nav-previous">
+                <a th:href="@{${'/service/selected/' + prevService}}" class="btn-link next-link mb30">Poprzedni
+                    artykuł</a>
+                <h3 class="related-title">
+                    <a th:href="@{${'/service/selected/' + prevService}}" class="" data-th-text="${prevService}"></a>
+                </h3>
             </div>
         </div>
         <div class="col-md-6 col-sm-6 text-right">
-            <div class="nav-next"><a
-                    data-th-href="@{${'/service/selected/' + nextService}}"
-                    class="btn-link next-link mb30">Następny artykuł</a>
-                <h3 class="related-title"><a
-                        data-th-href="@{${'/service/selected/' + nextService}}"
-                        class=""
-                        data-th-text="${nextService}"></a></h3>
+            <div class="nav-next">
+                <a th:href="@{${'/service/selected/' + nextService}}" class="btn-link next-link mb30">Następny
+                    artykuł</a>
+                <h3 class="related-title">
+                    <a th:href="@{${'/service/selected/' + nextService}}" class="" data-th-text="${nextService}"></a>
+                </h3>
             </div>
         </div>
     </div>
 </div>
 
 <div th:fragment="footer" class="footer section-space60">
-    <div>
-        <!-- footer -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3">
-                    <div class="footer-widget">
-                        <div class="footer-logo mb30"><img src="images/ft-logo.png" alt="" class=""></div>
-                        <address><i class="fa fa-map-marker"></i>
-                            873 Fleming Way<br>
-                            Richmond, VA 23228
-                        </address>
-                        <ul class="listnone contact">
-                            <li><i class="fa fa-phone"></i>800-123-456</li>
-                            <li><i class="fa fa-envelope-o"></i>Info@architectural.com</li>
-                        </ul>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="footer-widget">
+                    <div class="footer-logo mb30"><img src="images/ft-logo.png" alt="" class=""></div>
+                    <address><i class="fa fa-map-marker"></i> 873 Fleming Way<br> Richmond, VA 23228
+                    </address>
+                    <ul class="listnone contact">
+                        <li><i class="fa fa-phone"></i>800-123-456</li>
+                        <li><i class="fa fa-envelope-o"></i>Info@architectural.com</li>
+                    </ul>
                 </div>
-                <div class="col-md-3 col-sm-3">
-                    <div class="footer-widget"><!-- footer-widget -->
-                        <h3 class="footer-title">Services</h3>
-                        <ul class="listnone bullet bullet-angle-right mb0">
-                            <li><a href="service-detail.html" title="Diagnostic Cardiac">Diagnostic Cardiac</a></li>
-                            <li><a href="service-detail.html" title="Vascular Dignostic">Vascular Dignostic</a></li>
-                            <li><a href="service-detail.html" title="Invasive Procedures">Invasive Procedures</a></li>
-                            <li><a href="service-detail.html" title="Heart Conditions Treated">Heart Conditions
-                                Treated</a>
-                            </li>
-                            <li><a href="service-detail.html" title="Vein Clinic Services">Vein Clinic Services</a></li>
-                        </ul>
-                    </div>
-                    <!-- /.footer-widget -->
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="footer-widget"><!-- footer-widget -->
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="listnone bullet bullet-angle-right mb0">
+                        <li><a href="service-detail.html" title="Diagnostic Cardiac">Diagnostic Cardiac</a></li>
+                        <li><a href="service-detail.html" title="Vascular Dignostic">Vascular Dignostic</a></li>
+                        <li><a href="service-detail.html" title="Invasive Procedures">Invasive Procedures</a></li>
+                        <li><a href="service-detail.html" title="Heart Conditions Treated">Heart Conditions Treated</a>
+                        </li>
+                        <li><a href="service-detail.html" title="Vein Clinic Services">Vein Clinic Services</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="footer-widget"><!-- footer-widget -->
-                        <h3 class="footer-title">Strony</h3>
-                        <ul class="listnone bullet bullet-angle-right mb0">
-                            <li><a href="/index" title="Home">Home</a></li>
-                            <li><a href="/services" title="Usługi">Usługi</a></li>
-                            <li><a href="/articles" title="Artykuły">Artykuły</a></li>
-                            <li><a href="/contact" title="Kontakt Us">Kontakt</a></li>
-                            <li><a href="/testimonials" title="Opinie">Opinie</a></li>
-                        </ul>
-                    </div>
-                    <!-- /.footer-widget -->
+                <!-- /.footer-widget -->
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <div class="footer-widget"><!-- footer-widget -->
+                    <h3 class="footer-title">Strony</h3>
+                    <ul class="listnone bullet bullet-angle-right mb0">
+                        <li><a href="/index" title="Home">Home</a></li>
+                        <li><a href="/services" title="Usługi">Usługi</a></li>
+                        <li><a href="/articles" title="Artykuły">Artykuły</a></li>
+                        <li><a href="/contact" title="Kontakt Us">Kontakt</a></li>
+                        <li><a href="/testimonials" title="Opinie">Opinie</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="footer-widget"><!-- footer-widget -->
-                        <h3 class="footer-title">Newsletter</h3>
-                        <p>Subscribe to our newsletter to get the latest
-                            news to your inbox.</p>
-                        <form>
-                            <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Email Address">
-                                <span class="input-group-btn">
+                <!-- /.footer-widget -->
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="footer-widget"><!-- footer-widget -->
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p>Subscribe to our newsletter to get the latest news to your inbox.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Email Address">
+                            <span class="input-group-btn">
         <button class="btn btn-default" type="button">subscribe</button></span>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.footer-widget -->
+                        </div>
+                    </form>
                 </div>
+                <!-- /.footer-widget -->
             </div>
         </div>
     </div>
-    <!-- /.footer -->
     <div class="tiny-footer"><!-- tiny-footer -->
         <div class="container">
             <div class="row">

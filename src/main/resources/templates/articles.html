@@ -24,14 +24,14 @@
                                             <a th:text="${article.getTitle()}" th:href="@{${'/article/selected/' + article.getFileName()}}" class="title"></a>
                                         </h1>
                                         <div class="post-meta">
-                                            <span class="meta-date"><i class="fa fa-calendar"></i> August 24, 2017 </span>
-                                            <span class="meta-comment"><i class="fa fa-comments"></i> <a href="#" class="meta-link">05 Comment </a></span>
+                                            <span class="meta-date"><i class="fa fa-calendar"></i><th:block th:text="${#temporals.format(article.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="post-content">
                                         <p th:text="${article.getLead() + '.'}"></p>
-                                        <a th:href="@{${'/article/selected/' + article.getFileName()}}" class="btn btn-default">Czytaj więcej</a>
+                                        <a th:href="@{${'/article/selected/' + article.getFileName()}}" class="btn btn-default">Czytaj
+                                            więcej</a>
                                     </div>
                                 </div>
                             </div>
@@ -68,111 +68,72 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-12">
-                            <div class=" widget widget-categories pinside30">
-                                <h2 class="widget-title">Categories</h2>
-                                <hr>
-                                <ul class="listnone bullet bullet-angle-right mb0">
-                                    <li><a href="#">Diagnostic Cardiac</a></li>
-                                    <li><a href="#">Vascular Dignostic</a></li>
-                                    <li><a href="#">Invasive Procedures</a></li>
-                                    <li><a href="#">Vein Clinic Services</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12">
-                            <div class=" widget widget-archives pinside30 mb40">
-                                <h2 class="widget-title">Archives</h2>
-                                <hr>
-                                <ul class="listnone bullet bullet-angle-right mb0">
-                                    <li><a href="#">February (2017)</a></li>
-                                    <li><a href="#">December (2016)</a></li>
-                                    <li><a href="#">July (2016)</a></li>
-                                    <li><a href="#">January (2016)</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <!--                        <div class="col-md-12 col-sm-12">-->
+                        <!--                            <div class=" widget widget-categories pinside30">-->
+                        <!--                                <h2 class="widget-title">Categories</h2>-->
+                        <!--                                <hr>-->
+                        <!--                                <ul class="listnone bullet bullet-angle-right mb0">-->
+                        <!--                                    <li><a href="#">Diagnostic Cardiac</a></li>-->
+                        <!--                                    <li><a href="#">Vascular Dignostic</a></li>-->
+                        <!--                                    <li><a href="#">Invasive Procedures</a></li>-->
+                        <!--                                    <li><a href="#">Vein Clinic Services</a></li>-->
+                        <!--                                </ul>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="col-md-12 col-sm-12">-->
+                        <!--                            <div class=" widget widget-archives pinside30 mb40">-->
+                        <!--                                <h2 class="widget-title">Archives</h2>-->
+                        <!--                                <hr>-->
+                        <!--                                <ul class="listnone bullet bullet-angle-right mb0">-->
+                        <!--                                    <li><a href="#">February (2017)</a></li>-->
+                        <!--                                    <li><a href="#">December (2016)</a></li>-->
+                        <!--                                    <li><a href="#">July (2016)</a></li>-->
+                        <!--                                    <li><a href="#">January (2016)</a></li>-->
+                        <!--                                </ul>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                         <div class="col-md-12 col-sm-12">
                             <div class="widget widget-recent-post pinside30 mb40">
-                                <h2 class="widget-title">Recent post</h2>
+                                <h2 class="widget-title">Najnowsze artykuły</h2>
                                 <hr>
-                                <div class="recent-block mb20">
-                                    <div class="row">
+                                <div th:each="article : ${articles}" class="recent-block mb20">
+                                    <div th:if="${articleStat.index} < 3" class="row">
                                         <div class="col-md-4 col-sm-5">
                                             <div class="recent-pic">
-                                                <a href="#"><img th:src="@{/images/main-img-dbajmy-o-serce.png}" class="img-responsive" alt=""></a>
+                                                <a th:href="@{${'/article/selected/' + article.getFileName()}}"><img th:src="@{${'/' + article.getImgSrc()}}" class="img-responsive" alt=""></a>
                                             </div>
                                         </div>
                                         <div class="col-md-8 col-sm-7">
                                             <h3 class="recent-title mb10">
-                                                <a href="#" class="title">Medication Management and Heart Disease</a>
+                                                <a th:href="@{${'/article/selected/' + article.getFileName()}}" th:text="${article.getTitle()}" class="title"></a>
                                             </h3>
                                             <div class="post-meta">
-                                                <!-- post meta -->
-                                                <span class="meta-date"><i class="fa fa-calendar"></i> 25 April, 2017 </span>
+                                                <span class="meta-date"><i class="fa fa-calendar"></i><th:block th:text="${#temporals.format(article.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>
                                             </div>
-                                            <!-- /.post meta -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="recent-block mb20">
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-5">
-                                            <div class="recent-pic">
-                                                <a href="#"><img src="images/recent-pic2.jpg" class="img-responsive" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8 col-sm-7">
-                                            <h3 class="recent-title mb10">
-                                                <a href="#" class="title">Medication Management and Heart Disease</a>
-                                            </h3>
-                                            <div class="post-meta">
-                                                <!-- post meta -->
-                                                <span class="meta-date"><i class="fa fa-calendar"></i> 25 April, 2017 </span>
-                                            </div>
-                                            <!-- /.post meta -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="recent-block mb20">
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-5">
-                                            <div class="recent-pic">
-                                                <a href="#"><img src="images/recent-pic3.jpg" class="img-responsive" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8 col-sm-7">
-                                            <h3 class="recent-title mb10">
-                                                <a href="#" class="title">The Importance of Good Medication Management</a>
-                                            </h3>
-                                            <div class="post-meta">
-                                                <!-- post meta -->
-                                                <span class="meta-date"><i class="fa fa-calendar"></i> 25 April, 2017 </span>
-                                            </div>
-                                            <!-- /.post meta -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                        <div class="col-md-12 col-sm-12">
-                            <!--  tags -->
-                            <div class="widget widget-tags mb40">
-                                <h2 class="widget-title">Tags</h2>
-                                <hr>
-                                <!-- widget title -->
-                                <a href="#" title="Dignosis">Dignosis</a> <a href="#" title="Cardiac">Cardiac</a>
-                                <a href="#" title="Clinic">Clinic</a>
-                                <a href="#" title="Invasive Procedured">Invasive Procedured</a>
-                                <a href="#" title="Vascular">Vascular</a> <a href="#" title="Cardiac">Cardiac</a>
-                                <a href="#" title="medical">medical</a></div>
-                            <!-- /.widget well bg -->
-                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <!--  tags -->
+                        <div class="widget widget-tags mb40">
+                            <h2 class="widget-title">Tags</h2>
+                            <hr>
+                            <!-- widget title -->
+                            <a href="#" title="Dignosis">Dignosis</a> <a href="#" title="Cardiac">Cardiac</a>
+                            <a href="#" title="Clinic">Clinic</a> <a href="#" title="Invasive Procedured">Invasive
+                            Procedured</a> <a href="#" title="Vascular">Vascular</a>
+                            <a href="#" title="Cardiac">Cardiac</a> <a href="#" title="medical">medical</a></div>
+                        <!-- /.widget well bg -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <div data-th-replace="fragments/core_fragments.html :: footer"></div>
 </body>

@@ -12,44 +12,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="content-area">
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="sidenav mb60">
-                                        <ul class="listnone no-padding">
-                                            <li class="active">
-                                                <a th:href="@{${'/service/selected/Echokardiografia'}}" title="Echokardiografia">Echokardiografia</a>
-                                            </li>
-                                            <li>
-                                                <a th:href="@{${'/service/selected/Holter_RR'}}" title="Holter ciśnieniowy">Holter
-                                                    <br> ciśnieniowy</a></li>
-                                            <li><a th:href="@{${'/service/selected/Holter_EKG'}}" title="Holter EKG">Holter
-                                                EKG</a></li>
-                                            <li>
-                                                <a th:href="@{${'/service/selected/Kontrola_stymulatora'}}" title="Kontrola stymulatora">Kontrola
-                                                    <br> stymulatora</a></li>
-                                            <li>
-                                                <a th:href="@{${'/service/selected/Koronarografia'}}" title="Koronarografia">Koronarografia</a>
-                                            </li>
-                                            <li>
-                                                <a th:href="@{${'/service/selected/Test_wysiłkowy'}}" title="Test wysiłkowy">Test
-                                                    <br> wysiłkowy</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--                                <div class="col-md-12">-->
-                                <!--                                    <div class="widget">-->
-                                <!--                                        <h2 class="widget-title">Opening Hours</h2>-->
-                                <!--                                        <hr>-->
-                                <!--                                        <div class="opening-time">-->
-                                <!--                                            <span>Mon-Fri</span><strong class="pull-right">8:00am-7:00pm</strong> <br>-->
-                                <!--                                            <span>Saturday </span><strong class="pull-right">9:00am–5:00pm</strong> <br>-->
-                                <!--                                            <span>Sunday </span><strong class="pull-right">9:00am–3:00pm</strong>-->
-                                <!--                                        </div>-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
-                            </div>
-                        </div>
+                        <div th:replace="fragments/core_fragments.html :: sideNavigation"></div>
                         <div class="col-md-10 col-sm-10">
                             <div class="post-holder mb40">
                                 <div class="post-img mb30">
