@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/core_fragments.html :: headerfiles">
+    <title>Holter ciśnieniowy</title>
+<body class="animsition">
+<div th:replace="fragments/core_fragments.html :: topHeader"></div>
+<div th:replace="fragments/core_fragments.html :: pageHeader"></div>
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="content-area">
+                    <div class="row">
+                        <div th:replace="fragments/core_fragments.html :: sideNavigation"></div>
+                        <div class="col-md-10 col-sm-10">
+                            <div class="post-holder mb40">
+                                <div class="post-img mb30">
+                                    <img th:src="@{/images/cardio_services/holter-RR.jpg}" alt="" class="img-responsive">
+                                </div>
+                                <div class="post-block">
+                                    <div class="post-header mb20">
+                                        <h1 class="post-title mb30">Holter ciśnieniowy</h1>
+                                    </div>
+                                    <hr>
+                                    <div class="post-content">
+                                        <p style="text-align: justify">ABPM całodobowy pomiar ciśnienia tętniczego,
+                                            polega na zakładanym na czas 24 godzin urządzeniu, które wykonuje
+                                            automatyczne pomiary co 15-30 minut.</p>
+                                        <h2 class="mb30">Jak przebiega badanie?</h2>
+                                        <p style="text-align: justify">Mankiet ciśnieniomierza zakłada się na ramię i
+                                            nie zdejmuje przez okres rejestracji. Należy ubrać luźną koszulkę, która nie
+                                            będzie zaburzała wiarygodności pomiarów, mankiet zakłada się na gołą skórę.
+                                            Gdy czujemy, że mankiet się napełnia, należy wyprostować rękę. Największą
+                                            zaletą takiego pomiaru jest uzyskanie pomiarów w czasie snu i aktywności
+                                            fizycznej. </p>
+                                        <blockquote class="mt30">
+                                            <p>Pacjent powinien prowadzić dzienniczek, tak samo jak w przypadku Holtera
+                                                EKG, w którym zapisuje jakie aktywności wykonywał w trakcie dnia i o
+                                                której godzinie.</p></blockquote>
+                                        <p>Coraz rzadziej sięgamy po to badanie, ponieważ samodzielne pomiary ciśnienia
+                                            tętniczego wykonywane przez pacjenta w domu dostarczają w większości
+                                            przypadków dostatecznych informacji dla postawienia diagnozy i monitorowania
+                                            skuteczności leczenia.</p>
+                                        <p>Holter ciśnieniowy jest jednak doskonałym rozwiązaniem w pewnych grupach
+                                            pacjentów, młodych, mniej zdyscyplinowanych, u których podejrzewamy
+                                            nadciśnienie białego fartucha lub nadciśnienie maskowane. Urządzenie
+                                            zapisuje wszystkie pomiary w pamięci, otrzymujemy zestawienie wykonanych
+                                            pomiarów oraz średnią z całego zapisu, średnie z nocy i z pomiarów
+                                            dziennych.</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div data-th-replace="fragments/core_fragments.html :: previousNext"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-th-replace="fragments/core_fragments.html :: footer"></div>
+</body>
+</html>

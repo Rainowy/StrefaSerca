@@ -10,6 +10,7 @@ public class CardioService {
     private List<String> services = new ArrayList<>(Arrays.asList(
             "Echokardiografia",
             "Holter_EKG",
+            "Holter_RR",
             "Test_wysiłkowy",
             "Koronarografia",
             "Kontrola_stymulatora"
