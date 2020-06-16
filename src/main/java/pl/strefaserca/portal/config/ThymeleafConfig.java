@@ -11,7 +11,8 @@ public class ThymeleafConfig {
     @Bean
     public SpringResourceTemplateResolver externalTemplateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setPrefix("file:/home/tomek/Documents/StrefaHtml/");
+//        templateResolver.setPrefix("file:/home/tomek/Documents/StrefaHtml/");
+        templateResolver.setPrefix("file:/volume1/web/StrefaHtml/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         templateResolver.setCharacterEncoding("UTF-8");

@@ -22,7 +22,7 @@ public class CardioServiceController {
 
     @GetMapping("/selected/{serviceName}")
     ModelAndView selectedArticle(@PathVariable String serviceName) {
-        ModelAndView model = new ModelAndView("/cardio_services/" + serviceName);
+        ModelAndView model = new ModelAndView("cardio_services/" + serviceName);
         model.addObject("nextService",cardioService.nextService(serviceName));
         model.addObject("prevService",cardioService.prevService(serviceName));
         return model;

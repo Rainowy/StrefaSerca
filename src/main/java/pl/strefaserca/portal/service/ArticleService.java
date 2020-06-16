@@ -30,7 +30,8 @@ public class ArticleService {
     public List<ArticleDto> getArticleInfo() {
 
         List<ArticleDto> articles;
-        Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
+//        Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
+        Stream<Path> paths = Files.walk(Paths.get("/volume1/web/StrefaHtml"));
         articles = paths.map(Path::toString)
                 .filter(p -> !p.contains("article"))
                 .filter(p -> p.endsWith(".html"))
@@ -75,6 +76,7 @@ public class ArticleService {
 
     private String parseFileName(String path) {
         return path.substring(path.lastIndexOf('/') + 1, path.lastIndexOf('.'));
+
     }
 
     private String parseLead(String path) {
