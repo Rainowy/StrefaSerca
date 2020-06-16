@@ -52,27 +52,28 @@ veterinary cardiology website, pediatric cardiology website">
             <!-- navigation -->
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10 col-sm-10">
+                    <div class="col-md-10 col-sm-12">
                         <div id="navigation" class="navigation">
                             <ul>
-                                <li class="active"><a href="/index" title="Home" class="animsition-link">Home</a>
+                                <li class="active"><a th:href="@{/index}" title="Home" class="animsition-link">Strona główna</a>
                                 </li>
-                                <li><a href="/#" title="O_mnie" class="inactiveLink">O mnie</a>
+                                <li><a th:href="@{/#}" title="O_mnie" class="inactiveLink">O mnie</a>
                                     <ul>
                                         <li>
-                                            <a href="/certificates" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
+                                            <a th:href="@{/certificates}" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
                                         </li>
-                                        <li><a href="/about" title="Pasja" class="animsition-link">Kardiologia moją
-                                            pasją</a>
+                                        <li>
+                                            <a th:href="@{/about}" title="Pasja" class="animsition-link">Kardiologia
+                                                moją pasją</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="/services" title="Usługi" class="animsition-link">Usługi</a>
-                                <li><a href="/testimonials" title="Opinie" class="animsition-link">Opinie</a>
+                                <li><a th:href="@{/services}" title="Usługi" class="animsition-link">Usługi i diagnostyka</a>
+                                <li><a th:href="@{/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
                                 </li>
-                                <li><a href="/article/list" title="Blog" class="animsition-link">Artykuły</a>
+                                <li><a th:href="@{/article/list}" title="Blog" class="animsition-link">Artykuły</a>
                                 </li>
-                                <li><a href="/contact" title="Kontakt" class="animsition-link">Kontakt</a>
+                                <li><a th:href="@{/contact}" title="Kontakt" class="animsition-link">Kontakt</a>
                                 </li>
                             </ul>
                         </div>
@@ -97,7 +98,7 @@ veterinary cardiology website, pediatric cardiology website">
         <div class="col-md-12 col-sm-12">
             <div class="sidenav mb60">
                 <ul class="listnone no-padding">
-                    <li class="active">
+                    <li>
                         <a th:href="@{${'/service/selected/Echokardiografia'}}" title="Echokardiografia">Echokardiografia</a>
                     </li>
                     <li><a th:href="@{${'/service/selected/Holter_EKG'}}" title="Holter EKG">Holter EKG</a></li>
@@ -159,24 +160,30 @@ veterinary cardiology website, pediatric cardiology website">
             <div class="col-md-3 col-sm-3">
                 <div class="footer-widget">
                     <div class="footer-logo mb30"><img src="images/ft-logo.png" alt="" class=""></div>
-                    <address><i class="fa fa-map-marker"></i> 873 Fleming Way<br> Richmond, VA 23228
+                    <address><i class="fa fa-map-marker"></i> Bogedaina 41<br> 43-200, Pszczyna, śląskie
                     </address>
                     <ul class="listnone contact">
-                        <li><i class="fa fa-phone"></i>800-123-456</li>
-                        <li><i class="fa fa-envelope-o"></i>Info@architectural.com</li>
+                        <li><i class="fa fa-phone"></i>792 327 604 <br> 32 447 09 70</li>
+                        <li><i class="fa fa-envelope-o"></i>strefaserca@gmail.com</li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-3 col-sm-3">
                 <div class="footer-widget"><!-- footer-widget -->
-                    <h3 class="footer-title">Services</h3>
+                    <h3 class="footer-title">Usługi i Diagnostyka</h3>
                     <ul class="listnone bullet bullet-angle-right mb0">
-                        <li><a href="service-detail.html" title="Diagnostic Cardiac">Diagnostic Cardiac</a></li>
-                        <li><a href="service-detail.html" title="Vascular Dignostic">Vascular Dignostic</a></li>
-                        <li><a href="service-detail.html" title="Invasive Procedures">Invasive Procedures</a></li>
-                        <li><a href="service-detail.html" title="Heart Conditions Treated">Heart Conditions Treated</a>
+                        <li><a th:href="@{${'/service/selected/Echokardiografia'}}" title="Echokardiografia">Echokardiografia</a>
                         </li>
-                        <li><a href="service-detail.html" title="Vein Clinic Services">Vein Clinic Services</a></li>
+                        <li><a th:href="@{${'/service/selected/Holter_EKG'}}" title="Holter EKG">Holter EKG</a></li>
+                        <li><a th:href="@{${'/service/selected/Holter_RR'}}" title="Holter ciśnieniowy">Holter
+                            ciśnieniowy</a></li>
+                        <li><a th:href="@{${'/service/selected/Kontrola_stymulatora'}}" title="Kontrola stymulatora">Kontrola stymulatora</a></li>
+                        <li>
+                            <a th:href="@{${'/service/selected/Koronarografia'}}" title="Koronarografia">Koronarografia</a>
+                        </li>
+                        <li>
+                            <a th:href="@{${'/service/selected/Test_wysiłkowy'}}" title="Test wysiłkowy">Test wysiłkowy</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.footer-widget -->
@@ -185,9 +192,9 @@ veterinary cardiology website, pediatric cardiology website">
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Strony</h3>
                     <ul class="listnone bullet bullet-angle-right mb0">
-                        <li><a href="/index" title="Home">Home</a></li>
+                        <li><a href="/index" title="Home">Główna</a></li>
                         <li><a href="/services" title="Usługi">Usługi</a></li>
-                        <li><a href="/articles" title="Artykuły">Artykuły</a></li>
+                        <li><a href="/article/list" title="Artykuły">Artykuły</a></li>
                         <li><a href="/contact" title="Kontakt Us">Kontakt</a></li>
                         <li><a href="/testimonials" title="Opinie">Opinie</a></li>
                     </ul>
@@ -197,12 +204,12 @@ veterinary cardiology website, pediatric cardiology website">
             <div class="col-md-4 col-sm-4">
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Newsletter</h3>
-                    <p>Subscribe to our newsletter to get the latest news to your inbox.</p>
+                    <p>Zapisz się do newslettera i bądź na bieżąco!</p>
                     <form>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Email Address">
+                            <input type="email" class="form-control" placeholder="Adres e-mail">
                             <span class="input-group-btn">
-        <button class="btn btn-default" type="button">subscribe</button></span>
+        <button class="btn btn-default" type="button">Zapisz mnie</button></span>
                         </div>
                     </form>
                 </div>
@@ -214,7 +221,7 @@ veterinary cardiology website, pediatric cardiology website">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 text-center">
-                    <p>Cardio © 2016 | Privacy Policy</p>
+                    <p>StrefaSerca © 2020</p>
                 </div>
             </div>
         </div>

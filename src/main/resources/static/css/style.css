@@ -172,15 +172,15 @@ padding space
 .bg-white{background-color: #fff;}
 .outline{}
 .section-title{}  
-.content{padding-bottom: 100px;padding-top: 100px;}
+.content{padding-bottom: 100px;padding-top: 50px;}
 .primary-sidebar{}
 .secondary-sidebar{}
 
 /*-------------- Bullet point -------------*/
 
-.bullet{position: relative; padding-left: 15px; color: #3fb9ab; line-height: 32px;}
+.bullet{position: relative; padding-left: 15px; color: #EC6051; line-height: 32px;}
 .bullet-angle-right li:before {font-family: FontAwesome; display: block;
- position: absolute; left: 0; width: 13px; font-size: 14px; color: #3fb9ab;
+ position: absolute; left: 0; width: 13px; font-size: 14px; color: #EC6051;
  content: "\f105";}
 
  /*----------------- Image Hover Effect ---------------*/
@@ -371,13 +371,13 @@ background-size: cover; margin: 0;}
 .footer-widget .contact li {position: relative; padding-left: 30px;
   margin-bottom: 20px;}
 .footer-widget .contact li i {display: block; position: absolute; top: 2px;
-  left: 0; width: 30px; font-size: 18px; text-align: center; color: #03af9e; }
+  left: 0; width: 30px; font-size: 18px; text-align: center; color: #EC6051; }
 .footer-widget p{color: #7f8685;}
 .footer-widget address{display: flex;}
 .footer-call{margin-bottom: 5px;}
 .footer-email{}
 .footer-link{color: #7f8685; font-size: 14px;}
-.footer-widget i{font-size: 16px; color: #03af9e; padding-right: 10px;
+.footer-widget i{font-size: 16px; color: #EC6051  ; padding-right: 10px;
   padding-top: 4px;}
 .footer-widget .form-control {height: 44px; color: #161818; background-color: #474e4e;
 border: 0px solid;}  
@@ -598,8 +598,8 @@ text-align: center; padding-top: 13px;}
 .sidenav ul{}
 .sidenav ul li{background-color: #ec6051; padding: 26px 15px;
 line-height: 1; border-bottom: 1px solid #da5547;}
-.sidenav ul li:hover{background-color: #da5547; border-bottom: 1px solid #da5547;}
-.sidenav ul li.active{background-color: #da5547; border-bottom: 1px solid #da5547;}
+.sidenav ul li:hover{background-color: #03AF9E; border-bottom: 1px solid #da5547;}
+.sidenav ul li.active{background-color: #03AF9E; border-bottom: 1px solid #da5547;}
 .sidenav ul li a{font-size: 14px; font-weight: 700; color: #fff;}
 .sidenav ul li a:before{font-family: FontAwesome; color: #fff; float: right;
 content: "\f105"; width: 13px; font-size: 18px;}
@@ -609,9 +609,9 @@ content: "\f105"; width: 13px; font-size: 18px;}
 .widget-contact li {position: relative; padding-left: 30px; margin-bottom: 20px;}
 .widget-contact li i {padding-right: 10px; padding-top: 4px; display: block;
 position: absolute; top: 2px; left: 0;
-width: 30px; font-size: 18px; text-align: center; color: #03af9e;}
+width: 30px; font-size: 18px; text-align: center; color: #ec6051;}
 .widget-contact address {display: flex;}
-.widget-contact address i{margin-right: 17px; margin-top: 5px; color: #03af9e;}
+.widget-contact address i{margin-right: 17px; margin-top: 5px; color: #ec6051;}
 .solcial-link{font-size: 22px;}
 
 
