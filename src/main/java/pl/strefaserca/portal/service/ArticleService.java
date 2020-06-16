@@ -30,8 +30,8 @@ public class ArticleService {
     public List<ArticleDto> getArticleInfo() {
 
         List<ArticleDto> articles;
-//        Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
-        Stream<Path> paths = Files.walk(Paths.get("/volume1/web/StrefaHtml"));
+        Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
+//        Stream<Path> paths = Files.walk(Paths.get("/volume1/web/StrefaHtml"));
         articles = paths.map(Path::toString)
                 .filter(p -> !p.contains("article"))
                 .filter(p -> p.endsWith(".html"))
