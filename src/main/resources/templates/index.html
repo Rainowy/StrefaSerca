@@ -237,10 +237,10 @@
                     <i class="fa fa-quote-left"></i>
                 </div>
                 <div class="testimonial-info"><!-- testimonial info -->
-                    <p class="testimonial-content">The costs of treatments are very reaso able. I have always been
-                        impressed with the results. The fully medically qualified team. thank you so much.</p>
-                    <span class="testimonial-text">- Maria Willmore</span><br>
-                    <span class="testimonial-meta">patients</span>
+                    <p class="testimonial-content">Jestem po wszczepieniu stymulatora serca, u Pani doktor byłem już 6
+                        raz. Przy każdej wizycie mam przeprowadzone szczegółowe badania oraz dostaję instrukcję do
+                        dalszego leczenia. Jestem bardzo zadowolony i polecam Panią Doktor.</p>
+                    <span class="testimonial-text">- Józef, 76 lat</span><br> <span class="testimonial-meta">16 grudnia 2019</span>
                 </div><!-- /.testimonial info -->
             </div>
             <div class="col-md-6">
@@ -248,10 +248,11 @@
                     <i class="fa fa-quote-left"></i>
                 </div>
                 <div class="testimonial-info"><!-- testimonial info -->
-                    <p class="testimonial-content">Thank you for caring for me. Thank you also for taking time during
-                        office visit and not making me feel like a number lorem ipsum dolor sitamet nullas. </p>
-                    <span class="testimonial-text">- Robert Porter</span><br>
-                    <span class="testimonial-meta">patients</span>
+                    <p class="testimonial-content">Mogę powiedzieć tylko to że dzięki Pani Doktor dowiedziałam się co mi
+                        jest, teraz jestem już pod opieką onkologa, bardzo dziękuje Pani Doktor, wspaniały człowiek jako
+                        lekarz, najlepszy jakiego mogłam spotkać na swej drodze, jeszcze raz dziękuje Pani Doktor.</p>
+                    <span class="testimonial-text">- Bożena</span><br>
+                    <span class="testimonial-meta">25 lipca 2017</span>
                 </div><!-- /.testimonial info -->
             </div>
         </div>
@@ -277,7 +278,7 @@
                     <div class="post-block">
                         <div class="post-header mb20">
                             <h3 class="post-title mb20">
-                                <a  th:text="${recentArticle.getTitle()}" th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="title"></a>
+                                <a th:text="${recentArticle.getTitle()}" th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="title"></a>
                             </h3>
                             <div class="post-meta">
                                 <span class="meta-date"><i class="fa fa-calendar"></i><th:block th:text="${#temporals.format(recentArticle.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>
