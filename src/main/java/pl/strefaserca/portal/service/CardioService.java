@@ -7,6 +7,7 @@ import java.util.List;
 @Service
 public class CardioService {
 
+    /** List of available services */
     private List<String> services = new ArrayList<>(Arrays.asList(
             "Echokardiografia",
             "Holter_EKG",

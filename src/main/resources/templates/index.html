@@ -54,8 +54,9 @@
                 <div class="intro-caption"><!-- intro caption -->
                     <h1 class="intro-title">Kardiolog <br> Katarzyna Czarnecka</h1>
                     <!--                    <p class="mb40">Your health is our top priority with comprehensive, affordable<br> medical health care.-->
-<!--                    &lt;!&ndash;                    </p>&ndash;&gt;-->
-                    <a href="https://www.znanylekarz.pl/katarzyna-maria-czarnecka/kardiolog/pszczyna" class="btn btn-default">Umów
+                    <!--                    &lt;!&ndash;                    </p>&ndash;&gt;-->
+                    <a href="https://www.znanylekarz.pl/katarzyna-maria-czarnecka/kardiolog/pszczyna"
+                       class="btn btn-default">Umów
                         wizytę</a>
                 </div>
                 <!-- /.intro caption -->
@@ -76,52 +77,65 @@
                     <div class="col-md-4 col-sm-4">
                         <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Echokardiografia'}" class="imghover"><img th:src="@{/images/cardio_services/echo-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Echokardiografia'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/echo-thumbnail.jpg}" class="img-responsive"
+                                        alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Echokardiografia'}" class="heading-title">Echokardiografia</a>
                             </h2>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <div class="service-block text-center">
+                        <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Holter_EKG'}" class="imghover"><img th:src="@{/images/cardio_services/holter-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Holter_EKG'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/holter-thumbnail.jpg}" class="img-responsive"
+                                        alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Holter_EKG'}" class="heading-title">Holter EKG</a></h2>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <div class="service-block text-center">
+                        <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Holter_RR'}" class="imghover"><img th:src="@{/images/cardio_services/holter-RR-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Holter_RR'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/holter-RR-thumbnail.jpg}"
+                                        class="img-responsive" alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Holter_RR'}" class="heading-title">Holter
                                 ciśnieniowy</a></h2>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <div class="service-block text-center">
+                        <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Kontrola_stymulatora'}" class="imghover"><img th:src="@{/images/cardio_services/stymulator-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Kontrola_stymulatora'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/stymulator-thumbnail.jpg}"
+                                        class="img-responsive" alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Kontrola_stymulatora'}" class="heading-title">Kontrola
                                 stymulatora</a></h2>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <div class="service-block text-center">
+                        <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Koronarografia'}" class="imghover"><img th:src="@{/images/cardio_services/koro-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Koronarografia'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/koro-thumbnail.jpg}" class="img-responsive"
+                                        alt=""/></a>
                             </div>
                             <h2>
-                                <a th:href="@{'/service/selected/Koronarografia'}" class="heading-title">Koronarografia</a>
+                                <a th:href="@{'/service/selected/Koronarografia'}"
+                                   class="heading-title">Koronarografia</a>
                             </h2>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <div class="service-block text-center">
+                        <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Test_wysiłkowy'}" class="imghover"><img th:src="@{/images/cardio_services/test-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Test_wysiłkowy'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/test-thumbnail.jpg}" class="img-responsive"
+                                        alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Test_wysiłkowy'}" class="heading-title">Test
                                 wysiłkowy</a></h2>
@@ -227,27 +241,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" th:each="testimonial : ${testimonials}">
                 <div class="testimonial-icon">
                     <i class="fa fa-quote-left"></i>
                 </div>
                 <div class="testimonial-info"><!-- testimonial info -->
-                    <p class="testimonial-content">Jestem po wszczepieniu stymulatora serca, u Pani doktor byłem już 6
-                        raz. Przy każdej wizycie mam przeprowadzone szczegółowe badania oraz dostaję instrukcję do
-                        dalszego leczenia. Jestem bardzo zadowolony i polecam Panią Doktor.</p>
-                    <span class="testimonial-text">- Józef, 76 lat</span><br> <span class="testimonial-meta">16 grudnia 2019</span>
-                </div><!-- /.testimonial info -->
-            </div>
-            <div class="col-md-6">
-                <div class="testimonial-icon">
-                    <i class="fa fa-quote-left"></i>
-                </div>
-                <div class="testimonial-info"><!-- testimonial info -->
-                    <p class="testimonial-content">Mogę powiedzieć tylko to że dzięki Pani Doktor dowiedziałam się co mi
-                        jest, teraz jestem już pod opieką onkologa, bardzo dziękuje Pani Doktor, wspaniały człowiek jako
-                        lekarz, najlepszy jakiego mogłam spotkać na swej drodze, jeszcze raz dziękuje Pani Doktor.</p>
-                    <span class="testimonial-text">- Bożena</span><br>
-                    <span class="testimonial-meta">25 lipca 2017</span>
+                    <p class="testimonial-content" th:text="${testimonial.getText()}"></p>
+                    <span class="testimonial-text" th:text="${testimonial.getName()}"></span><br> <span
+                            class="testimonial-meta" th:text="${testimonial.getDate()}"></span>
                 </div><!-- /.testimonial info -->
             </div>
         </div>
@@ -268,57 +269,23 @@
             <div class="col-md-4 col-sm-4" th:each="recentArticle : ${recentArticles}">
                 <div class="post-holder mb40">
                     <div class="post-img mb20">
-                        <a th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="imghover"><img th:src="@{${'/' + recentArticle.getImgSrc()}}" alt="" class="img-responsive"></a>
+                        <a th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="imghover"><img
+                                th:src="@{${'/' + recentArticle.getImgSrc()}}" alt="" class="img-responsive"></a>
                     </div>
                     <div class="post-block">
                         <div class="post-header mb20">
                             <h3 class="post-title mb20">
-                                <a th:text="${recentArticle.getTitle()}" th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="title"></a>
+                                <a th:text="${recentArticle.getTitle()}"
+                                   th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="title"></a>
                             </h3>
                             <div class="post-meta">
-                                <span class="meta-date"><i class="fa fa-calendar"></i><th:block th:text="${#temporals.format(recentArticle.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>
+                                <span class="meta-date"><i class="fa fa-calendar"></i><th:block
+                                        th:text="${#temporals.format(recentArticle.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--            </div>-->
-            <!--            <div class="col-md-4 col-sm-4">-->
-            <!--                <div class="post-holder mb40">-->
-            <!--                    <div class="post-img mb20">-->
-            <!--                        <a href="#" class="imghover"><img src="images/post-img-2.jpg" alt="" class="img-responsive"></a>-->
-            <!--                    </div>-->
-            <!--                    <div class="post-block">-->
-            <!--                        <div class="post-header mb20">-->
-            <!--                            <h3 class="post-title mb20">-->
-            <!--                                <a href="#" class="title">Medication Management and Heart Disease Services</a></h3>-->
-            <!--                            <div class="post-meta">&lt;!&ndash; post meta &ndash;&gt;-->
-            <!--                                <span class="meta-date"><i class="fa fa-calendar"></i> August 24, 2017 </span>-->
-            <!--                                <span class="meta-comment"><i class="fa fa-comments"></i> <a href="#" class="meta-link">05 Comment </a></span>-->
-            <!--                            </div>-->
-            <!--                            &lt;!&ndash; /.post meta &ndash;&gt;-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            <div class="col-md-4 col-sm-4">-->
-            <!--                <div class="post-holder mb40">-->
-            <!--                    <div class="post-img mb20">-->
-            <!--                        <a href="#" class="imghover"><img src="images/post-img-3.jpg" alt="" class="img-responsive"></a>-->
-            <!--                    </div>-->
-            <!--                    <div class="post-block">-->
-            <!--                        <div class="post-header mb20">-->
-            <!--                            <h3 class="post-title mb20">-->
-            <!--                                <a href="#" class="title">The Importance of Good Medication Management</a></h3>-->
-            <!--                            <div class="post-meta">&lt;!&ndash; post meta &ndash;&gt;-->
-            <!--                                <span class="meta-date"><i class="fa fa-calendar"></i> August 24, 2017 </span>-->
-            <!--                                <span class="meta-comment"><i class="fa fa-comments"></i> <a href="#" class="meta-link">05 Comment </a></span>-->
-            <!--                            </div>-->
-            <!--                            &lt;!&ndash; /.post meta &ndash;&gt;-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
         </div>
     </div>
 </div>

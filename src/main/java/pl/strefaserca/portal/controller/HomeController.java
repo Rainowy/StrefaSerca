@@ -5,16 +5,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pl.strefaserca.portal.service.ArticleService;
+import pl.strefaserca.portal.service.TestimonialService;
 
 @Controller
 @AllArgsConstructor
 public class HomeController {
 
     ArticleService articleService;
+    TestimonialService testimonialService;
 
     @GetMapping("/index")
-    public ModelAndView index(){
-        return new ModelAndView("index", "recentArticles", articleService.recentArticles());
+    public ModelAndView index() {
+        ModelAndView model = new ModelAndView("index","recentArticles", articleService.recentArticles());
+        model.addObject("testimonials",testimonialService.rotatedTestimonials());
+        return model;
     }
 
     @GetMapping("/certificates")
@@ -44,7 +48,7 @@ public class HomeController {
 
     @GetMapping("/testimonials")
     public ModelAndView testimonials(){
-        return new ModelAndView("testimonials");
+        return new ModelAndView("testimonials","testimonials",testimonialService.allTestimonials());
     }
 
     @GetMapping("/about")
