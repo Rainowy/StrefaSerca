@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Are you small and local cardiology clinic and hospital? Download our free website template for your cardiology website template. Its Free!">
+    <meta name="description" content="Strona portalu Strefa Serca. W codziennej pracy staram się dążyć do jasnego i zrozumiałego wyjaśnienia pacjentowi na czym polega jego choroba. Uważam, że wiedza, jak postępować w danej sytuacji i dlaczego, zwiększa skuteczność leczenia.">
     <meta name="keywords" content="medical website templates bootstrap,medical website templates free download,medical website templates free, cardiology website templates,cardiology website design,cardiology websites for doctors,cardiology website templates free,
 veterinary cardiology website, pediatric cardiology website">
     <!-- Bootstrap -->
@@ -31,7 +31,7 @@ veterinary cardiology website, pediatric cardiology website">
 <div th:fragment="topHeader" class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-12"><a class="logo" th:href="@{/index}">
+            <div class="col-md-3 col-sm-12"><a class="logo" th:href="@{/}">
                 <img th:src="@{/images/logo-main.jpg}" alt=""/></a>
             </div>
             <div class="col-md-3  hidden-sm hidden-xs top-link">
@@ -55,7 +55,8 @@ veterinary cardiology website, pediatric cardiology website">
                     <div class="col-md-10 col-sm-12">
                         <div id="navigation" class="navigation">
                             <ul>
-                                <li class="active"><a th:href="@{/index}" title="Home" class="animsition-link">Strona główna</a>
+                                <li class="active"><a th:href="@{/}" title="Home" class="animsition-link">Strona
+                                    główna</a>
                                 </li>
                                 <li><a th:href="@{/#}" title="O_mnie" class="inactiveLink">O mnie</a>
                                     <ul>
@@ -68,7 +69,8 @@ veterinary cardiology website, pediatric cardiology website">
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a th:href="@{/services}" title="Usługi" class="animsition-link">Usługi i diagnostyka</a>
+                                <li><a th:href="@{/services}" title="Usługi" class="animsition-link">Usługi i
+                                    diagnostyka</a>
                                 <li><a th:href="@{/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
                                 </li>
                                 <li><a th:href="@{/article/list}" title="Blog" class="animsition-link">Artykuły</a>
@@ -99,7 +101,7 @@ veterinary cardiology website, pediatric cardiology website">
             <div class="sidenav mb60">
                 <ul class="listnone no-padding">
                     <li>
-                        <a th:href="@{${'/service/selected/Echokardiografia'}}" title="Echokardiografia">Echokardiografia</a>
+                        <a style="padding-block: 20px" th:href="@{${'/service/selected/Echokardiografia'}}" title="Echokardiografia">Echokardiografia</a>
                     </li>
                     <li><a th:href="@{${'/service/selected/Holter_EKG'}}" title="Holter EKG">Holter EKG</a></li>
                     <li><a th:href="@{${'/service/selected/Holter_RR'}}" title="Holter ciśnieniowy">Holter <br>
@@ -177,12 +179,14 @@ veterinary cardiology website, pediatric cardiology website">
                         <li><a th:href="@{${'/service/selected/Holter_EKG'}}" title="Holter EKG">Holter EKG</a></li>
                         <li><a th:href="@{${'/service/selected/Holter_RR'}}" title="Holter ciśnieniowy">Holter
                             ciśnieniowy</a></li>
-                        <li><a th:href="@{${'/service/selected/Kontrola_stymulatora'}}" title="Kontrola stymulatora">Kontrola stymulatora</a></li>
+                        <li><a th:href="@{${'/service/selected/Kontrola_stymulatora'}}" title="Kontrola stymulatora">Kontrola
+                            stymulatora</a></li>
                         <li>
                             <a th:href="@{${'/service/selected/Koronarografia'}}" title="Koronarografia">Koronarografia</a>
                         </li>
                         <li>
-                            <a th:href="@{${'/service/selected/Test_wysiłkowy'}}" title="Test wysiłkowy">Test wysiłkowy</a>
+                            <a th:href="@{${'/service/selected/Test_wysiłkowy'}}" title="Test wysiłkowy">Test
+                                wysiłkowy</a>
                         </li>
                     </ul>
                 </div>
@@ -192,11 +196,11 @@ veterinary cardiology website, pediatric cardiology website">
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Strony</h3>
                     <ul class="listnone bullet bullet-angle-right mb0">
-                        <li><a href="/index" title="Home">Główna</a></li>
-                        <li><a href="/services" title="Usługi">Usługi</a></li>
-                        <li><a href="/article/list" title="Artykuły">Artykuły</a></li>
-                        <li><a href="/contact" title="Kontakt Us">Kontakt</a></li>
-                        <li><a href="/testimonials" title="Opinie">Opinie</a></li>
+                        <li><a th:href="@{/}" title="Home">Główna</a></li>
+                        <li><a th:href="@{/services}" title="Usługi">Usługi</a></li>
+                        <li><a th:href="@{/article/list}" title="Artykuły">Artykuły</a></li>
+                        <li><a th:href="@{/contact}" title="Kontakt Us">Kontakt</a></li>
+                        <li><a th:href="@{/testimonials}" title="Opinie">Opinie</a></li>
                     </ul>
                 </div>
                 <!-- /.footer-widget -->

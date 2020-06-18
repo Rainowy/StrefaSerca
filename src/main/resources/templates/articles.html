@@ -9,66 +9,10 @@
 <div class="content">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-sm-8">
-                <div class="content-area">
-                    <div th:each="article : ${articles}" class="row">
-                        <div class="articleWrapper">
-                            <div class="col-md-12 col-sm-12">
-                                <div class="post-holder mb40">
-                                    <div class="post-img mb40">
-                                        <a th:href="@{${'/article/selected/' + article.getFileName()}}" class=" imghover"><img th:src="@{${'/' + article.getImgSrc()}}" alt="" class="img-responsive"></a>
-                                    </div>
-                                    <div class="post-sticky"></div>
-                                    <div class="post-block">
-                                        <div class="post-header mb20">
-                                            <h1 class="post-title mb30">
-                                                <a th:text="${article.getTitle()}" th:href="@{${'/article/selected/' + article.getFileName()}}" class="title"></a>
-                                            </h1>
-                                            <div class="post-meta">
-                                                <span class="meta-date"><i class="fa fa-calendar"></i><th:block th:text="${#temporals.format(article.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="post-content">
-                                            <p th:text="${article.getLead() + '.'}"></p>
-                                            <a th:href="@{${'/article/selected/' + article.getFileName()}}" class="btn btn-default">Czytaj
-                                                więcej</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-<!--                    <div class="col-md-12 col-sm-12 text-center">-->
-<!--                        <div class="st-pagination">-->
-<!--                            &lt;!&ndash;st-pagination&ndash;&gt;-->
-<!--                            <ul class="pagination">-->
-<!--                                <li><a href="#" aria-label="previous"><span aria-hidden="true">previous</span></a></li>-->
-<!--                                <li class="active"><a href="#">1</a></li>-->
-<!--                                <li><a href="#">2</a></li>-->
-<!--                                <li><a href="#">3</a></li>-->
-<!--                                <li><a href="#" aria-label="Next"><span aria-hidden="true">next</span></a></li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash;/.st-pagination&ndash;&gt;-->
-<!--                    </div>-->
-                </div>
-            </div>
             <div class="col-md-4 col-sm-4">
                 <div class="sidebar-area">
                     <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="widget widget-search pinside30 mb40">
-                                <h2 class="widget-title mb30">Wyszukaj artykuł</h2>
-                                <hr>
-                                <form>
-                                    <div class="input-group">
-                                        <input type="text" id="searchBar" class="form-control" placeholder="Szukaj" aria-describedby="basic-addon2">
-                                        <span class="input-group-addon" id="basic-addon2"> <i class="fa fa-search"></i></span>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+
                         <!--                        <div class="col-md-12 col-sm-12">-->
                         <!--                            <div class=" widget widget-categories pinside30">-->
                         <!--                                <h2 class="widget-title">Categories</h2>-->
@@ -117,27 +61,173 @@
                             </div>
 
                         </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="widget widget-search pinside30 mb40">
+                                <h2 class="widget-title mb30">Wyszukaj artykuł</h2>
+                                <hr>
+                                <form>
+                                    <div class="input-group">
+                                        <input type="text" id="searchBar" class="form-control" placeholder="Szukaj" aria-describedby="basic-addon2">
+                                        <span class="input-group-addon" id="basic-addon2"> <i class="fa fa-search"></i></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-<!--                    <div class="col-md-12 col-sm-12">-->
-<!--                        &lt;!&ndash;  tags &ndash;&gt;-->
-<!--                        <div class="widget widget-tags mb40">-->
-<!--                            <h2 class="widget-title">Tags</h2>-->
-<!--                            <hr>-->
-<!--                            &lt;!&ndash; widget title &ndash;&gt;-->
-<!--                            <a href="#" title="Dignosis">Dignosis</a> <a href="#" title="Cardiac">Cardiac</a>-->
-<!--                            <a href="#" title="Clinic">Clinic</a> <a href="#" title="Invasive Procedured">Invasive-->
-<!--                            Procedured</a> <a href="#" title="Vascular">Vascular</a>-->
-<!--                            <a href="#" title="Cardiac">Cardiac</a> <a href="#" title="medical">medical</a></div>-->
-<!--                        &lt;!&ndash; /.widget well bg &ndash;&gt;-->
-<!--                    </div>-->
+                    <!--                    <div class="col-md-12 col-sm-12">-->
+                    <!--                        &lt;!&ndash;  tags &ndash;&gt;-->
+                    <!--                        <div class="widget widget-tags mb40">-->
+                    <!--                            <h2 class="widget-title">Tags</h2>-->
+                    <!--                            <hr>-->
+                    <!--                            &lt;!&ndash; widget title &ndash;&gt;-->
+                    <!--                            <a href="#" title="Dignosis">Dignosis</a> <a href="#" title="Cardiac">Cardiac</a>-->
+                    <!--                            <a href="#" title="Clinic">Clinic</a> <a href="#" title="Invasive Procedured">Invasive-->
+                    <!--                            Procedured</a> <a href="#" title="Vascular">Vascular</a>-->
+                    <!--                            <a href="#" title="Cardiac">Cardiac</a> <a href="#" title="medical">medical</a></div>-->
+                    <!--                        &lt;!&ndash; /.widget well bg &ndash;&gt;-->
+                    <!--                    </div>-->
                 </div>
             </div>
+            <div class="col-md-8 col-sm-8">
+                <div class="content-area">
+                    <div th:each="article : ${articles}" class="row">
+                        <div class="articleWrapper">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="post-holder mb40">
+                                    <div class="post-img mb40">
+                                        <a th:href="@{${'/article/selected/' + article.getFileName()}}" class=" imghover"><img th:src="@{${'/' + article.getImgSrc()}}" alt="" class="img-responsive"></a>
+                                    </div>
+                                    <div class="post-sticky"></div>
+                                    <div class="post-block">
+                                        <div class="post-header mb20">
+                                            <h1 class="post-title mb30">
+                                                <a th:text="${article.getTitle()}" th:href="@{${'/article/selected/' + article.getFileName()}}" class="title"></a>
+                                            </h1>
+                                            <div class="post-meta">
+                                                <span class="meta-date"><i class="fa fa-calendar"></i><th:block th:text="${#temporals.format(article.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="post-content">
+                                            <p th:text="${article.getLead() + '.'}"></p>
+                                            <a th:href="@{${'/article/selected/' + article.getFileName()}}" class="btn btn-default">Czytaj
+                                                więcej</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    <div class="col-md-12 col-sm-12 text-center">-->
+                    <!--                        <div class="st-pagination">-->
+                    <!--                            &lt;!&ndash;st-pagination&ndash;&gt;-->
+                    <!--                            <ul class="pagination">-->
+                    <!--                                <li><a href="#" aria-label="previous"><span aria-hidden="true">previous</span></a></li>-->
+                    <!--                                <li class="active"><a href="#">1</a></li>-->
+                    <!--                                <li><a href="#">2</a></li>-->
+                    <!--                                <li><a href="#">3</a></li>-->
+                    <!--                                <li><a href="#" aria-label="Next"><span aria-hidden="true">next</span></a></li>-->
+                    <!--                            </ul>-->
+                    <!--                        </div>-->
+                    <!--                        &lt;!&ndash;/.st-pagination&ndash;&gt;-->
+                    <!--                    </div>-->
+                </div>
+            </div>
+            <!--            <div class="col-md-4 col-sm-4">-->
+            <!--                <div class="sidebar-area">-->
+            <!--                    <div class="row">-->
+            <!--                        <div class="col-md-12 col-sm-12">-->
+            <!--                            <div class="widget widget-search pinside30 mb40">-->
+            <!--                                <h2 class="widget-title mb30">Wyszukaj artykuł</h2>-->
+            <!--                                <hr>-->
+            <!--                                <form>-->
+            <!--                                    <div class="input-group">-->
+            <!--                                        <input type="text" id="searchBar" class="form-control" placeholder="Szukaj" aria-describedby="basic-addon2">-->
+            <!--                                        <span class="input-group-addon" id="basic-addon2"> <i class="fa fa-search"></i></span>-->
+            <!--                                    </div>-->
+            <!--                                </form>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                        &lt;!&ndash;                        <div class="col-md-12 col-sm-12">&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                            <div class=" widget widget-categories pinside30">&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                <h2 class="widget-title">Categories</h2>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                <hr>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                <ul class="listnone bullet bullet-angle-right mb0">&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                    <li><a href="#">Diagnostic Cardiac</a></li>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                    <li><a href="#">Vascular Dignostic</a></li>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                    <li><a href="#">Invasive Procedures</a></li>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                    <li><a href="#">Vein Clinic Services</a></li>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                </ul>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                            </div>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                        <div class="col-md-12 col-sm-12">&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                            <div class=" widget widget-archives pinside30 mb40">&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                <h2 class="widget-title">Archives</h2>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                <hr>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                <ul class="listnone bullet bullet-angle-right mb0">&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                    <li><a href="#">February (2017)</a></li>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                    <li><a href="#">December (2016)</a></li>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                    <li><a href="#">July (2016)</a></li>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                    <li><a href="#">January (2016)</a></li>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                                </ul>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                            </div>&ndash;&gt;-->
+            <!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
+            <!--                        <div class="col-md-12 col-sm-12">-->
+            <!--                            <div class="widget widget-recent-post pinside30 mb40">-->
+            <!--                                <h2 class="widget-title">Najnowsze artykuły</h2>-->
+            <!--                                <hr>-->
+            <!--                                <div th:each="article : ${articles}" class="recent-block mb20">-->
+            <!--                                    <div th:if="${articleStat.index} < 3" class="row">-->
+            <!--                                        <div class="col-md-4 col-sm-5">-->
+            <!--                                            <div class="recent-pic">-->
+            <!--                                                <a th:href="@{${'/article/selected/' + article.getFileName()}}"><img th:src="@{${'/' + article.getImgSrc()}}" class="img-responsive" alt=""></a>-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+            <!--                                        <div class="col-md-8 col-sm-7">-->
+            <!--                                            <h3 class="recent-title mb10">-->
+            <!--                                                <a th:href="@{${'/article/selected/' + article.getFileName()}}" th:text="${article.getTitle()}" class="title"></a>-->
+            <!--                                            </h3>-->
+            <!--                                            <div class="post-meta">-->
+            <!--                                                <span class="meta-date"><i class="fa fa-calendar"></i><th:block th:text="${#temporals.format(article.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--&lt;!&ndash;                    <div class="col-md-12 col-sm-12">&ndash;&gt;-->
+            <!--&lt;!&ndash;                        &lt;!&ndash;  tags &ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <div class="widget widget-tags mb40">&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <h2 class="widget-title">Tags</h2>&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <hr>&ndash;&gt;-->
+            <!--&lt;!&ndash;                            &lt;!&ndash; widget title &ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <a href="#" title="Dignosis">Dignosis</a> <a href="#" title="Cardiac">Cardiac</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <a href="#" title="Clinic">Clinic</a> <a href="#" title="Invasive Procedured">Invasive&ndash;&gt;-->
+            <!--&lt;!&ndash;                            Procedured</a> <a href="#" title="Vascular">Vascular</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <a href="#" title="Cardiac">Cardiac</a> <a href="#" title="medical">medical</a></div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        &lt;!&ndash; /.widget well bg &ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
     </div>
 </div>
 </div>
 <div data-th-replace="fragments/core_fragments.html :: footer"></div>
 <script>
+    /** turn off enter in all page and search bar */
+    window.addEventListener('keydown', function (e) {
+        if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
+            if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {
+                e.preventDefault();
+                return false;
+            }
+        }
+    }, true);
+
+    /** search bar logic */
     document.addEventListener('DOMContentLoaded', () => {
 
         const getSearchBar =

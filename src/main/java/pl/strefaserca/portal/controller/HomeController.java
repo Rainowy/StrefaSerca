@@ -14,7 +14,7 @@ public class HomeController {
     ArticleService articleService;
     TestimonialService testimonialService;
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public ModelAndView index() {
         ModelAndView model = new ModelAndView("index","recentArticles", articleService.recentArticles());
         model.addObject("testimonials",testimonialService.rotatedTestimonials());
