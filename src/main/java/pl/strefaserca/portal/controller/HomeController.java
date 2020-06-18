@@ -31,11 +31,6 @@ public class HomeController {
         return new ModelAndView("services");
     }
 
-    @GetMapping("/service-detail")
-    public ModelAndView serviceDetail(){
-        return new ModelAndView("service-detail");
-    }
-
     @GetMapping("/contact")
     public ModelAndView contact(){
         return new ModelAndView("contact");

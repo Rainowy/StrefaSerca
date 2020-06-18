@@ -2,10 +2,7 @@ package pl.strefaserca.portal.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-
-import java.nio.file.attribute.FileTime;
 import java.time.LocalDateTime;
 
 @Getter

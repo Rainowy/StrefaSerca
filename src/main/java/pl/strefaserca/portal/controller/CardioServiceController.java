@@ -26,27 +26,5 @@ public class CardioServiceController {
         model.addObject("nextService",cardioService.nextService(serviceName));
         model.addObject("prevService",cardioService.prevService(serviceName));
         return model;
-
-
-
-
-
-
-
     }
-
-//    @GetMapping("/cardioService")
-//    ModelAndView cardiologyService(@RequestParam String name){
-//        System.out.println(name + " nazwa serwisu");
-//        ModelAndView model = new ModelAndView("/cardio_services/" + name);
-//        model.addObject("nextService",nextService(name));
-//        model.addObject("prevService",prevService(name));
-//
-////        return new ModelAndView("/cardio_services/" + name);
-//        return model;
-//    }
-
-
-
-
 }
