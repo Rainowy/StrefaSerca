@@ -57,30 +57,13 @@ public class HomeController {
         return new ModelAndView("about_me");
     }
 
-    //    @RequestMapping("/newsLetter")
-//    public void newsLetter(@RequestParam(required = false) String newsLetter){
-//
-//        System.out.println(newsLetter);
-////        System.out.println(newsLetter);
-////        return null;
-////        new ModelAndView("redirect:/")
-//    }
-//    @RequestMapping(value = "saveUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-////public void saveUser(@RequestBody SysUserDto user) {
-//    public @ResponseBody
-//    void getPatientDetails(
-//            SysUserDto user) {
-//        //code to save user object
-//        System.out.println(user.getName() + "imię ");
-//
-//
-//    }
-    @RequestMapping(value = "saveUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public @ResponseBody void saveUser(   @RequestParam String newsLetter) {
-        //code to save user object
-        List<SysUserDto> list = new ArrayList<>();
 
-        System.out.println(newsLetter);
+    @PostMapping("/newsLetter")
+    public @ResponseBody void saveUser(@RequestParam String newsLetter) {
+        if(!newsLetter.isEmpty()) {
+            System.out.println(newsLetter);
+        }
+//        System.out.println(newsLetter);
     }
 }
 

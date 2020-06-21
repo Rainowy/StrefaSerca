@@ -210,110 +210,14 @@ veterinary cardiology website, pediatric cardiology website">
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Newsletter</h3>
                     <p>Zapisz się do newslettera i bądź na bieżąco!</p>
-<!--                    <form id="submitForm" action="saveUser" method="post">-->
-<!--                        <label>Name</label> <input name="name" type="text">-->
-<!--&lt;!&ndash;                        <label>Address</label> <input name="address" type="text">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <label>Phone</label> <input name="phone" type="text">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <label>Zip Code</label> <input name="zipCode" type="text">&ndash;&gt;-->
-<!--                        <input value="Submit Form" type="submit">-->
-<!--                    </form>-->
-<!--                    <form  onsubmit="openModal()" action="/newsLetter">-->
-<!--                        <div class="input-group">-->
-<!--                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsLetter">-->
-<!--                            <span class="input-group-btn">-->
-<!--        <button id="formButton" class="btn btn-default"   type="submit">Zapisz mnie</button></span>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash;                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                            Launch demo modal&ndash;&gt;-->
-<!--                        &lt;!&ndash;                        </button>&ndash;&gt;-->
-<!--                    </form>-->
-                    <form action="saveUser" class="form-inline"  id="submitForm" method="post">
-<!--                        <div class="input-group">-->
-                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsLetter">
-<!--                            <span class="input-group-btn">-->
-<!--        <button id="formButton" class="btn btn-default"   type="submit">Zapisz mnie</button></span>-->
-<!--                        </div>-->
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <form action="newsLetter" class="form-inline" id="submitForm" method="post">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsLetter" id="email">
+                            <span class="input-group-btn">
+                            <button id="formButton" class="btn btn-default" type="submit">Zapisz mnie</button>
+                            </span>
+                        </div>
                     </form>
-<!--                    <form action="/newsLetter" method="post" id="myForm">-->
-<!--                        <label for="myName">Send me your name:</label>-->
-<!--                        <input id="myName" name="newsLetter" value="John">-->
-<!--                        <input type="submit" value="Send Me!">-->
-<!--                    </form>-->
-<!--                    <form id="frm" action="newsLetter"  >-->
-<!--                        <input type="email" class="form-control" placeholder="Adres e-mail" name="newsLetter">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <input name="precio" id="precio" />&ndash;&gt;-->
-<!--                        <input  class="btn btn-info" type="submit" value="Submit" name="submit">-->
-<!--                    </form>-->
-<!--                    <div class="modal fade" id="myModal" role="dialog">-->
-<!--                        <div class="modal-dialog">-->
-<!--                            &lt;!&ndash; Modal content&ndash;&gt;-->
-<!--                            <div class="modal-content">-->
-<!--                                <div class="modal-header">-->
-<!--                                    <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-<!--                                    <h4 class="modal-title">Confirma tu compra</h4>-->
-<!--                                </div>-->
-<!--                                <div class="modal-body">-->
-<!--                                    <div id="imagen">IMAGEN COMPRA</div>-->
-<!--                                    <img src="" alt="mando">-->
-<!--                                    <div class="details-area" id="detailsArea">-->
-<!--                                        <h1 style="color:#007acc">Opciones Seleccionadas</h1>-->
-<!--                                    </div>-->
-<!--                                    <div class="form-group">-->
-<!--                                        <label for="nombre">Nombre:</label>-->
-<!--                                        <input type="name" class="form-control" id="nombre">-->
-<!--                                    </div>-->
-<!--                                    <div class="form-group">-->
-<!--                                        <label for="apellido">Apellido</label>-->
-<!--                                        <input type="name" class="form-control" id="Apellido">-->
-<!--                                    </div>-->
-<!--                                    <div class="form-group">-->
-<!--                                        <label for="direccion">Dirección</label>-->
-<!--                                        <input type="address" class="form-control" id="direccion">-->
-<!--                                    </div>-->
-<!--                                    <div class="form-group">-->
-<!--                                        <label for="telefono">Telefono</label>-->
-<!--                                        <input type="phone" class="form-control" id="telefono">-->
-<!--                                    </div>-->
-<!--                                    <div class="form-group">-->
-<!--                                        <label for="email">Email address:</label>-->
-<!--                                        <input type="email" class="form-control" id="email">-->
-<!--                                    </div>-->
-
-<!--                                    <div align="right"> <h3>Total Compra <span id="AddToCartPriceID2">&nbsp $00.00</span></h3></div>-->
-
-<!--                                </div>-->
-<!--                                <div class="modal-footer">-->
-<!--&lt;!&ndash;                                    <form name="frm" action="/newsLetter" method="POST" target="_blank" style="margin-top:10px">&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                                        <input  name="DS_MERCHANT_AMOUNT" value="<?php echo $amount; ?>"/></br>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                                        <input type="hidden" name="Ds_SignatureVersion" value="<?php echo $version; ?>"/></br>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                                        <input type="hidden" name="Ds_MerchantParameters" value="<?php echo $params; ?>"/></br>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                                        <input type="hidden" name="Ds_Signature" value="<?php echo $signature; ?>"/></br>&ndash;&gt;&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                        <button type="submit" class="btn btn-default" >Confirmar</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </form>&ndash;&gt;-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <script type="text/javascript">-->
-
-<!--                        var $form = $(btnClicked).parents('frm');-->
-<!--                        $("#frm").submit(function(e){-->
-<!--                            e.preventDefault();-->
-<!--                            $.ajax({-->
-<!--                                type : 'GET',-->
-<!--                                data: $("#frm").serialize(),-->
-<!--                                url : $form.attr('action'),-->
-<!--                                success : function(data){-->
-<!--                                    $("#myModal").modal("show");-->
-
-<!--                                }-->
-<!--                            });-->
-<!--                            return false;-->
-<!--                        });-->
-<!--                    </script>-->
                 </div>
                 <!-- /.footer-widget -->
             </div>
@@ -328,30 +232,12 @@ veterinary cardiology website, pediatric cardiology website">
             </div>
         </div>
     </div>
-<!--    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--        <div class="modal-dialog" role="document">-->
-<!--            <div class="modal-content">-->
-<!--                <div class="modal-header">-->
-<!--                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
-<!--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                        <span aria-hidden="true">&times;</span>-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--                <div class="modal-body">-->
-<!--                    ...-->
-<!--                </div>-->
-<!--                <div class="modal-footer">-->
-<!--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
     <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Modal title</h4>
                 </div>
                 <div class="modal-body">
@@ -360,6 +246,24 @@ veterinary cardiology website, pediatric cardiology website">
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="emptyMail">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<!--                        <i  class="fa fa-window-close" aria-hidden="true"></i></button>-->
+                        <span aria-hidden="true">&times;</span></button>
+<!--                    <h4 class="modal-title">Modal title</h4>-->
+                </div>
+                <div class="modal-body d-block">
+                    <h2 class="modal-title text-center">Wprowadź prawidłowy email</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -377,90 +281,29 @@ veterinary cardiology website, pediatric cardiology website">
             title: "Menu",
             format: "multitoggle"
         })
-        $('#submitForm').submit(function(e) {
-            $('#myModal').modal('show');
+        $('#submitForm').submit(function (e) {
+            checkIfEmailEmpty()
             // reference to form object
             var form = $('#submitForm');
             // for stopping the default action of element
             e.preventDefault();
-            // mapthat will hold form data
-            var formData = {}
-            //iterate over form elements
-            $.each(this, function(i, v){
-                var input = $(v);
-                // populate form data as key-value pairs
-                // with the name of input as key and its value as value
-                formData[input.attr("name")] = input.val();
-            });
             $.ajax({
                 type: form.attr('method'), // method attribute of form
                 url: form.attr('action'),  // action attribute of form
-                // dataType : 'json',
-                // convert form data to json format
-                // data : JSON.stringify(formData),
-                data : form.serialize()
-
+                data: form.serialize()
             });
         });
-        // $('#formButton').click(function () {
-        //     $('#form').submit();
-        // });
-        // $('#form').on('submit', function(e){
-        //     $('#exampleModal').modal('show');
-        //     e.preventDefault();
-        // });
-        // $('#myForm').on('submit', function(e){
-        //     $('#myModal').modal('show');
-        //     $('#myForm').submit();
-        //
-        //     // e.preventDefault();
-        // });
-        // window.addEventListener( "load", function () {
-        //     function sendData() {
-        //         const XHR = new XMLHttpRequest();
-        //
-        //         // Bind the FormData object and the form element
-        //         const FD = new FormData( form );
-        //
-        //         // Define what happens on successful data submission
-        //         XHR.addEventListener( "load", function(event) {
-        //             alert( event.target.responseText );
-        //         } );
-        //
-        //         // Define what happens in case of error
-        //         XHR.addEventListener( "error", function( event ) {
-        //             alert( 'Oops! Something went wrong.' );
-        //         } );
-        //
-        //         // Set up our request
-        //         XHR.open( "POST", "/newsLetter" );
-        //
-        //         // The data sent is what the user provided in the form
-        //         XHR.send( FD );
-        //     }
-        //
-        //     // Access the form element...
-        //     const form = document.getElementById( "myForm" );
-        //
-        //     // ...and take over its submit event.
-        //     form.addEventListener( "submit", function ( event ) {
-        //         event.preventDefault();
-        //
-        //         sendData();
-        //     } );
-        // } );
-        // $.ajax({
-        //     type: 'POST',
-        //     url: $("myForm").attr("action"),
-        //     data: $("myForm").serialize(),
-        //     //or your custom data either as object {foo: "bar", ...} or foo=bar&...
-        //     success: function(response) {  },
-        // })
-
-
-
-
-
+        function checkIfEmailEmpty() {
+            var x;
+            x = document.getElementById("email").value;
+            if (x == "") {
+                $('#emptyMail').modal('show')
+                return false;
+            }
+            else {
+                $('#myModal').modal('show');
+            }
+        }
     </script>
     <!-- animsition -->
     <script type="text/javascript" src="js/animsition.js" data-th-src="@{/js/animsition.js}"></script>
