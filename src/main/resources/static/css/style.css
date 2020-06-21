@@ -1965,8 +1965,8 @@ hr {
 }
 
 .sidenav ul li a {
-    display: inline-block;
-    width: 430px;
+    /*display: inline-block;*/
+    /*width: 430px;*/
     font-size: 14px;
     font-weight: 700;
     color: #fff;
@@ -1978,7 +1978,7 @@ hr {
     float: right;
     content: "\f105";
     width: 13px;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .opening-time {
