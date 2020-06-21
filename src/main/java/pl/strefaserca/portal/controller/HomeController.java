@@ -1,17 +1,11 @@
 package pl.strefaserca.portal.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.strefaserca.portal.model.dto.SysUserDto;
 import pl.strefaserca.portal.service.ArticleService;
 import pl.strefaserca.portal.service.TestimonialService;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 @AllArgsConstructor
