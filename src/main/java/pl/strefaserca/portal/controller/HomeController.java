@@ -3,16 +3,20 @@ package pl.strefaserca.portal.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.strefaserca.portal.service.ArticleService;
+import pl.strefaserca.portal.service.NewsLetterService;
 import pl.strefaserca.portal.service.TestimonialService;
 
 @Controller
 @AllArgsConstructor
 public class HomeController {
 
-    ArticleService articleService;
-    TestimonialService testimonialService;
+    private ArticleService articleService;
+    private TestimonialService testimonialService;
+    private NewsLetterService newsLetterService;
 
     @GetMapping("/")
     public ModelAndView index() {
@@ -55,9 +59,16 @@ public class HomeController {
     @PostMapping("/newsLetter")
     public @ResponseBody void saveUser(@RequestParam String newsLetter) {
         if(!newsLetter.isEmpty()) {
+            newsLetterService.sendConfirmationMail(newsLetter);
             System.out.println(newsLetter);
         }
-//        System.out.println(newsLetter);
     }
+
+//    @GetMapping("/registrationConfirm")
+//    public String confirmRegistration
+//            (WebRequest request, @RequestParam("token") String token, RedirectAttributes redirectAttributes) {
+//
+//
+//    }
 }
 
