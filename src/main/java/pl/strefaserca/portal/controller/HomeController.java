@@ -10,6 +10,9 @@ import pl.strefaserca.portal.service.ArticleService;
 import pl.strefaserca.portal.service.NewsLetterService;
 import pl.strefaserca.portal.service.TestimonialService;
 
+import java.util.Locale;
+import java.util.Map;
+
 @Controller
 @AllArgsConstructor
 public class HomeController {
@@ -64,11 +67,17 @@ public class HomeController {
         }
     }
 
-//    @GetMapping("/registrationConfirm")
-//    public String confirmRegistration
-//            (WebRequest request, @RequestParam("token") String token, RedirectAttributes redirectAttributes) {
-//
-//
-//    }
+    @GetMapping("/registrationConfirm")
+    public String confirmRegistration
+            (WebRequest request, @RequestParam("token") String token, RedirectAttributes redirectAttributes) {
+
+        Locale locale = request.getLocale();
+
+        Map<String, String> confirmationToken = newsLetterService.getConfirmationToken(token);
+
+        System.out.println(confirmationToken + " OTO JEST MAPA");
+
+        return "redirect:/about";
+    }
 }
 
