@@ -2,6 +2,7 @@ package pl.strefaserca.portal.service;
 
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import pl.strefaserca.portal.email.OnNewsLetterRequestEvent;
@@ -11,11 +12,17 @@ import java.io.*;
 import java.util.*;
 
 @Service
-@AllArgsConstructor
 public class NewsLetterService {
 
+    @Value("${path.newsletter}") //if @value variable exists lombok @AllArgsConstructor doesn't work so manual creation needed
+    private String pathToNewsletterFiles;
     private ApplicationEventPublisher eventPublisher;
     private HttpServletRequest request;
+
+    public NewsLetterService(ApplicationEventPublisher eventPublisher, HttpServletRequest request) {
+        this.eventPublisher = eventPublisher;
+        this.request = request;
+    }
 
     public void sendConfirmationMail(String email) {
         String appUrl = request.getContextPath();
@@ -25,24 +32,38 @@ public class NewsLetterService {
     @SneakyThrows
     public void saveConfirmationToken(String mail, String token) {
 
-        File file = new File("/home/tomek/Documents/StrefaHtml/newsletter.properties");
-        OutputStream output = new FileOutputStream(file, true);
+        OutputStream output = new FileOutputStream(new File(pathToNewsletterFiles + "newsletter.properties"), true);
 
         Properties prop = new Properties();
         prop.setProperty(token, mail);
-        // save prop to project root folder
+        /** save properties file */
         prop.store(output, null);
     }
 
     @SneakyThrows
     public Optional<String> getConfirmationToken(String token) {
 
-        File file = new File("/home/tomek/Documents/StrefaHtml/newsletter.properties");
-        InputStream input = new FileInputStream(file);
+        InputStream input = new FileInputStream(new File(pathToNewsletterFiles + "newsletter.properties"));
 
         Properties prop = new Properties();
-        // load a properties file
+       /** load properties file */
         prop.load(input);
-        return Optional.ofNullable(prop.getProperty(token));
+        Optional<String> property = Optional.ofNullable(prop.getProperty(token));
+        property.ifPresent(this::saveConfirmedEmail);
+        return property;
     }
+
+    /**Temporary sollution till DB will rise */
+    @SneakyThrows
+    private void saveConfirmedEmail(String confirmedEmail) {
+
+        FileWriter fw = new FileWriter(new File(pathToNewsletterFiles + "newsletter_emails.txt"),true);
+        PrintWriter writer = new PrintWriter(fw);
+        writer.write(confirmedEmail);
+        writer.println();
+        writer.flush();
+        writer.close();
+    }
+
+
 }
