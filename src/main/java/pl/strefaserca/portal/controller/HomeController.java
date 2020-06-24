@@ -1,6 +1,7 @@
 package pl.strefaserca.portal.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
@@ -12,6 +13,7 @@ import pl.strefaserca.portal.service.TestimonialService;
 
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -20,6 +22,7 @@ public class HomeController {
     private ArticleService articleService;
     private TestimonialService testimonialService;
     private NewsLetterService newsLetterService;
+    private MessageSource messages;
 
     @GetMapping("/")
     public ModelAndView index() {
@@ -60,24 +63,31 @@ public class HomeController {
 
 
     @PostMapping("/newsLetter")
-    public @ResponseBody void saveUser(@RequestParam String newsLetter) {
-        if(!newsLetter.isEmpty()) {
+    public @ResponseBody
+    void setNewsLetter(@RequestParam String newsLetter) {
+        if (!newsLetter.isEmpty()) {
             newsLetterService.sendConfirmationMail(newsLetter);
-            System.out.println(newsLetter);
         }
     }
 
-    @GetMapping("/registrationConfirm")
-    public String confirmRegistration
+    @GetMapping("/newsletterConfirm")
+    public String confirmNewsLetterRequest
             (WebRequest request, @RequestParam("token") String token, RedirectAttributes redirectAttributes) {
 
         Locale locale = request.getLocale();
+        String newsLetterConfirmed = messages.getMessage("auth.message.newsLetterConfirmed", null, locale);
+        String invalidEmail = messages.getMessage("auth.message.invalidEmail", null, locale);
 
-        Map<String, String> confirmationToken = newsLetterService.getConfirmationToken(token);
+        Optional<String> confirmationToken = newsLetterService.getConfirmationToken(token);
+        confirmationToken.ifPresentOrElse(p -> redirectAttributes.addFlashAttribute("message", newsLetterConfirmed),
+                () -> redirectAttributes.addFlashAttribute("message", invalidEmail));
 
-        System.out.println(confirmationToken + " OTO JEST MAPA");
+        return "redirect:/newsletterMessage";
+    }
 
-        return "redirect:/about";
+    @GetMapping("/newsletterMessage")
+    public ModelAndView registrationMessage(@ModelAttribute("message") String message) {
+        return new ModelAndView("newsletter", "message", message);
     }
 }
 

@@ -2098,3 +2098,16 @@ hr {
     cursor: default;
 }
 
+.slogan {
+    height: calc(100% - 141px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
