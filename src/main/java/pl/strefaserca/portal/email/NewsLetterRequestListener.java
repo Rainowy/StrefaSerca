@@ -37,7 +37,7 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewsLett
         String token = UUID.randomUUID().toString();
         newsLetterService.saveConfirmationToken( emailToConfirm, token);
         // here can be createVeriToken in service
-        String subject = "Użyj linka aby otrzymywać od nas wiadomości kardiologiczne";
+        String subject = "Zapraszam do Newslettera Strefy Serca.";
         String confirmationUrl = event.getAppUrl() + "/newsletterConfirm?token=" + token;
         String message = messageSource.getMessage("message.newsletter", null, event.getLocale());
 
@@ -48,9 +48,10 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewsLett
 //        mailSender.send(emailMessage);
         Context context = new Context();
 
-        context.setVariable("header", "Nowy artykuł na CodeCouple");
-        context.setVariable("title", message + "\r\n" + "http://localhost:8080" + confirmationUrl);
-        context.setVariable("description", "Tutaj jakis opis...");
+        context.setVariable("header", "Portal Strefa Serca zaprasza do NewsLettera");
+//        context.setVariable("title", message + "\r\n" + "http://localhost:8080" + confirmationUrl);
+        context.setVariable("title", "Użyj linku poniżej aby zapisać się do biuletynu informacyjnego Strefy Serca");
+        context.setVariable("description", "http://localhost:8080" + confirmationUrl );
 //        context.setVariable("logo",new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
         String body = templateEngine.process("template", context);
 
@@ -61,8 +62,8 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewsLett
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo(emailToConfirm);
-            helper.setReplyTo("newsletter@codecouple.pl");
-            helper.setFrom("newsletter@codecouple.pl");
+            helper.setReplyTo("rainowy@hotmail.com");  //ustawia do kogo robić reply
+            helper.setFrom("strefaserca@gmail.com"); //do czego to
             helper.setSubject(subject);
             helper.setText(body, true);
             helper.addInline("logo",new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
