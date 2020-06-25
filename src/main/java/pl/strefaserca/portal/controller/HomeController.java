@@ -88,5 +88,17 @@ public class HomeController {
     public ModelAndView registrationMessage(@ModelAttribute("message") String message) {
         return new ModelAndView("newsletter", "message", message);
     }
+
+    @PostMapping("/askQuestion")
+    public @ResponseBody
+    void askQuestion(@RequestParam String name,
+                     @RequestParam String email,
+                     @RequestParam String phone,
+                     @RequestParam String textarea) {
+//        if (!newsLetter.isEmpty()) {
+//            newsLetterService.sendConfirmationMail(newsLetter);
+//        }
+        System.out.println(name + " " + email + " " + phone + " " + textarea);
+    }
 }
 

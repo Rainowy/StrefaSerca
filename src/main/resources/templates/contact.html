@@ -54,29 +54,29 @@
                     <div class="col-md-12 col-sm-12">
                         <h1>Zadaj mi pytanie</h1>
                         <p>Postaram się odpowiedzieć jak najszybciej</p>
-                        <form class="form">
+                        <form action="askQuestion" id="submitForm" method="post" class="form">
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-10 control-label" for="textinput">Imię
+                                <label class="col-md-10 control-label" for="name">Imię
                                     <span class="required">*</span></label>
                                 <div class="col-md-10">
-                                    <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+                                    <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
                                 </div>
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-10 control-label" for="textinput">Email
+                                <label class="col-md-10 control-label" for="email">Email
                                     <span class="required">*</span></label>
                                 <div class="col-md-10">
-                                    <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+                                    <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
                                 </div>
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-10 control-label" for="textinput">Telefon
+                                <label class="col-md-10 control-label" for="phone">Telefon
                                     <span class="required">*</span></label>
                                 <div class="col-md-10">
-                                    <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+                                    <input id="phone" name="phone" type="text" placeholder="" class="form-control input-md">
                                 </div>
                             </div>
                             <!-- Select Basic -->
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10">
-                                <button id="submit" name="singlebutton" class="btn btn-primary">Wyślij</button>
+                                <button id="submit" name="singlebutton" class="btn btn-primary" type="submit">Wyślij</button>
                                 <span class="required pull-right">* Pola wymagane</span>
                             </div>
                         </form>
@@ -107,9 +107,44 @@
         </div>
     </div>
 </div>
+
 <div class="map" id="googleMap"></div>
 <div data-th-replace="fragments/core_fragments.html :: footer"></div>
 <script>
+    $('#submitForm').submit(function (e) {
+        console.log("heja")
+        // checkIfEmailEmpty()
+        // $('#mailConfirm').modal('show');
+        // reference to form object
+        var form = $('#submitForm');
+        // for stopping the default action of element
+        e.preventDefault();
+        $.ajax({
+            type: form.attr('method'), // method attribute of form
+            url: form.attr('action'),  // action attribute of form
+            data: form.serialize(),
+            success: function(data) {
+                successmessage = 'Data was succesfully captured';
+                $("label#successmessage").text(successmessage);
+                console.log("SUKCESSSS")
+                // document.getElementById("#submitForm").reset();
+                $(form)[0].reset();
+            },
+            error: function(data) {
+                successmessage = 'Error';
+                $("label#successmessage").text(successmessage);
+            },
+
+            // success:function(data){
+            //     $('. status ').html('<b>Thank you!! We have received your form</b>');
+            // },
+            // complete:function(){
+            //     $('#form-id').each(function(){
+            //         this.reset();   //Here form fields will be cleared.
+            //     });
+            // }
+        });
+    });
     function initMap() {
         var myLatLng = {
             lat: 49.973131,
