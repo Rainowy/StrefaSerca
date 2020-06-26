@@ -22,39 +22,49 @@
                                 <li><i class="fa fa-envelope-o"></i>strefaserca@gmail.com</li>
                             </ul>
                         </div>
+                        <div class="alert alert-info fade out" id="bsalert">
+<!--                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
+                            <strong>Wysłano zapytanie !</strong>
+                        </div>
                     </div>
-<!--                    <div class="col-md-12 col-sm-12">-->
-<!--                        <div class="widget widget-follwus">-->
-<!--                            <h2 class="widget-title">Opening Hours</h2>-->
-<!--                            <hr>-->
-<!--                            <div class="opening-time">-->
-<!--                                <span>Mon-Fri</span><strong class="pull-right">8:00am-7:00pm</strong>-->
-<!--                                <br>-->
-<!--                                <span>Saturday </span><strong class="pull-right">9:00am–5:00pm</strong>-->
-<!--                                <br>-->
-<!--                                <span>Sunday </span><strong class="pull-right">9:00am–3:00pm</strong>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-12 col-sm-12">-->
-<!--                        <div class="widget widget-follwus">-->
-<!--                            <h2 class="widget-title">Follw Us</h2>-->
-<!--                            <hr>-->
-<!--                            <div class="social-icon">-->
-<!--                                <a href="#" class="solcial-link"><i class="fa fa-facebook-square"></i></a>-->
-<!--                                <a href="#" class="solcial-link"><i class="fa fa-twitter-square"></i></a>-->
-<!--                                <a href="#" class="solcial-link"><i class="fa fa-google-plus-square"></i></a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="col-md-12 col-sm-12">-->
+                    <!--                        <div class="widget widget-follwus">-->
+                    <!--                            <h2 class="widget-title">Opening Hours</h2>-->
+                    <!--                            <hr>-->
+                    <!--                            <div class="opening-time">-->
+                    <!--                                <span>Mon-Fri</span><strong class="pull-right">8:00am-7:00pm</strong>-->
+                    <!--                                <br>-->
+                    <!--                                <span>Saturday </span><strong class="pull-right">9:00am–5:00pm</strong>-->
+                    <!--                                <br>-->
+                    <!--                                <span>Sunday </span><strong class="pull-right">9:00am–3:00pm</strong>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="col-md-12 col-sm-12">-->
+                    <!--                        <div class="widget widget-follwus">-->
+                    <!--                            <h2 class="widget-title">Follw Us</h2>-->
+                    <!--                            <hr>-->
+                    <!--                            <div class="social-icon">-->
+                    <!--                                <a href="#" class="solcial-link"><i class="fa fa-facebook-square"></i></a>-->
+                    <!--                                <a href="#" class="solcial-link"><i class="fa fa-twitter-square"></i></a>-->
+                    <!--                                <a href="#" class="solcial-link"><i class="fa fa-google-plus-square"></i></a>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
             </div>
+            <!--            <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
+            <!--                <strong>Holy guacamole!</strong> You should check in on some of those fields below.-->
+            <!--                <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+            <!--                    <span aria-hidden="true">&times;</span>-->
+            <!--                </button>-->
+            <!--            </div>-->
             <div class="col-md-8 col-sm-8">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <h1>Zadaj mi pytanie</h1>
                         <p>Postaram się odpowiedzieć jak najszybciej</p>
-                        <form action="askQuestion" id="submitForm" method="post" class="form">
+                        <form action="ask_question" id="ask_question_form" method="post" class="form">
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-10 control-label" for="name">Imię
@@ -65,10 +75,9 @@
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-10 control-label" for="email">Email
-                                    <span class="required">*</span></label>
+                                <label class="col-md-10 control-label" for="email">Email <span class="required">*</span></label>
                                 <div class="col-md-10">
-                                    <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
+                                    <input id="email" name="email" type="email" placeholder="" class="form-control input-md">
                                 </div>
                             </div>
                             <!-- Text input-->
@@ -80,15 +89,15 @@
                                 </div>
                             </div>
                             <!-- Select Basic -->
-<!--                            <div class="form-group">-->
-<!--                                <label class="col-md-10 control-label" for="selectbasic">Opcje</label>-->
-<!--                                <div class="col-md-10">-->
-<!--                                    <select id="selectbasic" name="selectbasic" class="form-control">-->
-<!--                                        <option value="1">Option one</option>-->
-<!--                                        <option value="2">Option two</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <!--                            <div class="form-group">-->
+                            <!--                                <label class="col-md-10 control-label" for="selectbasic">Opcje</label>-->
+                            <!--                                <div class="col-md-10">-->
+                            <!--                                    <select id="selectbasic" name="selectbasic" class="form-control">-->
+                            <!--                                        <option value="1">Option one</option>-->
+                            <!--                                        <option value="2">Option two</option>-->
+                            <!--                                    </select>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                             <!-- Textarea -->
                             <div class="form-group">
                                 <label class="col-md-10 control-label" for="textarea">Treść pytania</label>
@@ -97,10 +106,15 @@
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10">
-                                <button id="submit" name="singlebutton" class="btn btn-primary" type="submit">Wyślij</button>
+                                <button id="question_submit_button" name="singlebutton" class="btn btn-primary" type="button">Wyślij
+                                </button>
                                 <span class="required pull-right">* Pola wymagane</span>
                             </div>
                         </form>
+<!--                        <div class="alert alert-info fade out" id="bsalert">-->
+<!--                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
+<!--                            <strong>Info!</strong> Wysłano zapytanie !-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -111,44 +125,14 @@
 <div class="map" id="googleMap"></div>
 <div data-th-replace="fragments/core_fragments.html :: footer"></div>
 <script>
-    $('#submitForm').submit(function (e) {
-        console.log("heja")
-        // checkIfEmailEmpty()
-        // $('#mailConfirm').modal('show');
-        // reference to form object
-        var form = $('#submitForm');
-        // for stopping the default action of element
-        e.preventDefault();
-        $.ajax({
-            type: form.attr('method'), // method attribute of form
-            url: form.attr('action'),  // action attribute of form
-            data: form.serialize(),
-            success: function(data) {
-                successmessage = 'Data was succesfully captured';
-                $("label#successmessage").text(successmessage);
-                console.log("SUKCESSSS")
-                // document.getElementById("#submitForm").reset();
-                $(form)[0].reset();
-            },
-            error: function(data) {
-                successmessage = 'Error';
-                $("label#successmessage").text(successmessage);
-            },
 
-            // success:function(data){
-            //     $('. status ').html('<b>Thank you!! We have received your form</b>');
-            // },
-            // complete:function(){
-            //     $('#form-id').each(function(){
-            //         this.reset();   //Here form fields will be cleared.
-            //     });
-            // }
-        });
-    });
+
+
+
     function initMap() {
         var myLatLng = {
             lat: 49.973131,
-            lng:  18.947799
+            lng: 18.947799
 
         };
 
@@ -167,9 +151,7 @@
         });
     }
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATsgulDfXOI9g7JwR0LzZdbUZB6LqEQiY&callback=initMap">
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATsgulDfXOI9g7JwR0LzZdbUZB6LqEQiY&callback=initMap"></script>
 </body>
 </html>
 

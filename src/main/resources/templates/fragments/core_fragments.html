@@ -210,9 +210,9 @@ veterinary cardiology website, pediatric cardiology website">
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Newsletter</h3>
                     <p>Zapisz się do newslettera i bądź na bieżąco!</p>
-                    <form action="newsLetter" class="form-inline" id="submitForm" method="post">
+                    <form action="newsletter" class="form-inline" id=request_newsletter method="post">
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsLetter" id="email" required>
+                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email" required>
                             <span class="input-group-btn">
                             <button id="formButton" class="btn btn-default" type="submit">Zapisz mnie</button>
                             </span>
@@ -232,22 +232,40 @@ veterinary cardiology website, pediatric cardiology website">
             </div>
         </div>
     </div>
-    <div class="modal fade" tabindex="-1" role="dialog" id="mailConfirm">
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="mail_confirm">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <!--                    <h4 class="modal-title">Modal title</h4>-->
                 </div>
                 <div class="modal-body d-block">
-                    <!--                    <p>One fine body&hellip;</p>-->
-                    <h2 class="modal-title text-center">Na podany adres został wysłany link aktywacyjny. <br> Użyj go aby
-                        otrzymywać od nas wiadomości.</h2>
+                    <h2 class="modal-title text-center">Na podany adres został wysłany link aktywacyjny. <br> Użyj go
+                        aby otrzymywać od nas wiadomości.</h2>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
                     <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="ask_question">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body d-block">
+                    <h2 class="modal-title text-center">Wysłać wiadomość ?</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="send_question" data-dismiss="modal">Wyślij</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -265,11 +283,12 @@ veterinary cardiology website, pediatric cardiology website">
             title: "Menu",
             format: "multitoggle"
         })
-        $('#submitForm').submit(function (e) {
+        /** newsletter code */
+        $('#request_newsletter').submit(function (e) {
             // checkIfEmailEmpty()
-            $('#mailConfirm').modal('show');
+            $('#mail_confirm').modal('show');
             // reference to form object
-            var form = $('#submitForm');
+            var form = $('#request_newsletter');
             // for stopping the default action of element
             e.preventDefault();
             $.ajax({
@@ -278,18 +297,8 @@ veterinary cardiology website, pediatric cardiology website">
                 data: form.serialize()
             });
         });
-        // function checkIfEmailEmpty() {
-        //     var x;
-        //     x = document.getElementById("email").value;
-        //     if (x == "") {
-        //         $('#emptyMail').modal('show')
-        //         return false;
-        //     }
-        //     else {
-        //         $('#mailConfirm').modal('show');
-        //     }
-        // }
-        $('#submitForm input[type=email]').on('change invalid', function () {
+
+        $('#request_newsletter input[type=email]').on('change invalid', function () {
             var textfield = $(this).get(0);
 
             // 'setCustomValidity not only sets the message, but also marks
@@ -301,6 +310,84 @@ veterinary cardiology website, pediatric cardiology website">
                 textfield.setCustomValidity('Wprowadź prawidłowy adres email zawierający "@"');
             }
         });
+        /** newsletter code finished*/
+
+        $('#question_submit_button').click(function (e) {
+            // $("#ask_question_form").validate();
+            // $("#ask_question_form").validate({
+            //     rules: {
+            //         field1: "required"
+            //     },
+            //     messages: {
+            //         field1: "Please specify your name"
+            //
+            //     }
+            // })
+            //
+            // $('#btn').click(function() {
+            //     $("#form1").valid();
+            // });
+
+
+
+
+            if($('#bsalert').hasClass('in')){
+                toggleAlert()
+            }
+            // var form = $('#ask_question_form');
+            // if (form.valid()) {
+            //     $('#ask_question').modal('show');
+            // }
+
+
+
+            console.log("heja")
+            // toggleAlert()
+            // $('.alert').alert()
+            $('#ask_question').modal('show');
+        });
+        $('#send_question').click(function (e) {
+            console.log("heja")
+
+            // checkIfEmailEmpty()
+            // $('#mailConfirm').modal('show');
+            // reference to form object
+            var form = $('#ask_question_form');
+            // for stopping the default action of element
+            e.preventDefault();
+            $.ajax({
+                type: form.attr('method'), // method attribute of form
+                url: form.attr('action'),  // action attribute of form
+                data: form.serialize(),
+                success: function (data) {
+                    // $('.alert').alert()
+                    toggleAlert();
+                    // successmessage = 'Data was succesfully captured';
+                    // $("label#successmessage").text(successmessage);
+                    // console.log("SUKCESSSS")
+                    // document.getElementById("#submitForm").reset();
+                    $(form)[0].reset();
+                },
+                error: function (data) {
+                    successmessage = 'Error';
+                    $("label#successmessage").text(successmessage);
+                },
+
+                // success:function(data){
+                //     $('. status ').html('<b>Thank you!! We have received your form</b>');
+                // },
+                // complete:function(){
+                //     $('#form-id').each(function(){
+                //         this.reset();   //Here form fields will be cleared.
+                //     });
+                // }
+            });
+        // });
+        });
+        function toggleAlert() {
+            $(".alert").toggleClass('in out');
+            return false; // Keep close.bs.alert event from removing from DOM
+        }
     </script>
     <!-- animsition -->
     <script type="text/javascript" src="js/animsition.js" data-th-src="@{/js/animsition.js}"></script>

@@ -61,9 +61,9 @@ public class HomeController {
     }
 
 
-    @PostMapping("/newsLetter")
+    @PostMapping("/newsletter")
     public @ResponseBody
-    void setNewsLetter(@RequestParam String newsLetter) {
+    void setNewsLetter(@RequestParam("newsletter") String newsLetter) {
         if (!newsLetter.isEmpty()) {
             newsLetterService.sendConfirmationMail(newsLetter);
         }
@@ -89,7 +89,7 @@ public class HomeController {
         return new ModelAndView("newsletter", "message", message);
     }
 
-    @PostMapping("/askQuestion")
+    @PostMapping("/ask_question")
     public @ResponseBody
     void askQuestion(@RequestParam String name,
                      @RequestParam String email,
