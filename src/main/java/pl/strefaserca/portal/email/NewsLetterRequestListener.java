@@ -66,7 +66,7 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewsLett
             helper.setFrom("strefaserca@gmail.com"); //do czego to
             helper.setSubject(subject);
             helper.setText(body, true);
-            helper.addInline("logo",new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
+            helper.addInline("logo",new File("/home/kasiazen/workspace/Portfolio/StrefaSerca/src/main/resources/static/images/logo-main.jpg"));
 
 //            helper.setSubject("Email with Inline images Example");
 //                        helper.setTo(emailToConfirm);
