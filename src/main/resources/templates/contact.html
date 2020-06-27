@@ -23,7 +23,7 @@
                             </ul>
                         </div>
                         <div class="alert alert-info fade out" id="bsalert">
-<!--                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
+                            <!--                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
                             <strong>Wysłano zapytanie !</strong>
                         </div>
                     </div>
@@ -67,10 +67,9 @@
                         <form action="ask_question" id="ask_question_form" method="post" class="form">
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-10 control-label" for="name">Imię
-                                    <span class="required">*</span></label>
+                                <label class="col-md-10 control-label" for="name">Imię<span class="required">*</span></label>
                                 <div class="col-md-10">
-                                    <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
+                                    <input id="name" name="user_name" type="text" placeholder="" class="form-control input-md">
                                 </div>
                             </div>
                             <!-- Text input-->
@@ -82,8 +81,7 @@
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-10 control-label" for="phone">Telefon
-                                    <span class="required">*</span></label>
+                                <label class="col-md-10 control-label" for="phone">Telefon</label>
                                 <div class="col-md-10">
                                     <input id="phone" name="phone" type="text" placeholder="" class="form-control input-md">
                                 </div>
@@ -100,21 +98,23 @@
                             <!--                            </div>-->
                             <!-- Textarea -->
                             <div class="form-group">
-                                <label class="col-md-10 control-label" for="textarea">Treść pytania</label>
+                                <label class="col-md-10 control-label" for="textarea">Treść
+                                    pytania <span class="required">*</span></label>
                                 <div class="col-md-10">
                                     <textarea class="form-control" rows="7" id="textarea" name="textarea"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10">
-                                <button id="question_submit_button" name="singlebutton" class="btn btn-primary" type="button">Wyślij
+                                <button id="question_submit_button" name="singlebutton" class="btn btn-primary" type="button">
+                                    Wyślij
                                 </button>
                                 <span class="required pull-right">* Pola wymagane</span>
                             </div>
                         </form>
-<!--                        <div class="alert alert-info fade out" id="bsalert">-->
-<!--                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
-<!--                            <strong>Info!</strong> Wysłano zapytanie !-->
-<!--                        </div>-->
+                        <!--                        <div class="alert alert-info fade out" id="bsalert">-->
+                        <!--                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
+                        <!--                            <strong>Info!</strong> Wysłano zapytanie !-->
+                        <!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -125,10 +125,6 @@
 <div class="map" id="googleMap"></div>
 <div data-th-replace="fragments/core_fragments.html :: footer"></div>
 <script>
-
-
-
-
     function initMap() {
         var myLatLng = {
             lat: 49.973131,
@@ -154,5 +150,3 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATsgulDfXOI9g7JwR0LzZdbUZB6LqEQiY&callback=initMap"></script>
 </body>
 </html>
-
-<!--AIzaSyATsgulDfXOI9g7JwR0LzZdbUZB6LqEQiY-->

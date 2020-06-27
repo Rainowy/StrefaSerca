@@ -91,14 +91,14 @@ public class HomeController {
 
     @PostMapping("/ask_question")
     public @ResponseBody
-    void askQuestion(@RequestParam String name,
+    void askQuestion(@RequestParam String user_name,
                      @RequestParam String email,
                      @RequestParam String phone,
                      @RequestParam String textarea) {
 //        if (!newsLetter.isEmpty()) {
 //            newsLetterService.sendConfirmationMail(newsLetter);
 //        }
-        System.out.println(name + " " + email + " " + phone + " " + textarea);
+        System.out.println(user_name + " " + email + " " + phone + " " + textarea);
     }
 }
 
