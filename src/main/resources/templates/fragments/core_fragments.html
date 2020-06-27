@@ -233,6 +233,7 @@ veterinary cardiology website, pediatric cardiology website">
         </div>
     </div>
 
+    <label id="successmessage"></label>
 
     <div class="modal fade" tabindex="-1" role="dialog" id="mail_confirm">
         <div class="modal-dialog" role="document">
@@ -314,14 +315,26 @@ veterinary cardiology website, pediatric cardiology website">
         });
         /** newsletter code finished*/
 
+        /** ask question code */
         $('#question_submit_button').click(function (e) {
-            var form = $('#ask_question_form');
-            form.validate({
+            FormValidation();
+
+            if ($('#bsalert').hasClass('in')) {
+                toggleAlert()
+            }
+        });
+
+        function FormValidation() {
+            $('#ask_question_form').validate({
                 errorClass: "my-error-class",
                 // validClass: "my-valid-class",
                 rules: {
-                    user_name: "required",
-                    email: "required",
+                    user_name: {
+                        required: true
+                    },
+                    email: {
+                        required: true
+                    },
                     textarea: {
                         required: true,
                         minlength: 10
@@ -330,55 +343,16 @@ veterinary cardiology website, pediatric cardiology website">
                 messages: {
                     user_name: "Wpisz swoje imię",
                     email: "Wpisz prawidłowy email",
-                    textarea: "Wpisz przynajmniej 10 znaków",
+                    textarea: "Wpisz przynajmniej 10 znaków"
                 }
             })
-            // form.valid();
             if ($('#ask_question_form').valid()) {
                 $('#ask_question').modal('show');
-                console.log("zwalidowany")
             }
-            // var form = $('#ask_question_form');
-            // if (form.valid()) {
-            //     $('#ask_question').modal('show');
-            //     console.log("zwalidowany")
-            // }
-            // $("#ask_question_form").validate();
-            // $("#ask_question_form").validate({
-            //     rules: {
-            //         field1: "required"
-            //     },
-            //     messages: {
-            //         field1: "Please specify your name"
-            //
-            //     }
-            // })
-            //
-            // $('#btn').click(function() {
-            //     $("#form1").valid();
-            // });
+        }
 
 
-            if ($('#bsalert').hasClass('in')) {
-                toggleAlert()
-            }
-            // var form = $('#ask_question_form');
-            // if (form.valid()) {
-            //     $('#ask_question').modal('show');
-            // }
-
-
-            // console.log("heja")
-            // toggleAlert()
-            // $('.alert').alert()
-            // $('#ask_question').modal('show');
-        });
         $('#send_question').click(function (e) {
-            console.log("heja")
-
-            // checkIfEmailEmpty()
-            // $('#mailConfirm').modal('show');
-            // reference to form object
             var form = $('#ask_question_form');
             // for stopping the default action of element
             e.preventDefault();
@@ -386,30 +360,15 @@ veterinary cardiology website, pediatric cardiology website">
                 type: form.attr('method'), // method attribute of form
                 url: form.attr('action'),  // action attribute of form
                 data: form.serialize(),
-                success: function (data) {
-                    // $('.alert').alert()
+                success: function () {
                     toggleAlert();
-                    // successmessage = 'Data was succesfully captured';
-                    // $("label#successmessage").text(successmessage);
-                    // console.log("SUKCESSSS")
-                    // document.getElementById("#submitForm").reset();
                     $(form)[0].reset();
                 },
                 error: function (data) {
-                    successmessage = 'Error';
-                    $("label#successmessage").text(successmessage);
+                    // successmessage = 'Error';
+                    // $("label#successmessage").text(successmessage);
                 },
-
-                // success:function(data){
-                //     $('. status ').html('<b>Thank you!! We have received your form</b>');
-                // },
-                // complete:function(){
-                //     $('#form-id').each(function(){
-                //         this.reset();   //Here form fields will be cleared.
-                //     });
-                // }
             });
-            // });
         });
 
         function toggleAlert() {
