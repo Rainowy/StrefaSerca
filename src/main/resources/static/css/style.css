@@ -2103,5 +2103,9 @@ hr {
 /*.my-valid-class {*/
 /*    color:#00CC00; !* green *!*/
 /*}*/
+.errorTxt{
+    /*border: 1px solid red;*/
+    min-height: 20px;
+}
 
 

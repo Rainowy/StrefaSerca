@@ -214,17 +214,25 @@ veterinary cardiology website, pediatric cardiology website">
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Newsletter</h3>
                     <p>Zapisz się do newslettera i bądź na bieżąco!</p>
-                    <form action="newsletter" id=request_newsletter method="post">
-                        <!--                        <div class="input-group">-->
-                        <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter"
-                               id="email">
-                        <!--                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">-->
-                        <!--                            <span class="input-group-btn">-->
+<!--                    <form action="newsletter" id=request_newsletter method="post" >-->
+<!--                        &lt;!&ndash;                        <div class="input-group">&ndash;&gt;-->
+<!--                        <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">-->
+<!--                        &lt;!&ndash;                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            <span class="input-group-btn">&ndash;&gt;-->
 
-                        <!--                            </span>-->
-                        <!--                        </div>-->
+<!--                        &lt;!&ndash;                            </span>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--                    </form>-->
+                    <form action="newsletter" id=request_newsletter method="post">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">
+                            <span class="input-group-btn">
+                                <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button>
+      </span>
+                        </div>
+                        <div class="errorTxt"></div>
                     </form>
-                    <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button>
+<!--                    <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button>-->
                 </div>
                 <!-- /.footer-widget -->
             </div>
@@ -375,7 +383,9 @@ veterinary cardiology website, pediatric cardiology website">
                 },
                 messages: {
                     newsletter: "Wpisz prawidłowy adres email",
-                }
+                },
+                errorElement : 'div',
+                errorLabelContainer: '.errorTxt'
             })
             if ($('#request_newsletter').valid()) {
                 $('#mail_confirm').modal('show');
@@ -433,6 +443,13 @@ veterinary cardiology website, pediatric cardiology website">
             $(".alert").toggleClass('in out');
             return false; // Keep close.bs.alert event from removing from DOM
         }
+        $( document ).ready(function() {
+            $('#request_newsletter').bind('keydown', function(e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                }
+            });
+        });
 
 
 
