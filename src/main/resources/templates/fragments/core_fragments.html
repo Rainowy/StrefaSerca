@@ -34,17 +34,32 @@ veterinary cardiology website, pediatric cardiology website">
 <div th:fragment="topHeader" class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-12"><a class="logo" th:href="@{/}">
+            <div class="col-lg-3 col-md-12"><a class="logo" th:href="@{/}">
                 <img th:src="@{/images/logo-main.jpg}" alt=""/></a>
             </div>
-            <div class="col-md-3  hidden-sm hidden-xs top-link">
-                <i class="fa fa-envelope-o"></i> <a href="#">strefaserca@gmail.com</a>
-            </div>
-            <div class="col-md-3  hidden-sm hidden-xs top-link">
-                <i class="fa fa-phone"></i> <a href="#">792 327 604</a>
-            </div>
-            <div class="col-md-3  hidden-sm hidden-xs top-link">
-                <i class="fa fa-sign-in"></i> <a href="#">Zaloguj się</a>
+<!--            <div class="col-lg-3  hidden-sm hidden-xs top-link">-->
+<!--                <i class="fa fa-envelope-o"></i> <a href="#">strefaserca@gmail.com</a>-->
+<!--            </div>-->
+<!--            <div class="col-lg-3  hidden-sm hidden-xs top-link">-->
+<!--                <i class="fa fa-phone"></i> <a href="#">792 327 604</a>-->
+<!--            </div>-->
+<!--            <div class="col-lg-3  hidden-sm hidden-xs top-link">-->
+<!--                <i class="fa fa-sign-in"></i> <a href="#">Zaloguj się</a>-->
+<!--            </div>-->
+            <div class="col-lg-9 d-none d-md-block">
+                <div class="top-link">
+                    <div class="row">
+                        <div class="col-lg-6  hidden-sm hidden-xs top-link">
+                            <i class="fa fa-envelope-o"></i> <a href="#">strefaserca@gmail.com</a>
+                        </div>
+                        <div class="col-lg-3  hidden-sm hidden-xs top-link">
+                            <i class="fa fa-phone"></i> <a href="#">792 327 604</a>
+                        </div>
+                        <div class="col-lg-3  hidden-sm hidden-xs top-link">
+                            <i class="fa fa-sign-in"></i> <a href="#">Zaloguj się</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -55,7 +70,7 @@ veterinary cardiology website, pediatric cardiology website">
             <!-- navigation -->
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10 col-sm-12">
+                    <div class="col-lg-10 col-md-12"></div>
                         <div id="navigation" class="navigation">
                             <ul>
                                 <li class="active"><a th:href="@{/}" title="Home" class="animsition-link">Strona
@@ -89,7 +104,7 @@ veterinary cardiology website, pediatric cardiology website">
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12 text-center">
+            <div class="col-lg-12 col-md-12 text-center"></div>
                 <div class="page-caption">
                     <h1 class="page-title"></h1>
                 </div>
@@ -98,9 +113,9 @@ veterinary cardiology website, pediatric cardiology website">
     </div>
 </div>
 
-<div th:fragment="sideNavigation" class="col-md-2 col-sm-2">
+<div th:fragment="sideNavigation" class="col-lg-2 col-md-2">
     <div class="row">
-        <div class="col-md-12 col-sm-12">
+        <div class="col-lg-12 col-md-12">
             <div class="sidenav mb60">
                 <ul class="listnone no-padding">
                     <li>
@@ -138,8 +153,8 @@ veterinary cardiology website, pediatric cardiology website">
 </div>
 
 <div th:fragment="previousNext" class="post-navigation mb40">
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
+    <div class="row" >
+        <div class="col-lg-6 col-md-6"></div>
             <div class="nav-previous">
                 <a th:href="@{${'/service/selected/' + prevService}}" class="btn-link next-link mb30">Poprzedni
                     artykuł</a>
@@ -148,7 +163,7 @@ veterinary cardiology website, pediatric cardiology website">
                 </h3>
             </div>
         </div>
-        <div class="col-md-6 col-sm-6 text-right">
+        <div class="col-lg-6 col-md-6 text-right">
             <div class="nav-next">
                 <a th:href="@{${'/service/selected/' + nextService}}" class="btn-link next-link mb30">Następny
                     artykuł</a>
