@@ -8,13 +8,13 @@ import java.util.Locale;
 
 @Getter
 @Setter
-public class OnNewsLetterRequestEvent extends ApplicationEvent {
+public class OnNewsletterRequestEvent extends ApplicationEvent {
 
     private String appUrl;
     private Locale locale;
     private String email;
 
-    public OnNewsLetterRequestEvent(String appUrl, Locale locale, String email) {
+    public OnNewsletterRequestEvent(String appUrl, Locale locale, String email) {
         super(email);
         this.email = email;
         this.locale = locale;

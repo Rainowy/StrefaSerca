@@ -1,11 +1,11 @@
 package pl.strefaserca.portal.service;
 
-import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import pl.strefaserca.portal.email.OnNewsLetterRequestEvent;
+import pl.strefaserca.portal.email.OnContactQuestionEvent;
+import pl.strefaserca.portal.email.OnNewsletterRequestEvent;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
@@ -26,7 +26,15 @@ public class NewsLetterService {
 
     public void sendConfirmationMail(String email) {
         String appUrl = request.getContextPath();
-        eventPublisher.publishEvent(new OnNewsLetterRequestEvent(appUrl, request.getLocale(), email));
+        Locale locale = request.getLocale();
+        eventPublisher.publishEvent(new OnNewsletterRequestEvent(appUrl, locale, email));
+    }
+
+    public void sendContactQuestion(String email,String name,String phone,String message){
+        String appUrl = request.getContextPath();
+        Locale locale = request.getLocale();
+        eventPublisher.publishEvent(new OnContactQuestionEvent(appUrl,locale,email,name,phone,message));
+
     }
 
     @SneakyThrows

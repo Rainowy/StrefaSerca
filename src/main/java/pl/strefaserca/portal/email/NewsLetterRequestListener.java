@@ -3,7 +3,6 @@ package pl.strefaserca.portal.email;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.MessageSource;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
@@ -18,7 +17,7 @@ import java.util.UUID;
 
 @Component
 @AllArgsConstructor
-public class NewsLetterRequestListener implements ApplicationListener<OnNewsLetterRequestEvent> {
+public class NewsLetterRequestListener implements ApplicationListener<OnNewsletterRequestEvent> {
 
     private NewsLetterService newsLetterService;
     private MessageSource messageSource;
@@ -27,11 +26,11 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewsLett
     private final TemplateEngine templateEngine;
 
     @Override
-    public void onApplicationEvent(OnNewsLetterRequestEvent event) {
+    public void onApplicationEvent(OnNewsletterRequestEvent event) {
         this.confirmNewsLetterRequest(event);
     }
 
-    private void confirmNewsLetterRequest(OnNewsLetterRequestEvent event) {
+    private void confirmNewsLetterRequest(OnNewsletterRequestEvent event) {
 
         String emailToConfirm = event.getEmail();
         String token = UUID.randomUUID().toString();

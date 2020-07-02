@@ -163,7 +163,7 @@ veterinary cardiology website, pediatric cardiology website">
 <div th:fragment="footer" class="footer section-space60">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-3">
+            <div class="col-lg-3 col-md-3">
                 <div class="footer-widget">
                     <div class="mb30"><a th:href="@{/}"><img th:src="@{/images/logo-footer.jpg}" alt=""/></a></div>
                     <address><i class="fa fa-map-marker"></i> Bogedaina 41<br> 43-200, Pszczyna, śląskie
@@ -174,9 +174,9 @@ veterinary cardiology website, pediatric cardiology website">
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-3">
+            <div class="col-lg-3 col-md-3">
                 <div class="footer-widget"><!-- footer-widget -->
-                    <h3 class="footer-title">Usługi i Diagnostyka</h3>
+                    <h3 class="footer-title">Diagnostyka</h3>
                     <ul class="listnone bullet bullet-angle-right mb0">
                         <li><a th:href="@{${'/service/selected/Echokardiografia'}}" title="Echokardiografia">Echokardiografia</a>
                         </li>
@@ -197,7 +197,7 @@ veterinary cardiology website, pediatric cardiology website">
                 </div>
                 <!-- /.footer-widget -->
             </div>
-            <div class="col-md-2 col-sm-2">
+            <div class="col-lg-2 col-md-2">
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Strony</h3>
                     <ul class="listnone bullet bullet-angle-right mb0">
@@ -210,258 +210,262 @@ veterinary cardiology website, pediatric cardiology website">
                 </div>
                 <!-- /.footer-widget -->
             </div>
-            <div class="col-md-4 col-sm-4">
+            <div class="col-lg-4 col-md-4">
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Newsletter</h3>
                     <p>Zapisz się do newslettera i bądź na bieżąco!</p>
-<!--                    <form action="newsletter" id=request_newsletter method="post" >-->
-<!--                        &lt;!&ndash;                        <div class="input-group">&ndash;&gt;-->
-<!--                        <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">-->
-<!--                        &lt;!&ndash;                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                            <span class="input-group-btn">&ndash;&gt;-->
+                    <!--                    <form action="newsletter" id=request_newsletter method="post" >-->
+                    <!--                        &lt;!&ndash;                        <div class="input-group">&ndash;&gt;-->
+                    <!--                        <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">-->
+                    <!--                        &lt;!&ndash;                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">&ndash;&gt;-->
+                    <!--                        &lt;!&ndash;                            <span class="input-group-btn">&ndash;&gt;-->
 
-<!--                        &lt;!&ndash;                            </span>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--                    </form>-->
+                    <!--                        &lt;!&ndash;                            </span>&ndash;&gt;-->
+                    <!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
+                    <!--                    </form>-->
                     <form action="newsletter" id=request_newsletter method="post">
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">
+                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter"
+                                   id="email">
                             <span class="input-group-btn">
-                                <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button>
+                                <button id="newsletter_submit_button" class="btn btn-default"
+                                        type="button">Zapisz mnie</button>
       </span>
                         </div>
                         <div class="errorTxt"></div>
                     </form>
-<!--                    <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button>-->
+                    <!--                    <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button>-->
                 </div>
                 <!-- /.footer-widget -->
+<!--            </div>-->
+        </div>
+    </div>
+</div>
+<div class="tiny-footer"><!-- tiny-footer -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 text-center">
+                <p>StrefaSerca © 2020</p>
             </div>
         </div>
     </div>
-    <div class="tiny-footer"><!-- tiny-footer -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 text-center">
-                    <p>StrefaSerca © 2020</p>
-                </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="mail_confirm">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
             </div>
-        </div>
-    </div>
+            <div class="modal-body d-block">
+                <h2 class="modal-title text-center">Na podany adres został wysłany link aktywacyjny. <br> Użyj go
+                    aby otrzymywać od nas wiadomości.</h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="mail_confirm">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body d-block">
-                    <h2 class="modal-title text-center">Na podany adres został wysłany link aktywacyjny. <br> Użyj go
-                        aby otrzymywać od nas wiadomości.</h2>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
-                    <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="ask_question">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body d-block">
+                <h2 class="modal-title text-center">Wysłać wiadomość ?</h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="send_question" data-dismiss="modal">Wyślij
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- /.tiny-footer -->
+<!-- back to top icon -->
+<a href=" #0 " class="cd-top" title="Go to top">Top</a>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- jQueryValidate (necessary for validation with jQuery) -->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js" data-th-src="@{/js/bootstrap.min.js}"></script>
+<script src="js/menumaker.js" data-th-src="@{/js/menumaker.js}"></script>
+<script type="text/javascript">
+    $("#navigation").menumaker({
+        title: "Menu",
+        format: "multitoggle"
+    })
+    // /** newsletter code */
+    // $('#request_newsletter').submit(function (e) {
+    //     // $('#mail_confirm').modal('show');
+    //     FormValidationNewsLetter();
+    //     var form = $('#request_newsletter');
+    //     e.preventDefault();
+    //     $.ajax({
+    //         type: form.attr('method'), // method attribute of form
+    //         url: form.attr('action'),  // action attribute of form
+    //         data: form.serialize()
+    //     });
+    // });
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="ask_question">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body d-block">
-                    <h2 class="modal-title text-center">Wysłać wiadomość ?</h2>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="send_question" data-dismiss="modal">Wyślij
-                    </button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <!-- /.tiny-footer -->
-    <!-- back to top icon -->
-    <a href=" #0 " class="cd-top" title="Go to top">Top</a>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- jQueryValidate (necessary for validation with jQuery) -->
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js" data-th-src="@{/js/bootstrap.min.js}"></script>
-    <script src="js/menumaker.js" data-th-src="@{/js/menumaker.js}"></script>
-    <script type="text/javascript">
-        $("#navigation").menumaker({
-            title: "Menu",
-            format: "multitoggle"
+    // $('#request_newsletter input[type=email]').on('change invalid', function () {
+    //     var textfield = $(this).get(0);
+    //
+    //     // 'setCustomValidity not only sets the message, but also marks
+    //     // the field as invalid. In order to see whether the field really is
+    //     // invalid, we have to remove the message first
+    //     textfield.setCustomValidity('');
+    //
+    //     if (!textfield.validity.valid) {
+    //         textfield.setCustomValidity('Wprowadź prawidłowy adres email zawierający "@"');
+    //     }
+    // });
+
+    /** Ask me a question code */
+    $('#question_submit_button').click(function (e) {
+        ValidateQuestionForm();
+        /** toggle alert */
+        if ($('#bsalert').hasClass('in')) {
+            toggleAlert()
+        }
+    });
+    // /** Ask me a question code */
+    $('#newsletter_submit_button').click(function (e) {
+        ValidateNewsletterForm(e);
+        // /** toggle alert */
+        // if ($('#bsalert').hasClass('in')) {
+        //     toggleAlert()
+        // }
+    });
+
+    /** jQuery validation method*/
+    function ValidateQuestionForm() {
+        $('#ask_question_form').validate({
+            errorClass: "my-error-class",
+            // validClass: "my-valid-class",
+            rules: {
+                name: {
+                    required: true
+                },
+                email: {
+                    required: true
+                },
+                textarea: {
+                    required: true,
+                    minlength: 10
+                }
+            },
+            messages: {
+                name: "Wpisz swoje imię",
+                email: "Wpisz prawidłowy email",
+                textarea: "Wpisz przynajmniej 10 znaków"
+            }
         })
-        // /** newsletter code */
+        if ($('#ask_question_form').valid()) {
+            $('#ask_question').modal('show');
+        }
+    }
+
+    function ValidateNewsletterForm(e) {
+        /** newsletter */
+        $('#request_newsletter').validate({
+            errorClass: "my-error-class",
+            // validClass: "my-valid-class",
+            rules: {
+                newsletter: {
+                    required: true
+                },
+            },
+            messages: {
+                newsletter: "Wpisz prawidłowy adres email",
+            },
+            errorElement: 'div',
+            errorLabelContainer: '.errorTxt'
+        })
+        if ($('#request_newsletter').valid()) {
+            $('#mail_confirm').modal('show');
+            sendNewsletter(e)
+        }
+
+        function sendNewsletter(e) {
+            /** newsletter code */
+            var form = $('#request_newsletter');
+            e.preventDefault();
+            $.ajax({
+                type: form.attr('method'), // method attribute of form
+                url: form.attr('action'),  // action attribute of form
+                data: form.serialize()
+            });
+        }
+
+        // $( document ).ready(function() {
+
+
         // $('#request_newsletter').submit(function (e) {
         //     // $('#mail_confirm').modal('show');
-        //     FormValidationNewsLetter();
+        //     // ValidateNewsletterForm();
         //     var form = $('#request_newsletter');
         //     e.preventDefault();
         //     $.ajax({
         //         type: form.attr('method'), // method attribute of form
         //         url: form.attr('action'),  // action attribute of form
         //         data: form.serialize()
-        //     });
-        // });
+        // })
+        // ;
+        // })
+        // ;
 
-        // $('#request_newsletter input[type=email]').on('change invalid', function () {
-        //     var textfield = $(this).get(0);
-        //
-        //     // 'setCustomValidity not only sets the message, but also marks
-        //     // the field as invalid. In order to see whether the field really is
-        //     // invalid, we have to remove the message first
-        //     textfield.setCustomValidity('');
-        //
-        //     if (!textfield.validity.valid) {
-        //         textfield.setCustomValidity('Wprowadź prawidłowy adres email zawierający "@"');
-        //     }
-        // });
+    }
 
-        /** Ask me a question code */
-        $('#question_submit_button').click(function (e) {
-            ValidateQuestionForm();
-            /** toggle alert */
-            if ($('#bsalert').hasClass('in')) {
-                toggleAlert()
-            }
+    $('#send_question').click(function (e) {
+        var form = $('#ask_question_form');
+        e.preventDefault();
+        $.ajax({
+            type: form.attr('method'), // method attribute of form
+            url: form.attr('action'),  // action attribute of form
+            data: form.serialize(),
+            success: function () {
+                toggleAlert();
+                $(form)[0].reset();
+            },
+            error: function (data) {
+                // successmessage = 'Error';
+                // $("label#successmessage").text(successmessage);
+            },
         });
-        // /** Ask me a question code */
-        $('#newsletter_submit_button').click(function (e) {
-            ValidateNewsletterForm(e);
-            // /** toggle alert */
-            // if ($('#bsalert').hasClass('in')) {
-            //     toggleAlert()
-            // }
-        });
+    });
 
-        /** jQuery validation method*/
-        function ValidateQuestionForm() {
-            $('#ask_question_form').validate({
-                errorClass: "my-error-class",
-                // validClass: "my-valid-class",
-                rules: {
-                    user_name: {
-                        required: true
-                    },
-                    email: {
-                        required: true
-                    },
-                    textarea: {
-                        required: true,
-                        minlength: 10
-                    }
-                },
-                messages: {
-                    user_name: "Wpisz swoje imię",
-                    email: "Wpisz prawidłowy email",
-                    textarea: "Wpisz przynajmniej 10 znaków"
-                }
-            })
-            if ($('#ask_question_form').valid()) {
-                $('#ask_question').modal('show');
-            }
-        }
+    function toggleAlert() {
+        $(".alert").toggleClass('in out');
+        return false; // Keep close.bs.alert event from removing from DOM
+    }
 
-        function ValidateNewsletterForm(e) {
-            /** newsletter */
-            $('#request_newsletter').validate({
-                errorClass: "my-error-class",
-                // validClass: "my-valid-class",
-                rules: {
-                    newsletter: {
-                        required: true
-                    },
-                },
-                messages: {
-                    newsletter: "Wpisz prawidłowy adres email",
-                },
-                errorElement : 'div',
-                errorLabelContainer: '.errorTxt'
-            })
-            if ($('#request_newsletter').valid()) {
-                $('#mail_confirm').modal('show');
-                sendNewsletter(e)
-            }
-
-            function sendNewsletter(e) {
-                /** newsletter code */
-                var form = $('#request_newsletter');
+    $(document).ready(function () {
+        $('#request_newsletter').bind('keydown', function (e) {
+            if (e.keyCode == 13) {
                 e.preventDefault();
-                $.ajax({
-                    type: form.attr('method'), // method attribute of form
-                    url: form.attr('action'),  // action attribute of form
-                    data: form.serialize()
-                });
             }
-
-            // $( document ).ready(function() {
-
-
-            // $('#request_newsletter').submit(function (e) {
-            //     // $('#mail_confirm').modal('show');
-            //     // ValidateNewsletterForm();
-            //     var form = $('#request_newsletter');
-            //     e.preventDefault();
-            //     $.ajax({
-            //         type: form.attr('method'), // method attribute of form
-            //         url: form.attr('action'),  // action attribute of form
-            //         data: form.serialize()
-            // })
-            // ;
-            // })
-            // ;
-
-        }
-        $('#send_question').click(function (e) {
-            var form = $('#ask_question_form');
-            e.preventDefault();
-            $.ajax({
-                type: form.attr('method'), // method attribute of form
-                url: form.attr('action'),  // action attribute of form
-                data: form.serialize(),
-                success: function () {
-                    toggleAlert();
-                    $(form)[0].reset();
-                },
-                error: function (data) {
-                    // successmessage = 'Error';
-                    // $("label#successmessage").text(successmessage);
-                },
-            });
         });
-
-        function toggleAlert() {
-            $(".alert").toggleClass('in out');
-            return false; // Keep close.bs.alert event from removing from DOM
-        }
-        $( document ).ready(function() {
-            $('#request_newsletter').bind('keydown', function(e) {
-                if (e.keyCode == 13) {
-                    e.preventDefault();
-                }
-            });
-        });
+    });
 
 
-
-    </script>
-    <!-- animsition -->
-    <script type="text/javascript" src="js/animsition.js" data-th-src="@{/js/animsition.js}"></script>
-    <script type="text/javascript" src="js/animsition-script.js" data-th-src="@{/js/animsition-script.js}"></script>
-    <!-- sticky header -->
-    <script type="text/javascript" src="js/jquery.sticky.js" data-th-src="@{/js/jquery.sticky.js}"></script>
-    <script type="text/javascript" src="js/sticky-header.js" data-th-src="@{/js/sticky-header.js}"></script>
-    <!-- Back to top script -->
-    <script src="js/back-to-top.js" type="text/javascript" data-th-src="@{/js/back-to-top.js}"></script>
+</script>
+<!-- animsition -->
+<script type="text/javascript" src="js/animsition.js" data-th-src="@{/js/animsition.js}"></script>
+<script type="text/javascript" src="js/animsition-script.js" data-th-src="@{/js/animsition-script.js}"></script>
+<!-- sticky header -->
+<script type="text/javascript" src="js/jquery.sticky.js" data-th-src="@{/js/jquery.sticky.js}"></script>
+<script type="text/javascript" src="js/sticky-header.js" data-th-src="@{/js/sticky-header.js}"></script>
+<!-- Back to top script -->
+<script src="js/back-to-top.js" type="text/javascript" data-th-src="@{/js/back-to-top.js}"></script>
 </div>
 </body>
 </html>
