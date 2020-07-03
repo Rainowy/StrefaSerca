@@ -34,17 +34,21 @@ veterinary cardiology website, pediatric cardiology website">
         <div class="row">
             <div class="col-lg-3 col-md-12"><a class="logo" th:href="@{/}">
                 <img th:src="@{/images/logo-main.jpg}" alt=""/></a>
+                <!--                <h2 class="intro-title">Kardiolog Katarzyna Czarnecka</h2>-->
             </div>
-            <div class="col-lg-9 d-none d-md-block">
+            <div class="col-lg-9">
                 <div class="top-link">
                     <div class="row">
-                        <div class="col-lg-6  hidden-sm hidden-xs top-link">
+                        <div class="col-lg-6 d-none d-md-block top-link">
                             <i class="fa fa-envelope-o"></i> <a href="#">strefaserca@gmail.com</a>
                         </div>
-                        <div class="col-lg-3  hidden-sm hidden-xs top-link">
+                        <div class="col-lg-3  d-none d-md-block top-link">
                             <i class="fa fa-phone"></i> <a href="#">792 327 604</a>
                         </div>
-                        <div class="col-lg-3  hidden-sm hidden-xs top-link">
+                        <div class="col-lg-6  d-md-none top-link">
+                            <i class="fa fa-user-md"></i><a href="#">Kardiolog Katarzyna Czarnecka</a>
+                        </div>
+                        <div class="col-lg-3  top-link">
                             <i class="fa fa-sign-in"></i> <a href="#">Zaloguj się</a>
                         </div>
                     </div>
@@ -213,28 +217,16 @@ veterinary cardiology website, pediatric cardiology website">
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Newsletter</h3>
                     <p>Zapisz się do newslettera i bądź na bieżąco!</p>
-                    <!--                    <form action="newsletter" id=request_newsletter method="post" >-->
-                    <!--                        &lt;!&ndash;                        <div class="input-group">&ndash;&gt;-->
-                    <!--                        <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">-->
-                    <!--                        &lt;!&ndash;                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">&ndash;&gt;-->
-                    <!--                        &lt;!&ndash;                            <span class="input-group-btn">&ndash;&gt;-->
-
-                    <!--                        &lt;!&ndash;                            </span>&ndash;&gt;-->
-                    <!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
-                    <!--                    </form>-->
                     <form action="newsletter" id=request_newsletter method="post">
                         <div class="input-group">
                             <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">
                             <span class="input-group-btn">
-                                <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button>
-      </span>
+                                <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button></span>
                         </div>
                         <div class="errorTxt"></div>
                     </form>
-                    <!--                    <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button>-->
                 </div>
                 <!-- /.footer-widget -->
-                <!--            </div>-->
             </div>
         </div>
     </div>

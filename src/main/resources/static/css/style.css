@@ -1154,16 +1154,18 @@ visibility: hidden; line-height: 0; height: 0;}*/
 }
 
 .intro-caption {
-    color: #fff;
+    color: #595959;
+    /*color: #6f6f6f;*/
     padding-top: 150px;
     padding-bottom: 150px;
     font-size: 18px;
 }
 
 .intro-title {
-    font-size: 34px;
-    color: #222626;
-    line-height: 38px;
+    font-size: 52px;
+    color: #595959;
+    /*color: #6f6f6f;*/
+    line-height: 58px;
 }
 
 /*-------------- cta ------------*/
@@ -2097,13 +2099,15 @@ hr {
     pointer-events: none;
     cursor: default;
 }
+
 .my-error-class {
-    color:#FF0000;  /* red */
+    color: #FF0000; /* red */
 }
+
 /*.my-valid-class {*/
 /*    color:#00CC00; !* green *!*/
 /*}*/
-.errorTxt{
+.errorTxt {
     /*border: 1px solid red;*/
     min-height: 20px;
 }
