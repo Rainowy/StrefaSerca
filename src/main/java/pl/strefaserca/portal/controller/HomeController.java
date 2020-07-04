@@ -8,6 +8,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.strefaserca.portal.service.ArticleService;
+import pl.strefaserca.portal.service.ContactService;
 import pl.strefaserca.portal.service.NewsLetterService;
 import pl.strefaserca.portal.service.TestimonialService;
 
@@ -21,6 +22,7 @@ public class HomeController {
     private ArticleService articleService;
     private TestimonialService testimonialService;
     private NewsLetterService newsLetterService;
+    private ContactService contactService;
     private MessageSource messages;
 
     @GetMapping("/")
@@ -89,16 +91,18 @@ public class HomeController {
         return new ModelAndView("newsletter", "message", message);
     }
 
-    @PostMapping("/ask_question")
+    @PostMapping("/askQuestion")
     public @ResponseBody
     void askQuestion(@RequestParam String name,
                      @RequestParam String email,
                      @RequestParam String phone,
                      @RequestParam String textarea) {
+
+        contactService.sendQuestion(name,email,phone,textarea);
 //        if (!newsLetter.isEmpty()) {
 //            newsLetterService.sendConfirmationMail(newsLetter);
 //        }
-        System.out.println(name + " " + email + " " + phone + " " + textarea);
+//        System.out.println(name + " " + email + " " + phone + " " + textarea);
     }
 }
 
