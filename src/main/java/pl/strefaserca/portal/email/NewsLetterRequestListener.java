@@ -1,7 +1,11 @@
 package pl.strefaserca.portal.email;
 
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
+import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
+import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
@@ -13,6 +17,9 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.util.UUID;
+
+@Slf4j
+//@Log4j2
 
 @Component
 @AllArgsConstructor
@@ -36,22 +43,29 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewslett
         // here can be createVeriToken in service
         String subject = "Zapraszam do Newslettera Strefy Serca.";
         String confirmationUrl = event.getAppUrl() + "/newsletterConfirm?token=" + token;
-
-        mailSender.send(getMimeMessage(emailToConfirm, subject, confirmationUrl));
+try {
+    mailSender.send(prepareMimeMessage(emailToConfirm, subject, confirmationUrl));
+}catch (MailException ex) {
+    // simply log it and go on...
+    log.error(ex.getMessage());
+//    System.err.println(ex.getMessage());
+}
     }
 
-    private MimeMessage getMimeMessage(String emailToConfirm, String subject, String confirmationUrl) {
+    @SneakyThrows
+    private MimeMessage prepareMimeMessage(String emailToConfirm, String subject, String confirmationUrl) {
         String body = getMailBody(confirmationUrl);
         MimeMessage mail = mailSender.createMimeMessage();
-        try {
+//        try {
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo(emailToConfirm);
             helper.setSubject(subject);
             helper.setText(body, true);
             helper.addInline("logo",new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
+//        } catch (MessagingException e) {
+//            e.printStackTrace();
+////            log.error("BŁĄÐ " + e);
+//        }
         return mail;
     }
 
