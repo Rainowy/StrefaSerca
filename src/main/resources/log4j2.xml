@@ -24,35 +24,17 @@
     </Appenders>
 
     <Loggers>
+        <AsyncLogger name="pl.strefaserca.portal" level="debug" additivity="false" includeLocation="true">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="RollingFile" />
+        </AsyncLogger>
         <!-- LOG everything at INFO level -->
-        <Root level="info">
+        <Root level="info" includeLocation="true">
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
         </Root>
-
-        <!-- LOG "com.baeldung*" at TRACE level -->
-        <Logger name="com.strefaserca.portal" level="trace"></Logger>
     </Loggers>
 
 </Configuration>
 
-        <!--<?xml version="1.0" encoding="UTF-8"?>-->
-        <!--<Configuration status="DEBUG">-->
-        <!--    <Appenders>-->
-        <!--        <File name="LogToFile" fileName="/home/tomek/Documents/StrefaHtml/log4j.log">-->
-        <!--            <PatternLayout>-->
-        <!--                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>-->
-        <!--            </PatternLayout>-->
-        <!--        </File>-->
-        <!--    </Appenders>-->
-        <!--    <Loggers>-->
-        <!--        &lt;!&ndash; avoid duplicated logs with additivity=false &ndash;&gt;-->
-        <!--        <Logger name="pl.strefaserca.portal" level="debug" additivity="false">-->
-        <!--            <AppenderRef ref="LogToFile"/>-->
-        <!--        </Logger>-->
-        <!--        <Root level="error">-->
-        <!--            <AppenderRef ref="LogToFile"/>-->
-        <!--        </Root>-->
-        <!--    </Loggers>-->
-        <!--</Configuration>-->
 
