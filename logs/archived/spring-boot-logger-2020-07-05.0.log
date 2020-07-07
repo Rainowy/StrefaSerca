@@ -1,0 +1,20 @@
+2020-07-05 09:29:25,256 ERROR pl.strefaserca.portal.email.NewsLetterRequestListener [http-nio-8080-exec-1] BŁĄÐ Authentication failed; nested exception is javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials u5sm10216572lfm.81 - gsmtp
+
+2020-07-05 09:30:34,736 ERROR pl.strefaserca.portal.email.NewsLetterRequestListener [http-nio-8080-exec-1] BŁĄÐ Authentication failed; nested exception is javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials a20sm7762519lfl.20 - gsmtp
+
+2020-07-05 09:35:25,327 ERROR pl.strefaserca.portal.email.NewsLetterRequestListener [http-nio-8080-exec-1] BŁĄÐ Authentication failed; nested exception is javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials p1sm763546lji.93 - gsmtp
+
+2020-07-05 09:37:09,578 ERROR pl.strefaserca.portal.email.NewsLetterRequestListener [http-nio-8080-exec-1] Authentication failed; nested exception is javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials a20sm7771346lfl.20 - gsmtp
+
+2020-07-05 09:45:14,160 ERROR pl.strefaserca.portal.email.NewsLetterRequestListener [http-nio-8080-exec-8] Mail server connection failed; nested exception is com.sun.mail.util.MailConnectException: Couldn't connect to host, port: sm.gmail.com, 587; timeout -1;
+  nested exception is:
+	java.net.UnknownHostException: sm.gmail.com. Failed messages: com.sun.mail.util.MailConnectException: Couldn't connect to host, port: sm.gmail.com, 587; timeout -1;
+  nested exception is:
+	java.net.UnknownHostException: sm.gmail.com
+2020-07-05 09:49:31,498 ERROR pl.strefaserca.portal.email.ContactQuestionListener [http-nio-8080-exec-8] Authentication failed; nested exception is javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials l5sm10222480lfp.9 - gsmtp
+

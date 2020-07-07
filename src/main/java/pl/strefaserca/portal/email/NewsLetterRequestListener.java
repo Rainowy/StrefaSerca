@@ -18,8 +18,8 @@ import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.util.UUID;
 
-@Slf4j
-//@Log4j2
+//@Slf4j
+@Log4j2
 
 @Component
 @AllArgsConstructor
