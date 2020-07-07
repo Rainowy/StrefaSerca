@@ -1,14 +1,14 @@
 package pl.strefaserca.portal.email;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.context.ApplicationListener;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
-@Slf4j
+@Log4j2
 @Component
 @AllArgsConstructor
 public class ContactQuestionListener implements ApplicationListener<OnContactQuestionEvent> {
@@ -42,8 +42,8 @@ public class ContactQuestionListener implements ApplicationListener<OnContactQue
         emailMessage.setText(sb.toString());
         emailMessage.setReplyTo(email);
         try {
-        mailSender.send(emailMessage);
-        }catch (MailException ex) {
+            mailSender.send(emailMessage);
+        } catch (MailException ex) {
             log.error(ex.getMessage());
         }
     }

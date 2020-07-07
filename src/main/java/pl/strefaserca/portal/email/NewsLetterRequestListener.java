@@ -3,7 +3,6 @@ package pl.strefaserca.portal.email;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -13,14 +12,12 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import pl.strefaserca.portal.service.NewsLetterService;
 
-import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.util.UUID;
 
 //@Slf4j
 @Log4j2
-
 @Component
 @AllArgsConstructor
 public class NewsLetterRequestListener implements ApplicationListener<OnNewsletterRequestEvent> {
@@ -39,33 +36,26 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewslett
 
         String emailToConfirm = event.getEmail();
         String token = UUID.randomUUID().toString();
-        newsLetterService.saveConfirmationToken( emailToConfirm, token);
+        newsLetterService.saveConfirmationToken(emailToConfirm, token);
         // here can be createVeriToken in service
         String subject = "Zapraszam do Newslettera Strefy Serca.";
         String confirmationUrl = event.getAppUrl() + "/newsletterConfirm?token=" + token;
-try {
-    mailSender.send(prepareMimeMessage(emailToConfirm, subject, confirmationUrl));
-}catch (MailException ex) {
-    // simply log it and go on...
-    log.error(ex.getMessage());
-//    System.err.println(ex.getMessage());
-}
+        try {
+            mailSender.send(prepareMimeMessage(emailToConfirm, subject, confirmationUrl));
+        } catch (MailException ex) {
+            log.error(ex.getMessage());
+        }
     }
 
     @SneakyThrows
     private MimeMessage prepareMimeMessage(String emailToConfirm, String subject, String confirmationUrl) {
         String body = getMailBody(confirmationUrl);
         MimeMessage mail = mailSender.createMimeMessage();
-//        try {
-            MimeMessageHelper helper = new MimeMessageHelper(mail, true);
-            helper.setTo(emailToConfirm);
-            helper.setSubject(subject);
-            helper.setText(body, true);
-            helper.addInline("logo",new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
-//        } catch (MessagingException e) {
-//            e.printStackTrace();
-////            log.error("BŁĄÐ " + e);
-//        }
+        MimeMessageHelper helper = new MimeMessageHelper(mail, true);
+        helper.setTo(emailToConfirm);
+        helper.setSubject(subject);
+        helper.setText(body, true);
+        helper.addInline("logo", new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
         return mail;
     }
 
@@ -73,7 +63,7 @@ try {
         Context context = new Context();
         context.setVariable("header", "Portal Strefa Serca zaprasza do Newslettera");
         context.setVariable("title", "Użyj linku poniżej aby zapisać się do biuletynu informacyjnego Strefy Serca");
-        context.setVariable("description", "http://localhost:8080" + confirmationUrl );
+        context.setVariable("description", "http://localhost:8080" + confirmationUrl);
         return templateEngine.process("template", context);
     }
 }

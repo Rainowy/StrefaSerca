@@ -57,10 +57,11 @@ $('#send_question').click(function (e) {
             toggleAlert();
             $(form)[0].reset();
         },
-        // error: function (data) {
-        //     // successmessage = 'Error';
-        //     // $("label#successmessage").text(successmessage);
-        // },
+        error: function (data) {
+            console.log(data + "NIE WYSŁANO")
+            // successmessage = 'Error';
+            // $("label#successmessage").text(successmessage);
+        },
     });
 });
 

@@ -18,7 +18,6 @@ public class ContactService {
 
     public void sendQuestion(String name, String email, String phone, String textarea){
         eventPublisher.publishEvent(new OnContactQuestionEvent(email,name,phone,textarea));
-
     }
 }
 
