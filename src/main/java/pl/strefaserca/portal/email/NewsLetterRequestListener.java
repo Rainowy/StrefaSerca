@@ -55,7 +55,8 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewslett
         helper.setTo(emailToConfirm);
         helper.setSubject(subject);
         helper.setText(body, true);
-        helper.addInline("logo", new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
+//        helper.addInline("logo", new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
+        helper.addInline("logo",new File("/home/kasiazen/workspace/Portfolio/StrefaSerca/src/main/resources/static/images/logo-main.jpg"));
         return mail;
     }
 

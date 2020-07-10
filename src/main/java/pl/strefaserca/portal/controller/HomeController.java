@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pl.strefaserca.portal.email.OnContactQuestionEvent;
+import pl.strefaserca.portal.email.OnNewsletterRequestEvent;
 import pl.strefaserca.portal.service.ArticleService;
 import pl.strefaserca.portal.service.ContactService;
 import pl.strefaserca.portal.service.NewsLetterService;
@@ -14,6 +16,8 @@ import pl.strefaserca.portal.service.TestimonialService;
 
 import java.util.Locale;
 import java.util.Optional;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 @Controller
 @AllArgsConstructor
@@ -24,6 +28,8 @@ public class HomeController {
     private NewsLetterService newsLetterService;
     private ContactService contactService;
     private MessageSource messages;
+
+//    private OnNewsletterRequestEvent event;
 
     @GetMapping("/")
     public ModelAndView index() {
@@ -96,13 +102,39 @@ public class HomeController {
     void askQuestion(@RequestParam String name,
                      @RequestParam String email,
                      @RequestParam String phone,
-                     @RequestParam String textarea) {
+                     @RequestParam String textarea)throws InterruptedException, ExecutionException {
 
-        contactService.sendQuestion(name,email,phone,textarea);
+        OnContactQuestionEvent event = new OnContactQuestionEvent(email,name,phone,textarea);
+
+        contactService.sendQuestion(event);
+//        Future<String> future = contactService.askQuestion(new OnContactQuestionEvent(""));
+        Future<String> future = contactService.tryIt();
+        System.out.println(future.get());
+//        if (contactService.askQuestion(null)){
+//            System.out.println("WYSŁANO");
+//        }
+//        else {
+//            System.out.println("NIE WYSŁANO");
+//        }
 //        if (!newsLetter.isEmpty()) {
 //            newsLetterService.sendConfirmationMail(newsLetter);
 //        }
 //        System.out.println(name + " " + email + " " + phone + " " + textarea);
     }
+//    public void testAsyncAnnotationForMethodsWithReturnType()
+//            throws InterruptedException, ExecutionException {
+//        System.out.println("Invoking an asynchronous method. "
+//                + Thread.currentThread().getName());
+//        Future<String> future = contactService.askQuestion(null);
+//
+//        while (true) {
+//            if (future.isDone()) {
+//                System.out.println("Result from asynchronous process - " + future.get());
+//                break;
+//            }
+//            System.out.println("Continue doing something else. ");
+//            Thread.sleep(1000);
+//        }
+//    }
 }
 
