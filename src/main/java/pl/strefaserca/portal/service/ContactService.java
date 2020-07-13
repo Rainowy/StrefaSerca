@@ -1,84 +1,39 @@
 package pl.strefaserca.portal.service;
 
-import lombok.AllArgsConstructor;
-import lombok.SneakyThrows;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
 import pl.strefaserca.portal.email.OnContactQuestionEvent;
-import pl.strefaserca.portal.email.OnNewsletterRequestEvent;
-
-import javax.mail.internet.MimeMessage;
-import java.io.File;
-import java.util.Optional;
-import java.util.UUID;
 import java.util.concurrent.Future;
 
 @Log4j2
 @Service
-//@AllArgsConstructor
+@RequiredArgsConstructor //adds a constructor for all fields that are either @NonNull or final.
 public class ContactService {
 
-    private ApplicationEventPublisher eventPublisher;
-
-    //próba
-    private NewsLetterService newsLetterService;
-    private JavaMailSender mailSender;
-
-    private final TemplateEngine templateEngine;
-    //    private ContextStartedEvent event;
-//    private OnNewsletterRequestEvent event;
-//  SimpleMailMessage simpleMailMessage = null;
+    private final ApplicationEventPublisher eventPublisher;
+    private final JavaMailSender mailSender;
     private OnContactQuestionEvent event;
 
-
-    public ContactService(ApplicationEventPublisher eventPublisher, NewsLetterService newsLetterService, JavaMailSender mailSender, TemplateEngine templateEngine) {
-        this.eventPublisher = eventPublisher;
-        this.newsLetterService = newsLetterService;
-        this.mailSender = mailSender;
-        this.templateEngine = templateEngine;
-    }
-
-    //publikuje event
-    public void sendQuestion(OnContactQuestionEvent event) {
+    //publish event
+    public void publishEvent(OnContactQuestionEvent event) {
         eventPublisher.publishEvent(event);
     }
 
-    //próba
-
-    //    @Async
+    //create listener for published event
     @EventListener
-    public void askQuestion(OnContactQuestionEvent event) {
+    public void questionEventListener(OnContactQuestionEvent event) {
         this.event = event;
-//            public Future<String> askQuestion(OnContactQuestionEvent event) {
-
-//        eventPublisher.publishEvent(event);
-//        Optional<OnContactQuestionEvent> event1 = Optional.ofNullable(event);
-
-//        if (event1.isPresent()) {
-
-
-//            simpleMailMessage = emailMessage;
-
-//        tryIt(emailMessage);
-//        return;
     }
 
-    @Async
-    public Future<Boolean> tryIt() {
-        String recipient = "strefaserca@gmail.com";
-        String subject = "Strefa Serca pytanie";
-
+    private StringBuilder createQuestionText(){
         String name = event.getName();
         String phone = event.getPhone();
         String email = event.getEmail();
@@ -89,12 +44,20 @@ public class ContactService {
         sb.append("Email: " + email).append("\n");
         sb.append("Telefon: " + phone).append("\n");
         sb.append("Napisał(a): " + message);
+        return sb;
+    }
+
+    @Async("threadPoolTaskExecutor")
+    public Future<Boolean> sendQuestion() {
+        String recipient = "strefaserca@gmail.com";
+        String subject = "Strefa Serca pytanie";
 
         SimpleMailMessage emailMessage = new SimpleMailMessage();
         emailMessage.setTo(recipient);
         emailMessage.setSubject(subject);
-        emailMessage.setText(sb.toString());
-        emailMessage.setReplyTo(email);
+        emailMessage.setText(createQuestionText().toString());
+        emailMessage.setReplyTo(event.getEmail());
+
         try {
             mailSender.send(emailMessage);
         } catch (MailException ex) {
@@ -103,7 +66,6 @@ public class ContactService {
         }
         return new AsyncResult<>(true);
     }
-
 }
 
 

@@ -30,13 +30,6 @@ public class NewsLetterService {
         eventPublisher.publishEvent(new OnNewsletterRequestEvent(appUrl, locale, email));
     }
 
-    public void sendContactQuestion(String email,String name,String phone,String message){
-        String appUrl = request.getContextPath();
-        Locale locale = request.getLocale();
-        eventPublisher.publishEvent(new OnContactQuestionEvent(email,name,phone,message));
-
-    }
-
     @SneakyThrows
     public void saveConfirmationToken(String mail, String token) {
 

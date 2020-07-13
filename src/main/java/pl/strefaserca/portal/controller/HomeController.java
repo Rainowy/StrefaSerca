@@ -1,6 +1,5 @@
 package pl.strefaserca.portal.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -9,7 +8,6 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.strefaserca.portal.email.OnContactQuestionEvent;
-import pl.strefaserca.portal.email.OnNewsletterRequestEvent;
 import pl.strefaserca.portal.service.ArticleService;
 import pl.strefaserca.portal.service.ContactService;
 import pl.strefaserca.portal.service.NewsLetterService;
@@ -107,63 +105,14 @@ public class HomeController {
 
         OnContactQuestionEvent event = new OnContactQuestionEvent(email, name, phone, textarea);
 
-        contactService.sendQuestion(event);
-//        Future<String> future = contactService.askQuestion(new OnContactQuestionEvent(""));
-        Future<Boolean> future = contactService.tryIt();
-//        System.out.println(future.get());
-//        System.out.println("FUTURE TO " + future.get());
+        contactService.publishEvent(event);
+        Future<Boolean> future = contactService.sendQuestion();
 
         while (true) {
             if (future.isDone()) {
                 return future.get();
             }
         }
-//        while (true) {
-//            if (future.isDone()) {
-////                System.out.println("Result from asynchronous process - " + future.get());
-//                return future.get();
-////                break;
-//            }
-//            System.out.println("Continue doing something else. ");
-//            Thread.sleep(1000);
-//        }
-
-//        return future.get();
-
-
-//        while (true) {
-//            if (future.isDone()) {
-//                System.out.println("Result from asynchronous process - " + future.get());
-//                break;
-//            }
-//            System.out.println("Continue doing something else. ");
-//            Thread.sleep(1000);
-//        }
-//        if (contactService.askQuestion(null)){
-//            System.out.println("WYSŁANO");
-//        }
-//        else {
-//            System.out.println("NIE WYSŁANO");
-//        }
-//        if (!newsLetter.isEmpty()) {
-//            newsLetterService.sendConfirmationMail(newsLetter);
-//        }
-//        System.out.println(name + " " + email + " " + phone + " " + textarea);
     }
-//    public void testAsyncAnnotationForMethodsWithReturnType()
-//            throws InterruptedException, ExecutionException {
-//        System.out.println("Invoking an asynchronous method. "
-//                + Thread.currentThread().getName());
-//        Future<String> future = contactService.askQuestion(null);
-//
-//        while (true) {
-//            if (future.isDone()) {
-//                System.out.println("Result from asynchronous process - " + future.get());
-//                break;
-//            }
-//            System.out.println("Continue doing something else. ");
-//            Thread.sleep(1000);
-//        }
-//    }
 }
 

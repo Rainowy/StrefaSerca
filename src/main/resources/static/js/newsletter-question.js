@@ -70,23 +70,20 @@ function toggleAlert() {
     $(".alert").toggleClass('in out');
     return false; // Keep close.bs.alert event from removing from DOM
 }
+
 function alertMessage(response) {
     let alert = $(".alert");
+    alert.toggleClass('in out')
     if (response) {
-        alert.toggleClass('in out');
         alert.addClass("alert-success");
         $(".text-alert").html("Wiadomość została wysłana")
         return false;
     } else {
-        alert.toggleClass('in out');
         alert.addClass("alert-danger");
         $(".text-alert").html('Wiadomość nie została wysłana, <br> spróbuj ponownie później')
         return false;
     }
-
-    // return false; // Keep close.bs.alert event from removing from DOM
 }
-
 /** */
 
 /** Newsletter code */
@@ -120,7 +117,6 @@ function ValidateNewsletterForm(e) {
         });
     }
 }
-
 /** */
 
 

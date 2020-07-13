@@ -24,7 +24,7 @@ public class OnContactQuestionEvent extends ApplicationEvent {
         this.message = message;
     }
 
-    public OnContactQuestionEvent(String name) {
-        super(name);
-    }
+//    public OnContactQuestionEvent(String name) {
+//        super(name);
+//    }
 }
