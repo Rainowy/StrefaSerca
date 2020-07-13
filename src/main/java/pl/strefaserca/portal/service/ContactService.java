@@ -36,10 +36,10 @@ public class ContactService {
     private JavaMailSender mailSender;
 
     private final TemplateEngine templateEngine;
-//    private ContextStartedEvent event;
+    //    private ContextStartedEvent event;
 //    private OnNewsletterRequestEvent event;
-  SimpleMailMessage simpleMailMessage = null;
-//    private OnContactQuestionEvent event;
+//  SimpleMailMessage simpleMailMessage = null;
+    private OnContactQuestionEvent event;
 
 
     public ContactService(ApplicationEventPublisher eventPublisher, NewsLetterService newsLetterService, JavaMailSender mailSender, TemplateEngine templateEngine) {
@@ -50,15 +50,16 @@ public class ContactService {
     }
 
     //publikuje event
-    public void sendQuestion(OnContactQuestionEvent event){
+    public void sendQuestion(OnContactQuestionEvent event) {
         eventPublisher.publishEvent(event);
     }
 
     //próba
 
-
+    //    @Async
     @EventListener
     public void askQuestion(OnContactQuestionEvent event) {
+        this.event = event;
 //            public Future<String> askQuestion(OnContactQuestionEvent event) {
 
 //        eventPublisher.publishEvent(event);
@@ -67,44 +68,40 @@ public class ContactService {
 //        if (event1.isPresent()) {
 
 
-            String recipient = "strefaserca@gmail.com";
-            String subject = "Strefa Serca pytanie";
-
-            String name = event.getName();
-            String phone = event.getPhone();
-            String email = event.getEmail();
-            String message = event.getMessage();
-
-            StringBuilder sb = new StringBuilder();
-            sb.append("Imię: " + name).append("\n");
-            sb.append("Email: " + email).append("\n");
-            sb.append("Telefon: " + phone).append("\n");
-            sb.append("Napisał(a): " + message);
-
-            SimpleMailMessage emailMessage = new SimpleMailMessage();
-            emailMessage.setTo(recipient);
-            emailMessage.setSubject(subject);
-            emailMessage.setText(sb.toString());
-            emailMessage.setReplyTo(email);
-
-            simpleMailMessage = emailMessage;
+//            simpleMailMessage = emailMessage;
 
 //        tryIt(emailMessage);
 //        return;
     }
+
     @Async
-    public Future<String> tryIt() {
-        String send = "yes";
+    public Future<Boolean> tryIt() {
+        String recipient = "strefaserca@gmail.com";
+        String subject = "Strefa Serca pytanie";
+
+        String name = event.getName();
+        String phone = event.getPhone();
+        String email = event.getEmail();
+        String message = event.getMessage();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Imię: " + name).append("\n");
+        sb.append("Email: " + email).append("\n");
+        sb.append("Telefon: " + phone).append("\n");
+        sb.append("Napisał(a): " + message);
+
+        SimpleMailMessage emailMessage = new SimpleMailMessage();
+        emailMessage.setTo(recipient);
+        emailMessage.setSubject(subject);
+        emailMessage.setText(sb.toString());
+        emailMessage.setReplyTo(email);
         try {
-            mailSender.send(simpleMailMessage);
+            mailSender.send(emailMessage);
         } catch (MailException ex) {
-            send = "no";
             log.error(ex.getMessage());
+            return new AsyncResult<>(false);
         }
-//        System.out.println(send);
-//            return new AsyncResult<>(send);
-//        }
-        return new AsyncResult<>(send);
+        return new AsyncResult<>(true);
     }
 
 }

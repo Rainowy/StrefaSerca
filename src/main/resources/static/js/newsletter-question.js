@@ -53,14 +53,15 @@ $('#send_question').click(function (e) {
         type: form.attr('method'), // method attribute of form
         url: form.attr('action'),  // action attribute of form
         data: form.serialize(),
-        success: function () {
-            toggleAlert();
-            $(form)[0].reset();
+        success: function (response) {
+            if (response) {
+                alertMessage(response)
+            } else {
+                alertMessage(response)
+            }
         },
         error: function (data) {
             console.log(data + "NIE WYSŁANO")
-            // successmessage = 'Error';
-            // $("label#successmessage").text(successmessage);
         },
     });
 });
@@ -68,6 +69,22 @@ $('#send_question').click(function (e) {
 function toggleAlert() {
     $(".alert").toggleClass('in out');
     return false; // Keep close.bs.alert event from removing from DOM
+}
+function alertMessage(response) {
+    let alert = $(".alert");
+    if (response) {
+        alert.toggleClass('in out');
+        alert.addClass("alert-success");
+        $(".text-alert").html("Wiadomość została wysłana")
+        return false;
+    } else {
+        alert.toggleClass('in out');
+        alert.addClass("alert-danger");
+        $(".text-alert").html('Wiadomość nie została wysłana, <br> spróbuj ponownie później')
+        return false;
+    }
+
+    // return false; // Keep close.bs.alert event from removing from DOM
 }
 
 /** */

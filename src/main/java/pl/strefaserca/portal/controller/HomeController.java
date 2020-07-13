@@ -1,5 +1,6 @@
 package pl.strefaserca.portal.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -99,17 +100,45 @@ public class HomeController {
 
     @PostMapping("/askQuestion")
     public @ResponseBody
-    void askQuestion(@RequestParam String name,
-                     @RequestParam String email,
-                     @RequestParam String phone,
-                     @RequestParam String textarea)throws InterruptedException, ExecutionException {
+    Boolean askQuestion(@RequestParam String name,
+                        @RequestParam String email,
+                        @RequestParam String phone,
+                        @RequestParam String textarea) throws InterruptedException, ExecutionException {
 
-        OnContactQuestionEvent event = new OnContactQuestionEvent(email,name,phone,textarea);
+        OnContactQuestionEvent event = new OnContactQuestionEvent(email, name, phone, textarea);
 
         contactService.sendQuestion(event);
 //        Future<String> future = contactService.askQuestion(new OnContactQuestionEvent(""));
-        Future<String> future = contactService.tryIt();
-        System.out.println(future.get());
+        Future<Boolean> future = contactService.tryIt();
+//        System.out.println(future.get());
+//        System.out.println("FUTURE TO " + future.get());
+
+        while (true) {
+            if (future.isDone()) {
+                return future.get();
+            }
+        }
+//        while (true) {
+//            if (future.isDone()) {
+////                System.out.println("Result from asynchronous process - " + future.get());
+//                return future.get();
+////                break;
+//            }
+//            System.out.println("Continue doing something else. ");
+//            Thread.sleep(1000);
+//        }
+
+//        return future.get();
+
+
+//        while (true) {
+//            if (future.isDone()) {
+//                System.out.println("Result from asynchronous process - " + future.get());
+//                break;
+//            }
+//            System.out.println("Continue doing something else. ");
+//            Thread.sleep(1000);
+//        }
 //        if (contactService.askQuestion(null)){
 //            System.out.println("WYSŁANO");
 //        }
