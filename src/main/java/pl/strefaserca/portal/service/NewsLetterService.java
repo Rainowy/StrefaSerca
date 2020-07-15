@@ -4,7 +4,6 @@ import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import pl.strefaserca.portal.email.OnContactQuestionEvent;
 import pl.strefaserca.portal.email.OnNewsletterRequestEvent;
 
 import javax.servlet.http.HttpServletRequest;

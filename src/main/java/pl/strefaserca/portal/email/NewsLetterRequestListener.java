@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -24,15 +25,16 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewslett
 
     private NewsLetterService newsLetterService;
     private JavaMailSender mailSender;
-
     private final TemplateEngine templateEngine;
 
     @Override
+    @Async("threadPoolTaskExecutor")
     public void onApplicationEvent(OnNewsletterRequestEvent event) {
         this.confirmNewsLetterRequest(event);
     }
 
-    private void confirmNewsLetterRequest(OnNewsletterRequestEvent event) {
+
+    public void confirmNewsLetterRequest(OnNewsletterRequestEvent event) {
 
         String emailToConfirm = event.getEmail();
         String token = UUID.randomUUID().toString();
@@ -56,7 +58,7 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewslett
         helper.setSubject(subject);
         helper.setText(body, true);
 //        helper.addInline("logo", new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
-        helper.addInline("logo",new File("/home/kasiazen/workspace/Portfolio/StrefaSerca/src/main/resources/static/images/logo-main.jpg"));
+        helper.addInline("logo", new File("/home/kasiazen/workspace/Portfolio/StrefaSerca/src/main/resources/static/images/logo-main.jpg"));
         return mail;
     }
 

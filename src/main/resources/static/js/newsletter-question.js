@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    //Show modal on first visit and save to localStorage
+    let ls = localStorage.getItem('strefa.visited');
+    if (ls == null) {
+        $('#cookieModal').modal('show');
+        localStorage.setItem('strefa.visited', 1)
+    }
+
     //Turn off form submitting with enter
     $('#request_newsletter').bind('keydown', function (e) {
         if (e.keyCode == 13) {
@@ -47,7 +54,7 @@ function ValidateQuestionForm() {
 }
 
 $('#send_question').click(function (e) {
-    var form = $('#ask_question_form');
+    let form = $('#ask_question_form');
     e.preventDefault();
     $.ajax({
         type: form.attr('method'), // method attribute of form
@@ -108,10 +115,10 @@ function ValidateNewsletterForm(e) {
     }
 
     function sendNewsletter(e) {
-        var form = $('#request_newsletter');
+        let form = $('#request_newsletter');
         e.preventDefault();
         $.ajax({
-            type: form.attr('method'), // method attribute of form
+            type: form.attr('method'), // method attribulette of form
             url: form.attr('action'),  // action attribute of form
             data: form.serialize()
         });

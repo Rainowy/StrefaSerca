@@ -2103,13 +2103,37 @@ hr {
 .my-error-class {
     color: #FF0000; /* red */
 }
-
 /*.my-valid-class {*/
 /*    color:#00CC00; !* green *!*/
 /*}*/
+
 .errorTxt {
     /*border: 1px solid red;*/
     min-height: 20px;
 }
+
+/*Cookie modal*/
+/*.container {*/
+/*    padding: 2rem 0rem;*/
+/*}*/
+
+.cookie-dialog {
+    margin-top: 0rem;
+    max-width: 100%;
+
+}
+.cookie-content {
+    border-radius: 0rem;
+}
+
+/*.buttons {*/
+/*}*/
+/*.btn {*/
+/*    margin: 0.2rem;*/
+/*}*/
+
+
+
+
 
 

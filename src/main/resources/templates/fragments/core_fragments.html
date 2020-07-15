@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Strona portalu Strefa Serca. W codziennej pracy staram się dążyć do jasnego i zrozumiałego wyjaśnienia pacjentowi na czym polega jego choroba. Uważam, że wiedza, jak postępować w danej sytuacji i dlaczego, zwiększa skuteczność leczenia.">
+    <meta name="description"
+          content="Strona portalu Strefa Serca. W codziennej pracy staram się dążyć do jasnego i zrozumiałego wyjaśnienia pacjentowi na czym polega jego choroba. Uważam, że wiedza, jak postępować w danej sytuacji i dlaczego, zwiększa skuteczność leczenia.">
     <meta name="keywords" content="medical website templates bootstrap,medical website templates free download,medical website templates free, cardiology website templates,cardiology website design,cardiology websites for doctors,cardiology website templates free,
 veterinary cardiology website, pediatric cardiology website">
     <!-- Bootstrap 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- style css -->
     <link rel="stylesheet" type="text/css" href="css/style.css" th:href="@{/css/style.css}">
     <!-- Animsition css -->
@@ -19,7 +21,8 @@ veterinary cardiology website, pediatric cardiology website">
     <link href="css/font-awesome.css" rel="stylesheet" th:href="@{/css/font-awesome.css}">
     <link href="css/font-awesome.css" rel="stylesheet" th:href="@{/css/overrides-style.css}">
     <!-- font css -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
+          rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i,900,900i" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
@@ -111,7 +114,8 @@ veterinary cardiology website, pediatric cardiology website">
             <div class="sidenav mb60">
                 <ul class="listnone no-padding">
                     <li>
-                        <a style="padding-block: 20px" th:href="@{${'/service/selected/Echokardiografia'}}" title="Echokardiografia">Echokardiografia</a>
+                        <a style="padding-block: 20px" th:href="@{${'/service/selected/Echokardiografia'}}"
+                           title="Echokardiografia">Echokardiografia</a>
                     </li>
                     <li><a th:href="@{${'/service/selected/Holter_EKG'}}" title="Holter EKG">Holter EKG</a></li>
                     <li><a th:href="@{${'/service/selected/Holter_RR'}}" title="Holter ciśnieniowy">Holter <br>
@@ -191,7 +195,8 @@ veterinary cardiology website, pediatric cardiology website">
                             <a th:href="@{${'/service/selected/Kontrola_stymulatora'}}" title="Kontrola stymulatora">Kontrola
                                 stymulatora</a></li>
                         <li>
-                            <a th:href="@{${'/service/selected/Koronarografia'}}" title="Koronarografia">Koronarografia</a>
+                            <a th:href="@{${'/service/selected/Koronarografia'}}"
+                               title="Koronarografia">Koronarografia</a>
                         </li>
                         <li>
                             <a th:href="@{${'/service/selected/Test_wysiłkowy'}}" title="Test wysiłkowy">Test
@@ -220,9 +225,11 @@ veterinary cardiology website, pediatric cardiology website">
                     <p>Zapisz się do newslettera i bądź na bieżąco!</p>
                     <form action="newsletter" id=request_newsletter method="post">
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">
+                            <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter"
+                                   id="email">
                             <span class="input-group-btn">
-                                <button id="newsletter_submit_button" class="btn btn-default" type="button">Zapisz mnie</button></span>
+                                <button id="newsletter_submit_button" class="btn btn-default"
+                                        type="button">Zapisz mnie</button></span>
                         </div>
                         <div class="errorTxt"></div>
                     </form>
@@ -278,6 +285,51 @@ veterinary cardiology website, pediatric cardiology website">
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+<!--        <div class="container">-->
+<!--            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#cookieModal">-->
+<!--                See Cookies-->
+<!--            </button>-->
+<!--        </div>-->
+
+    <div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog cookie-dialog" role="document">
+            <div class="modal-content cookie-content">
+                <div class="modal-body">
+                    <div class="notice d-flex justify-content-between align-items-center">
+                        <div class="cookie-text">
+                            <p style="font-weight: bold">Ta strona używa ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie
+                                ze strony oznacza, że zgadzasz się na ich użycie.</p>
+                        </div>
+                        <div class="buttons d-flex flex-column flex-lg-row">
+                            <a href="#a" class="btn btn-default btn-sm" data-dismiss="modal">Zgoda</a>
+                            <!--                            <a href="#a" class="btn btn-secondary btn-sm" data-dismiss="modal">Learn More</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    <div class="modal fade cookieModal" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="cookieModalLabel">-->
+    <!--        <div class="modal-dialog" role="document">-->
+    <!--            <div class="modal-content">-->
+    <!--                <div class="modal-header">-->
+    <!--                    <h2 id="cookieModalLabel">Cookie Information and Consent Request</h2>-->
+    <!--                </div>-->
+    <!--                <div class="modal-body">-->
+    <!--                    <h4>Cookie Policy</h4>-->
+    <!--                    <p>[COOKIE MESSAGE HERE]</p>-->
+    <!--                    <p>-->
+    <!--                        <a href="/privacy-statement" target="_blank">Click here to view our cookie policy</a>-->
+    <!--                    </p>-->
+    <!--                </div>-->
+    <!--                <div class="modal-footer">-->
+    <!--                    <button id="cookieModalConsent" type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">Accept</button>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
     <!-- /.tiny-footer -->
     <!-- back to top icon -->
     <a href=" #0 " class="cd-top" title="Go to top">Top</a>
@@ -285,7 +337,8 @@ veterinary cardiology website, pediatric cardiology website">
     <!-- Necessary plugins jQuery, Bootstrap 4  -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 
     <!-- jQueryValidate (necessary for validation with jQuery) -->

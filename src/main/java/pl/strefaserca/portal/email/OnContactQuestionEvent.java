@@ -3,9 +3,7 @@ package pl.strefaserca.portal.email;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
-import org.springframework.stereotype.Component;
 
-import java.util.Locale;
 
 @Getter
 @Setter
@@ -23,8 +21,4 @@ public class OnContactQuestionEvent extends ApplicationEvent {
         this.phone = phone;
         this.message = message;
     }
-
-//    public OnContactQuestionEvent(String name) {
-//        super(name);
-//    }
 }
