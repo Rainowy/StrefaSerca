@@ -2107,30 +2107,19 @@ hr {
 /*    color:#00CC00; !* green *!*/
 /*}*/
 
+/*NewsLetter error text (underneath)*/
 .errorTxt {
     /*border: 1px solid red;*/
     min-height: 20px;
 }
-
-/*Cookie modal*/
-/*.container {*/
-/*    padding: 2rem 0rem;*/
-/*}*/
-
+/*Cookie modal custom style*/
 .cookie-dialog {
     margin-top: 0rem;
     max-width: 100%;
-
 }
 .cookie-content {
     border-radius: 0rem;
 }
-
-/*.buttons {*/
-/*}*/
-/*.btn {*/
-/*    margin: 0.2rem;*/
-/*}*/
 
 
 
