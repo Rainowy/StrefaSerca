@@ -2099,7 +2099,7 @@ hr {
     pointer-events: none;
     cursor: default;
 }
-
+/*NewsLetter error color (underneath)*/
 .my-error-class {
     color: #FF0000; /* red */
 }

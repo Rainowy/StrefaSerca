@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<head data-th-fragment="headerfiles">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description"
+          content="Strona portalu Strefa Serca. W codziennej pracy staram się dążyć do jasnego i zrozumiałego wyjaśnienia pacjentowi na czym polega jego choroba. Uważam, że wiedza, jak postępować w danej sytuacji i dlaczego, zwiększa skuteczność leczenia.">
+    <meta name="keywords"
+          content="kardiologia, kardiolog, choroby serca, zawał serca, migotanie komór, migotanie przedsionków, rozrusznik, kardiowerter, ablacje, serce, kołatanie, duszność">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          crossorigin="anonymous">
+    <!--<link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet ">-->
+    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" data-th-href="@{/css/bootstrap.min.css}">-->
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" data-th-href="@{/css/style.css}">
+    <!-- animsition css -->
+    <link rel="stylesheet" type="text/css" href="css/animsition.min.css" data-th-href="@{/css/animsition.min.css}">
+    <!-- Font Awesome CSS -->
+    <link href="css/font-awesome.css" rel="stylesheet" data-th-href="@{/css/font-awesome.css}">
+    <!--<link href="css/overrides-style.css" rel="stylesheet" data-th-href="@{/css/overrides-style.css}">-->
+    <!-- font css -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i,900,900i" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+<div data-th-fragment="topHeader" class="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12"><a class="logo" data-th-href="@{/}">
+                <img data-th-src="@{/images/logo-main.jpg}" alt=""/></a>
+            </div>
+            <div class="col-md-3  hidden-sm hidden-xs top-link">
+                <i class="fa fa-envelope-o"></i> <a href="#">strefaserca@gmail.com</a>
+            </div>
+            <div class="col-md-3  hidden-sm hidden-xs top-link">
+                <i class="fa fa-phone"></i> <a href="#">792 327 604</a>
+            </div>
+            <div class="col-md-3  hidden-sm hidden-xs top-link">
+                <i class="fa fa-sign-in"></i> <a href="#">Zaloguj się</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-th-fragment="pageHeader" class="page-header">
+    <div class="">
+        <div class="header">
+            <!-- navigation -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-12">
+                        <div id="navigation" class="navigation">
+                            <ul>
+                                <li class="active"><a data-th-href="@{/}" title="Home" class="animsition-link">Strona
+                                    główna</a>
+                                </li>
+                                <li><a data-th-href="@{/#}" title="O_mnie" class="inactiveLink">O mnie</a>
+                                    <ul>
+                                        <li>
+                                            <a data-th-href="@{/certificates}" title="Certyfikaty"
+                                               class="animsition-link">Certyfikaty</a>
+                                        </li>
+                                        <li>
+                                            <a data-th-href="@{/about}" title="Pasja" class="animsition-link">Kardiologia
+                                                moją pasją</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a data-th-href="@{/services}" title="Usługi"
+                                       class="animsition-link">Diagnostyka</a>
+                                <li><a data-th-href="@{/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
+                                </li>
+                                <li><a data-th-href="@{/article/list}" title="Blog" class="animsition-link">Artykuły</a>
+                                </li>
+                                <li><a data-th-href="@{/contact}" title="Kontakt" class="animsition-link">Kontakt</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 text-center">
+                <div class="page-caption">
+                    <h1 class="page-title"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-th-fragment="previousNext" class="post-navigation mb40">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="nav-previous">
+                <a data-th-href="@{${'/article/selected/' + prevArticle.getFileName()}}"
+                   class="btn-link next-link mb30">Poprzedni
+                    artykuł</a>
+                <h3 class="related-title">
+                    <a data-th-href="@{${'/article/selected/' + prevArticle.getFileName()}}" class=""
+                       data-th-text="${prevArticle.getTitle()}"></a>
+                </h3>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="nav-next text-right">
+                <a data-th-href="@{${'/article/selected/' + nextArticle.getFileName()}}"
+                   class="btn-link next-link mb30">Następny
+                    artykuł</a>
+                <h3 class="related-title">
+                    <a data-th-href="@{${'/article/selected/' + nextArticle.getFileName()}}" class=""
+                       data-th-text="${nextArticle.getTitle()}"></a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-th-fragment="meta" class="post-meta">
+    <span class="meta-date"><i class="fa fa-calendar"></i><data-th-block
+            data-th-text="${#temporals.format(currentArticle.getCreated(), 'dd-MMM-yyyy')}"></data-th-block></span>
+</div>
+
+<div data-th-fragment="footer" class="footer section-space60">
+    <div>
+        <!-- footer -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-widget"><!-- footer-widget -->
+                        <div class="mb30"><a data-th-href="@{/}"><img data-th-src="@{/images/logo-footer.jpg}" alt=""/></a>
+                        </div>
+                        <address><i class="fa fa-map-marker"></i> Bogedaina 41<br> 43-200, Pszczyna, śląskie
+                        </address>
+                        <ul class="listnone contact">
+                            <li><i class="fa fa-phone"></i>792 327 604 <br> 32 447 09 70</li>
+                            <li><i class="fa fa-envelope-o"></i>strefaserca@gmail.com</li>
+                        </ul>
+                    </div>
+                    <!-- /.footer-widget -->
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-widget"><!-- footer-widget -->
+                        <h3 class="footer-title">Diagnostyka</h3>
+                        <ul class="listnone bullet bullet-angle-right mb0">
+                            <li><a data-th-href="@{${'/service/selected/Echokardiografia'}}" title="Echokardiografia">Echokardiografia</a>
+                            </li>
+                            <li><a data-th-href="@{${'/service/selected/Holter_EKG'}}" title="Holter EKG">Holter EKG</a>
+                            </li>
+                            <li><a data-th-href="@{${'/service/selected/Holter_RR'}}" title="Holter ciśnieniowy">Holter
+                                ciśnieniowy</a></li>
+                            <li><a data-th-href="@{${'/service/selected/Kontrola_stymulatora'}}"
+                                   title="Kontrola stymulatora">Kontrola stymulatora</a></li>
+                            <li>
+                                <a data-th-href="@{${'/service/selected/Koronarografia'}}" title="Koronarografia">Koronarografia</a>
+                            </li>
+                            <li>
+                                <a data-th-href="@{${'/service/selected/Test_wysiłkowy'}}" title="Test wysiłkowy">Test
+                                    wysiłkowy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.footer-widget -->
+                </div>
+                <div class="col-lg-2 col-md-2">
+                    <div class="footer-widget"><!-- footer-widget -->
+                        <h3 class="footer-title">Strony</h3>
+                        <ul class="listnone bullet bullet-angle-right mb0">
+                            <li><a href="/" title="Home">Główna</a></li>
+                            <li><a href="/services" title="Usługi">Usługi</a></li>
+                            <li><a href="/article/list" title="Artykuły">Artykuły</a></li>
+                            <li><a href="/contact" title="Kontakt Us">Kontakt</a></li>
+                            <li><a href="/testimonials" title="Opinie">Opinie</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.footer-widget -->
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer-widget"><!-- footer-widget -->
+                        <h3 class="footer-title">Newsletter</h3>
+                        <p>Zapisz się do newslettera i bądź na bieżąco!</p>
+                        <form action="/newsletter" id=request_newsletter method="post">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter"
+                                       id="email">
+                                <span class="input-group-btn">
+                                <button id="newsletter_submit_button" class="btn btn-default"
+                                        type="button">Zapisz mnie</button></span>
+                            </div>
+                            <div style="color: #FF0000" class="errorTxt"></div>
+                        </form>
+                    </div>
+                    <!-- /.footer-widget -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /.footer -->
+    <div class="tiny-footer"><!-- tiny-footer -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 text-center">
+                    <p>StrefaSerca © 2020</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /.tiny-footer -->
+    <!-- back to top icon -->
+    
+    <div class="modal fade" tabindex="-1" role="dialog" id="mail_confirm">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body d-block">
+                    <h2 class="modal-title text-center">Na podany adres został wysłany link aktywacyjny. <br> Użyj go
+                        aby otrzymywać od nas wiadomości.</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                    <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div style=" margin-top: 0rem; max-width: 100%" class="modal-dialog" role="document">
+            <div style="border-radius: 0rem" class="modal-content">
+                <div class="modal-body">
+                    <div class="notice d-flex justify-content-between align-items-center">
+                        <div class="cookie-text">
+                            <p style="font-weight: bold">Ta strona używa ciasteczek aby świadczyć usługi na najwyższym
+                                poziomie. Dalsze korzystanie
+                                ze strony oznacza, że zgadzasz się na ich użycie.</p>
+                        </div>
+                        <div class="buttons d-flex flex-column flex-lg-row">
+                            <a href="#a" class="btn btn-default btn-sm" data-dismiss="modal">Zgoda</a>
+                            <!--<a href="#a" class="btn btn-secondary btn-sm" data-dismiss="modal">Learn More</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href=" #0 " class="cd-top" title="Go to top">Top</a>
+
+    <!-- Necessary plugins jQuery, Bootstrap 4  -->
+    <!--Latest jquery 3.5.1 doesn't work, doesn't show articles-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <!-- jQueryValidate (necessary for validation with jQuery) -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="js/menumaker.js" data-th-src="@{/js/menumaker.js}"></script>
+    <script type="text/javascript">
+        $("#navigation").menumaker({
+            title: "Menu",
+            format: "multitoggle"
+        });
+    </script>
+    <!-- animsition -->
+    <script type="text/javascript" src="js/animsition.js" data-th-src="@{/js/animsition.js}"></script>
+    <script type="text/javascript" src="js/animsition-script.js" data-th-src="@{/js/animsition-script.js}"></script>
+    <!-- sticky header -->
+    <script type="text/javascript" src="js/jquery.sticky.js" data-th-src="@{/js/jquery.sticky.js}"></script>
+    <script type="text/javascript" src="js/sticky-header.js" data-th-src="@{/js/sticky-header.js}"></script>
+    <!-- Back to top script -->
+    <script type="text/javascript" src="js/back-to-top.js" data-th-src="@{/js/back-to-top.js}"></script>
+    <script type="text/javascript" src="js/article-custom.js" data-th-src="@{/js/article-custom.js}"
+            charset="utf-8"></script>
+</div>
+</body>
+</html>

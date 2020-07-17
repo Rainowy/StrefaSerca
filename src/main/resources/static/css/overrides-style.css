@@ -1,4 +1,4 @@
-/** necessary for modal proper display */
+/** necessary for modal and alert proper display */
 .fade.in {
     opacity: 1 !important;
 }
