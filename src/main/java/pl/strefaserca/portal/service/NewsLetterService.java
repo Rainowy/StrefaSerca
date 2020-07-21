@@ -1,6 +1,7 @@
 package pl.strefaserca.portal.service;
 
 import lombok.SneakyThrows;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.util.*;
 
+@Log4j2
 @Service
 public class NewsLetterService {
 

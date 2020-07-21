@@ -11,15 +11,15 @@ public class ThymeleafConfig {
     @Bean
     public SpringResourceTemplateResolver externalTemplateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setPrefix("file:/home/tomek/Documents/StrefaHtml/");
+//        templateResolver.setPrefix("file:/home/tomek/Documents/StrefaHtml/");
 //        templateResolver.setPrefix("file:/home/kasiazen/Documents/StrefaHtml/");
-//        templateResolver.setPrefix("file:/volume1/web/StrefaHtml/");
+        templateResolver.setPrefix("file:/volume1/web/StrefaHtml/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         templateResolver.setCharacterEncoding("UTF-8");
         templateResolver.setOrder(0);
         templateResolver.setCheckExistence(true);
-        templateResolver.setCacheable(false);   //set to false to be able to see changes to thymeleaf immediately without restarting app
+        templateResolver.setCacheable(true);   //set to false to be able to see changes to thymeleaf immediately without restarting app
 
         return templateResolver;
     }
