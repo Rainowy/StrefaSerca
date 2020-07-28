@@ -28,11 +28,9 @@ public class HomeController {
     private ContactService contactService;
     private MessageSource messages;
 
-//    private OnNewsletterRequestEvent event;
-
     @GetMapping("/")
-    public ModelAndView index() {
-        ModelAndView model = new ModelAndView("index", "recentArticles", articleService.recentArticles());
+    public ModelAndView home() {
+        ModelAndView model = new ModelAndView("home", "recentArticles", articleService.recentArticles());
         model.addObject("testimonials", testimonialService.rotatedTestimonials());
         return model;
     }

@@ -55,7 +55,7 @@
             </exclusions>
             <scope>test</scope>
         </dependency>
-        <!--		Added by Tomek-->
+        <!--Added by Tomek-->
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
