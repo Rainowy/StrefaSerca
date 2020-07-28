@@ -68,7 +68,7 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewslett
         context.setVariable("header", "Portal Strefa Serca zaprasza do Newslettera");
         context.setVariable("title", "Użyj linku poniżej aby zapisać się do biuletynu informacyjnego Strefy Serca");
 //        context.setVariable("description", "http://localhost:8080" + confirmationUrl);
-        context.setVariable("description", "http://strefaserca.pl" + confirmationUrl);
+        context.setVariable("description", "https://strefaserca.pl" + confirmationUrl);
         return templateEngine.process("template", context);
     }
 }
