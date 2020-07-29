@@ -65,7 +65,6 @@ public class HomeController {
         return new ModelAndView("about_me");
     }
 
-
     @PostMapping("/newsletter")
     public @ResponseBody
     void setNewsLetter(@RequestParam("newsletter") String newsLetter) {
