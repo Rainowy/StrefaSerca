@@ -1,26 +1,10 @@
 $(document).ready(function () {
-    //Show modal on first visit and save to localStorage
-    let ls = localStorage.getItem('strefa.visited');
-    if (ls == null) {
-        $('#cookieModal').modal('show');
-        localStorage.setItem('strefa.visited', 1)
-    }
-
-    //Turn off form submitting with enter
-    $('#request_newsletter').bind('keydown', function (e) {
-        if (e.keyCode == 13) {
-            e.preventDefault();
-        }
-    });
     $('#question_submit_button').click(function () {
         ValidateQuestionForm();
         //toggle alert
         if ($('#bsalert').hasClass('in')) {
             toggleAlert()
         }
-    });
-    $('#newsletter_submit_button').click(function (e) {
-        ValidateNewsletterForm(e);
     });
 });
 
@@ -93,37 +77,6 @@ function alertMessage(response) {
 }
 /** */
 
-/** Newsletter code */
-function ValidateNewsletterForm(e) {
-    $('#request_newsletter').validate({
-        errorClass: "my-error-class",
-        // validClass: "my-valid-class",
-        rules: {
-            newsletter: {
-                required: true
-            },
-        },
-        messages: {
-            newsletter: "Wpisz prawidłowy adres email",
-        },
-        errorElement: 'div',
-        errorLabelContainer: '.errorTxt'
-    })
-    if ($('#request_newsletter').valid()) {
-        $('#mail_confirm').modal('show');
-        sendNewsletter(e)
-    }
 
-    function sendNewsletter(e) {
-        let form = $('#request_newsletter');
-        e.preventDefault();
-        $.ajax({
-            type: form.attr('method'), // method attribulette of form
-            url: form.attr('action'),  // action attribute of form
-            data: form.serialize()
-        });
-    }
-}
-/** */
 
 
