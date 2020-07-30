@@ -17,7 +17,7 @@ public class PortalApplication {
 		SpringApplication.run(PortalApplication.class, args);
 	}
 
-	// redirect port 8080 to 8443
+	//redirect port 8080 to 8443
 	@Bean
 	public ServletWebServerFactory servletContainer() {
 		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
