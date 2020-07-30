@@ -63,27 +63,27 @@
                     <div class="col-lg-10 col-md-12">
                         <div id="navigation" class="navigation">
                             <ul>
-                                <li class="active"><a th:href="@{/}" title="Home" class="animsition-link">Strona
+                                <li class="active"><a th:href="@{/home/main}" title="Home" class="animsition-link">Strona
                                     główna</a>
                                 </li>
                                 <li><a th:href="@{/#}" title="O_mnie" class="inactiveLink">O mnie</a>
                                     <ul>
                                         <li>
-                                            <a th:href="@{/certificates}" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
+                                            <a th:href="@{/home/certificates}" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
                                         </li>
                                         <li>
-                                            <a th:href="@{/about}" title="Pasja" class="animsition-link">Kardiologia
+                                            <a th:href="@{/home/about}" title="Pasja" class="animsition-link">Kardiologia
                                                 moją pasją</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a th:href="@{/services}" title="Usługi" class="animsition-link">Usługi i
+                                <li><a th:href="@{/home/services}" title="Usługi" class="animsition-link">Usługi i
                                     diagnostyka</a>
-                                <li><a th:href="@{/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
+                                <li><a th:href="@{/home/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
                                 </li>
                                 <li><a th:href="@{/article/list}" title="Blog" class="animsition-link">Artykuły</a>
                                 </li>
-                                <li><a th:href="@{/contact}" title="Kontakt" class="animsition-link">Kontakt</a>
+                                <li><a th:href="@{/home/contact}" title="Kontakt" class="animsition-link">Kontakt</a>
                                 </li>
                             </ul>
                         </div>
@@ -156,7 +156,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-3">
                 <div class="footer-widget">
-                    <div class="mb30"><a th:href="@{/}"><img th:src="@{/images/logo-footer.jpg}" alt=""/></a></div>
+                    <div class="mb30"><a th:href="@{/home/main}"><img th:src="@{/images/logo-footer.jpg}" alt=""/></a></div>
                     <address><i class="fa fa-map-marker"></i> Bogedaina 41<br> 43-200, Pszczyna, śląskie
                     </address>
                     <ul class="listnone contact">
@@ -192,11 +192,11 @@
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Strony</h3>
                     <ul class="listnone bullet bullet-angle-right mb0">
-                        <li><a th:href="@{/}" title="Home">Główna</a></li>
-                        <li><a th:href="@{/services}" title="Usługi">Usługi</a></li>
+                        <li><a th:href="@{/home/main}" title="Home">Główna</a></li>
+                        <li><a th:href="@{/home/services}" title="Usługi">Usługi</a></li>
                         <li><a th:href="@{/article/list}" title="Artykuły">Artykuły</a></li>
-                        <li><a th:href="@{/contact}" title="Kontakt Us">Kontakt</a></li>
-                        <li><a th:href="@{/testimonials}" title="Opinie">Opinie</a></li>
+                        <li><a th:href="@{/home/contact}" title="Kontakt Us">Kontakt</a></li>
+                        <li><a th:href="@{/home/testimonials}" title="Opinie">Opinie</a></li>
                     </ul>
                 </div>
                 <!-- /.footer-widget -->
@@ -205,7 +205,7 @@
                 <div class="footer-widget"><!-- footer-widget -->
                     <h3 class="footer-title">Newsletter</h3>
                     <p>Zapisz się do newslettera i bądź na bieżąco!</p>
-                    <form action="newsletter" id=request_newsletter method="post">
+                    <form action="/newsletter/request" id=request_newsletter method="post">
                         <div class="input-group">
                             <input type="email" class="form-control" placeholder="Adres e-mail" name="newsletter" id="email">
                             <span class="input-group-btn">

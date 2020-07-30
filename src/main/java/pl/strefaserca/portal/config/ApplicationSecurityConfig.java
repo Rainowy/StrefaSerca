@@ -46,16 +46,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and()
 //                RÓŻNICA między * a ** !  * oznacza katalog(/fonts/*) lub plik(/fonts* do następnego slasha a ** wszystkie podkatalogi lub również
                 .authorizeRequests()
-                .antMatchers("/",
-                        "/login",
-                        "/certificates",
-                        "/services",
-                        "/contact",
-                        "/blog/*",
-                        "/testimonials",
-                        "/about",
-                        "/newsletter",
+                .antMatchers(
+                        "/home/**",
                         "/article/**",
+                        "/service/**",
+                        "/newsletter/**",
+                        "/cert/**",
                         "/css/**", "/js/**", "/images/**", "/fonts/**")
                 .permitAll() //wszystkie wymienione będą dopuszczone
 //                .antMatchers("/login").permitAll()

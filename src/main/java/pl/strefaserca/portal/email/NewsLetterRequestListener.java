@@ -40,7 +40,7 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewslett
         newsLetterService.saveConfirmationToken(emailToConfirm, token);
         // here can be createVeriToken in service
         String subject = "Zapraszam do Newslettera Strefy Serca.";
-        String confirmationUrl = event.getAppUrl() + "/newsletterConfirm?token=" + token;
+        String confirmationUrl = event.getAppUrl() + "/newsletter/confirm?token=" + token;
         try {
             mailSender.send(prepareMimeMessage(emailToConfirm, subject, confirmationUrl));
         } catch (MailException ex) {
