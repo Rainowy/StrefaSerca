@@ -1,22 +1,55 @@
 package pl.strefaserca.portal.config;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Description;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.function.RouterFunction;
-import org.springframework.web.servlet.function.RouterFunctions;
-import org.thymeleaf.spring5.SpringTemplateEngine;
-import org.thymeleaf.spring5.view.ThymeleafViewResolver;
-import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.templatemode.TemplateMode;
+import java.util.concurrent.Executor;
 
 @Configuration
-public class WebMvcConfig implements WebMvcConfigurer {
+@EnableAsync
+public class WebMvcConfig {
 
-@Bean
-RouterFunction staticResourceLocator(){
-    return RouterFunctions.resources("/article/**", new FileSystemResource("/home/tomek/Documents/StrefaHtml/"));
-}
+    /**
+     * thymeleaf config
+     */
+    @Bean
+    public SpringResourceTemplateResolver externalTemplateResolver() {
+        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+//        templateResolver.setPrefix("file:/home/tomek/Documents/StrefaHtml/");
+//        templateResolver.setPrefix("file:/home/kasiazen/Documents/StrefaHtml/");
+        templateResolver.setPrefix("file:/volume1/web/StrefaHtml/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding("UTF-8");
+        templateResolver.setOrder(0);
+        templateResolver.setCheckExistence(true);
+        templateResolver.setCacheable(true);   //set to false to be able to see changes to thymeleaf immediately without restarting app
+        return templateResolver;
+    }
+
+    /**
+     * validation
+     */
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource
+                = new ReloadableResourceBundleMessageSource();
+
+        messageSource.setBasename("classpath:messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+
+    /**
+     * override default  async executor with threadPoolTaskExecutor
+     */
+    @Bean(name = "threadPoolTaskExecutor")
+    public Executor threadPoolTaskExecutor() {
+        return new ThreadPoolTaskExecutor();
+    }
 }

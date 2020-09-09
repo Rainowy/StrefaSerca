@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/core_fragments.html :: headerfiles">
+    <title>Kontrola stymulatora</title>
+<body class="animsition">
+<div th:replace="fragments/core_fragments.html :: topHeader"></div>
+<div th:replace="fragments/core_fragments.html :: pageHeader"></div>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="content-area">
+                    <div class="row">
+                        <div th:replace="fragments/core_fragments.html :: sideNavigation"></div>
+                        <div class="col-md-10 col-sm-10">
+                            <div class="post-holder mb40">
+                                <div class="post-img mb30">
+                                    <img th:src="@{/images/cardio_services/stymulator.jpg}" alt="" class="img-responsive">
+                                </div>
+                                <div class="post-block">
+                                    <div class="post-header mb20">
+                                        <h1 class="post-title mb30">Kontrola stymulatora</h1>
+                                    </div>
+                                    <hr>
+                                    <div class="post-content">
+                                        <p style="text-align: justify">Po wszczepieniu rozrusznika,
+                                            kardiowertera-defibrylatora lub układu resynchronizującego będziesz musiał
+                                            regularnie odwiedzać Poradnię Kontroli Stymulatorów. Pierwsza kontrola po
+                                            zabiegu jest najważniejsza, podczas niej powinny ujawnić się ewentualne
+                                            problemy ze złą lokalizacją lub przemieszczeniem się elektrody w sercu.
+                                            Oceniamy lożę po wszczepieniu pod kątem cech zakażenia i problemów z
+                                            gojeniem. W tracie pierwszej wizyty możemy już wstępnie dostosować
+                                            ustawienia funkcji do potrzeb konkretnego pacjenta.</p>
+                                        <h2 class="mb30">Jak często muszę kontrolować rozrusznik?</h2>
+                                        <p style="text-align: justify">W przypadku rozruszników częstotliwość kontroli
+                                            powinna być co 6 - 12 miesięcy. Czas działania baterii w urządzeniu to ok.
+                                            8-12 lat. Gdy bateria zbliża się ku wyczerpaniu, zagęszczamy częstotliwość
+                                            wizyt. Jeśli masz wszczepiony kardiowerter-defibrylator lub CRT-D to
+                                            częstotliwość kontroli powinna być częstsza od 3-6 miesięcy. Czas działania
+                                            baterii w tym przypadku jest krótszy i wynosi ok 5-7 lat. Sposobem na
+                                            rzadsze wizyty w gabinecie może być Home Monitoring, czyli domowe
+                                            monitorowanie urządzenia. Powinieneś zgłosić się na kontrolę szybciej, jeśli
+                                            czujesz się źle: odczuwasz szybsze męczenie, zawroty głowy, uczucie arytmii,
+                                            szybkiego bicia serca oraz inne niepokojące Cię objawy. Być może Twój
+                                            problem będzie można rozwiązać „jednym kliknięciem”, a Ty niepotrzebnie
+                                            będziesz się męczył miesiącami, aby doczekać do terminu wizyty.</p>
+                                        <blockquote class="mt30">
+                                            <p>Powinieneś zgłosić się na kontrolę szybciej, jeśli czujesz się źle:
+                                                odczuwasz szybsze męczenie, zawroty głowy, uczucie arytmii, szybkiego
+                                                bicia serca oraz inne niepokojące Cię objawy. </p></blockquote>
+                                        <h2 class="mt30 mb30">Czy nie mogę po prostu dalej chodzić do swojego
+                                            kardiologa? </h2>
+                                        <p style="text-align: justify">Kontrola stymulatora oprócz specjalistycznej wiedzy wymaga posiadania w
+                                            gabinecie programatora. Jest to komputer, który łączy się z urządzeniem i
+                                            umożliwia sprawdzenie działania oraz zmianę ustawień. Nadal możesz być pod
+                                            opieką swojego kardiologa, ale nie możesz pomijać kontroli stymulatora. Może
+                                            się też zdarzyć że Twój lekarz ma odpowiednie kompetencje i jest akurat
+                                            ekspertem w tym zakresie. Nie zapomnij o to dopytać.</p>
+                                        <h2 class="mt30 mb30">Czy to badanie boli?</h2>
+                                        <p style="text-align: justify">Badanie stymulatora nie boli, ale może być nieprzyjemne. Odczuwalne mogą być
+                                            bardzo szybkie uderzenia serca, może się też zakręcić w głowie. To zupełnie
+                                            normalne, nie musisz się obawiać.</p>
+                                        <h2 class="mt30 mb30">Jak przygotować się do badania?</h2>
+                                        <p style="text-align: justify">Na rynku jest kilka firm, które produkują stymulatory: Medtronic, Biotronic,
+                                            Abbott (St. Jude Medical), Boston Scientific oraz LivaNova (Sorin). Każda
+                                            firma ma dedykowane programatory do swoich urządzeń. Przed wizytą upewnij
+                                            się jakiej firmy urządzenie masz wszczepione (specjalny paszport lub wypis
+                                            ze szpitala) i czy w danej poradni skontrolujesz swój stymulator. Jeśli
+                                            jesteś już po wymianie, nie zapomnij zabrać ze sobą dokumentację również z
+                                            wymiany. Kontrola stymulatora jest konsultacją lekarską. Często to Twój
+                                            jedyny kontakt ze specjalistą w roku. Zawsze miej ze sobą wszystkie wypisy
+                                            ze szpitali oraz aktualną rozpiskę przyjmowanych leków! Nigdy nie wiadomo co
+                                            może się przydać, jeśli będziesz nieprzygotowany, pozbawisz sam siebie
+                                            możliwości modyfikacji leczenia i poprawy stanu zdrowia.</p>
+                                        <blockquote class="mt30">
+                                            <p>Kontrola stymulatora jest konsultacją lekarską. Często to Twój jedyny
+                                                kontakt ze specjalistą w roku. Zawsze miej ze sobą wszystkie wypisy ze
+                                                szpitali oraz aktualną rozpiskę przyjmowanych leków!</p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div data-th-replace="fragments/core_fragments.html :: previousNext"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-th-replace="fragments/core_fragments.html :: footer"></div>
+</body>
+</html>

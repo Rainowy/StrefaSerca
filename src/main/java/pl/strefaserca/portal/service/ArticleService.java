@@ -1,5 +1,6 @@
 package pl.strefaserca.portal.service;
 
+import lombok.SneakyThrows;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,28 +13,38 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.nio.file.attribute.FileTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
 public class ArticleService {
 
+    /**
+     * Create List of articles in StrefaHtml directory
+     */
+    @SneakyThrows
     public List<ArticleDto> getArticleInfo() {
 
-        List<ArticleDto> articles = new ArrayList<>();
-        try (Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"))) {
+        List<ArticleDto> articles;
+//        Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
+//        Stream<Path> paths = Files.walk(Paths.get("/home/kasiazen/Documents/StrefaHtml"));
+        Stream<Path> paths = Files.walk(Paths.get("/volume1/web/StrefaHtml"));
+        articles = paths.map(Path::toString)
+                .filter(p -> !p.contains("article"))
+                .filter(p -> p.endsWith(".html"))
+                .map(p -> new ArticleDto(parseTitle(p), parseImage(p), parseFileName(p), parseLead(p), getCreated(p))).collect(Collectors.toList());
 
-            articles = paths.map(Path::toString)
-                    .filter(p -> p.endsWith(".html"))
-                    .map(p -> new ArticleDto(parseTitle(p), parseImage(p), parseFileName(p), parseLead(p))).collect(Collectors.toList());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Collections.sort(articles, Comparator.comparing(ArticleDto::getCreated).reversed());
         return articles;
     }
 
+    /**
+     * Parse img, name, title and lead from article
+     */
     private String parseTitle(String path) {
 
         String htmlTitle = "";
@@ -65,7 +76,8 @@ public class ArticleService {
     }
 
     private String parseFileName(String path) {
-        return (path.substring(path.lastIndexOf("/") + 1));
+        return path.substring(path.lastIndexOf('/') + 1, path.lastIndexOf('.'));
+
     }
 
     private String parseLead(String path) {
@@ -77,11 +89,58 @@ public class ArticleService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int firstDot = firstPTag.indexOf(".");
+        int firstDot = firstPTag.indexOf('.');
         String articleLead = "";
         if (firstDot != -1) {
             articleLead = firstPTag.substring(0, firstDot);
         }
         return articleLead;
+    }
+
+    /** Get file creation time as FileTime and converts to LocalDateTime */
+    @SneakyThrows
+    private LocalDateTime getCreated(String path) {
+        FileTime creationTime = (FileTime) Files.getAttribute(Paths.get(path), "creationTime");
+        return LocalDateTime.parse(creationTime.toInstant().toString(), DateTimeFormatter.ISO_DATE_TIME);
+    }
+
+    public List<ArticleDto> recentArticles() {
+        List<ArticleDto> recentArticles = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            recentArticles.add(getArticleInfo().get(i));
+        }
+        return recentArticles;
+    }
+
+    public ArticleDto currentArticle(String fileName){
+        return getArticleInfo().stream()
+                .filter(a -> a.getFileName().equals(fileName))
+                .findFirst()
+                .orElseThrow();
+    }
+
+    /**
+     * Previous or next Article
+     */
+    public ArticleDto nextArticle(String fileName) {
+        List<ArticleDto> articleInfo = getArticleInfo();
+
+        for (int i = 0; i < articleInfo.size(); i++) {
+            if (articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() - 1) {
+                return new ArticleDto(articleInfo.get(i + 1).getFileName(), articleInfo.get(i + 1).getTitle());
+            }
+        }
+        return new ArticleDto(articleInfo.get(0).getFileName(), articleInfo.get(0).getTitle());
+    }
+
+    public ArticleDto prevArticle(String fileName) {
+        List<ArticleDto> articleInfo = getArticleInfo();
+
+        for (int i = 0; i < articleInfo.size(); i++) {
+            if (articleInfo.get(i).getFileName().equals(fileName) && i != 0) {
+                return new ArticleDto(articleInfo.get(i - 1).getFileName(), articleInfo.get(i - 1).getTitle());
+            }
+        }
+        return new ArticleDto(articleInfo.get(articleInfo.size() - 1).getFileName(), articleInfo.get(articleInfo.size() - 1).getTitle());
     }
 }
