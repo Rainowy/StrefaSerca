@@ -1,0 +1,24 @@
+package pl.strefaserca.portal.controller;
+
+import java.io.IOException;
+import java.io.InputStream;
+import org.apache.commons.io.IOUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class SSL {
+    public SSL() {
+    }
+
+    @GetMapping(
+            value = {"/.well-known/pki-validation/B30F883828D33FF87D8D462BC64D1630.txt"},
+            produces = {"application/octet-stream"}
+    )
+    @ResponseBody
+    public byte[] getFile() throws IOException {
+        InputStream in = this.getClass().getResourceAsStream("/B30F883828D33FF87D8D462BC64D1630.txt");
+        return IOUtils.toByteArray(in);
+    }
+}
