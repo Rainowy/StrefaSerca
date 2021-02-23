@@ -4,6 +4,7 @@
 
 > Technologies
 - Java 11
+- JavaScript
 - Spring Boot
 - Thymeleaf
 
