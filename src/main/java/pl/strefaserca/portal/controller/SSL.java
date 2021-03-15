@@ -13,12 +13,12 @@ public class SSL {
     }
 
     @GetMapping(
-            value = {"/.well-known/pki-validation/B30F883828D33FF87D8D462BC64D1630.txt"},
+            value = {"/.well-known/pki-validation/2CF6CE4CB27F75F213DE67C961635985.txt"},
             produces = {"application/octet-stream"}
     )
     @ResponseBody
     public byte[] getFile() throws IOException {
-        InputStream in = this.getClass().getResourceAsStream("/B30F883828D33FF87D8D462BC64D1630.txt");
+        InputStream in = this.getClass().getResourceAsStream("/2CF6CE4CB27F75F213DE67C961635985.txt");
         return IOUtils.toByteArray(in);
     }
 }
