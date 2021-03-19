@@ -5,6 +5,38 @@
     <title>Index</title>
 </head>
 <body class="animsition">
+
+
+
+
+
+
+
+<script>
+    const mydrScript = document.getElementsByTagName('script')[0];
+    const js = document.createElement('script');
+    // js.src = "https://mydr.pl/static/mydr-pp.min.js";
+
+    js.src ="/js/mydr-pp.min.js"
+     // data-th-src="@{/js/newsletter.js}"
+
+
+
+    // js.src = "";
+
+
+
+
+    mydrScript.parentNode.insertBefore(js, mydrScript);
+
+    js.onload = () => {
+        const PatientsPlugin = new window.PatientsPlugin;
+        PatientsPlugin.init({
+            app: 'https://mydr.pl/patients_plugin',
+            plugin: 'https://mydr.pl/static',
+        });
+    };
+</script>
 <div th:replace="fragments/core_fragments.html :: topHeader"></div>
 <div class="intro-section"> <!-- intro section -->
     <div class=""><!-- navigation-transparent -->
@@ -47,13 +79,25 @@
     <div class="container">
         <div class="intro-caption"><!-- intro caption -->
             <div class="col-lg-12 col-md-12 d-none d-md-block mb40">
-                    <h1 class="intro-title">Kardiolog <br> Katarzyna Czarnecka</h1>
-<!--                <p>Twoje zdrowie jest dla mnie najważniejsze.</p>-->
+                <h1 class="intro-title">Kardiolog <br> Katarzyna Czarnecka</h1>
+                <!--                <p>Twoje zdrowie jest dla mnie najważniejsze.</p>-->
             </div>
             <div class="col-lg-4 col-md-4 d-none d-md-block">
-                <a href="https://www.znanylekarz.pl/katarzyna-maria-czarnecka/kardiolog/pszczyna" class="btn btn-default">Umów
-                    wizytę </a>
+<!--                                <a href="https://www.znanylekarz.pl/katarzyna-maria-czarnecka/kardiolog/pszczyna" class="btn btn-default" >Umów-->
+<!--                                    wizytę </a>-->
+                <!--
+                <button class="btn btn-default" data-doctor="katarzynaczarnecka" data-speciality="" data-visitkind="" data-evisit="false" data-appname="drw" data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYWNpbGl0eV9pZCI6NDY5M30.-b7TL-5eqlPjv8BucahmiMz7Agezg0DW-GEhIfI0IuM"></button>-->
+                <button class="btn-mydr-pp" data-doctor="katarzynaczarnecka" data-speciality="" data-visitkind="" data-evisit="false" data-appname="drw" data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYWNpbGl0eV9pZCI6NDY5M30.-b7TL-5eqlPjv8BucahmiMz7Agezg0DW-GEhIfI0IuM">Umów wizytę</button>
             </div>
+
+            <!--            class="btn btn-default"-->
+
+
+            <!--            <button class="btn-mydr-pp" data-doctor="katarzynaczarnecka" data-speciality="" data-visitkind="" data-evisit="false" data-appname="drw" data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYWNpbGl0eV9pZCI6NDY5M30.-b7TL-5eqlPjv8BucahmiMz7Agezg0DW-GEhIfI0IuM"></button>-->
+
+            </button>
+
+
         </div>
     </div>
 </div>
