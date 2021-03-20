@@ -62,18 +62,24 @@ public class HomeController {
     Boolean askQuestion(@RequestParam String name,
                         @RequestParam String email,
                         @RequestParam String phone,
-                        @RequestParam String textarea) throws InterruptedException, ExecutionException {
+                        @RequestParam String textarea
+//                        @RequestParam String token
+                        ) throws InterruptedException, ExecutionException {
+
+//        @RequestParam String token
+//        System.out.println("TOKEN TO " + token);
 
         OnContactQuestionEvent event = new OnContactQuestionEvent(email, name, phone, textarea);
 
         contactService.publishEvent(event);
         Future<Boolean> future = contactService.sendQuestion();
 
-        while (true) {
-            if (future.isDone()) {
-                return future.get();
-            }
-        }
+//        while (true) {
+//            if (future.isDone()) {
+//                return future.get();
+//            }
+//        }
+        return false;
     }
 }
 
