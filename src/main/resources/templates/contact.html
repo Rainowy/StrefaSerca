@@ -2,6 +2,7 @@
 <html lang="pl" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments/core_fragments.html :: headerfiles">
     <title>Kontakt</title>
+<!--    <script src='https://www.google.com/recaptcha/api.js'></script>-->
 </head>
 <body class="animsition">
 <div th:replace="fragments/core_fragments.html :: topHeader"></div>
@@ -11,7 +12,7 @@
 <!--        <script src="https://www.google.com/recaptcha/api.js"></script>-->
         <script src="https://www.google.com/recaptcha/api.js?render=6LfqCYYaAAAAAIkmr1LIjM_SfBAh-P_UvElWNqf2"></script>
 
-        <div id="inline-badge"></div>
+<!--        <div id="inline-badge"></div>-->
 
 <!--        <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onRecaptchaLoadCallback"></script>-->
 
@@ -73,6 +74,7 @@
                                 <button id="question_submit_button" name="singlebutton" class="btn btn-default" type="button">
                                     Wyślij
                                 </button>
+
                                 <span class="required pull-right">* Pola wymagane</span>
                             </div>
                         </form>
