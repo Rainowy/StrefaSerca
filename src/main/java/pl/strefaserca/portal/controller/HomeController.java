@@ -83,7 +83,7 @@ public class HomeController {
 
         RestTemplate restTemplate = new RestTemplate();
 
-        GoogleResponse googleResponse = restTemplate.getForObject(verifyUri, GoogleResponse.class);
+//        GoogleResponse googleResponse = restTemplate.getForObject(verifyUri, GoogleResponse.class);
         GoogleResponse googleResponse2 = restTemplate.getForObject(verifyUri, GoogleResponse.class);
 
 
