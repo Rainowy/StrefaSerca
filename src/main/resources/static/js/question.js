@@ -41,7 +41,7 @@ $('#send_question').click(function (e) {
     let form = $('#ask_question_form');
     e.preventDefault();
     grecaptcha.ready(function () {
-        grecaptcha.execute('6LfqCYYaAAAAAIkmr1LIjM_SfBAh-P_UvElWNqf2', {action: 'submit'}).then(function (token) {
+        grecaptcha.execute(captchaKey, {action: 'submit'}).then(function (token) {
             const name = $("#name").val();
             const email = $("#email").val();
             const phone = $("#phone").val();

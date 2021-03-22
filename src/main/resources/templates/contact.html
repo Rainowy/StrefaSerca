@@ -2,19 +2,18 @@
 <html lang="pl" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments/core_fragments.html :: headerfiles">
     <title>Kontakt</title>
-<!--    <script src='https://www.google.com/recaptcha/api.js'></script>-->
 </head>
 <body class="animsition">
 <div th:replace="fragments/core_fragments.html :: topHeader"></div>
 <div th:replace="fragments/core_fragments.html :: pageHeader"></div>
 <div class="content">
     <div class="container">
-<!--        <script src="https://www.google.com/recaptcha/api.js"></script>-->
-        <script src="https://www.google.com/recaptcha/api.js?render=6LfqCYYaAAAAAIkmr1LIjM_SfBAh-P_UvElWNqf2"></script>
 
-<!--        <div id="inline-badge"></div>-->
-
-<!--        <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onRecaptchaLoadCallback"></script>-->
+        <!--reCaptcha Key script-->
+        <script th:src="|https://www.google.com/recaptcha/api.js?render=${@captchaSettings.getSite()}|"></script>
+        <script th:inline="javascript">
+            var captchaKey = [[${@captchaSettings.getSite()}]];
+        </script>
 
         <div class="row">
             <div class="col-lg-4 col-md-4">
@@ -97,10 +96,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="send_question" data-dismiss="modal">
-<!--                        data-sitekey="6LfqCYYaAAAAAIkmr1LIjM_SfBAh-P_UvElWNqf2"-->
-<!--                        data-callback='onSubmit'-->
-<!--                        data-action='submit'>-->
-                    Wyślij
+                    <!--                        data-sitekey="6LfqCYYaAAAAAIkmr1LIjM_SfBAh-P_UvElWNqf2"-->
+                    <!--                        data-callback='onSubmit'-->
+                    <!--                        data-action='submit'>-->Wyślij
                 </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
             </div>
