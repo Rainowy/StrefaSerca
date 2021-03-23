@@ -84,7 +84,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 //OD TEGO MOMENTU WPROWADZIŁ JWT
                 .and()
                 .formLogin() //form based authentication
-                .loginPage("/home/main").permitAll()//każdy może wejść na ten adres
+                .loginPage("/home/login").permitAll()//każdy może wejść na ten adres
 //                .failureHandler(myAuthenticationFailureHandler())
 //                    .defaultSuccessUrl("/courses", true)
 
