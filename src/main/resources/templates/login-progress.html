@@ -5,8 +5,10 @@
 </head>
 <body class="animsition">
 <div th:replace="fragments/core_fragments.html :: topHeader"></div>
-<div th:replace="fragments/core_fragments.html :: pageHeader"></div>
-<div class="content">
+<!--<div th:replace="fragments/core_fragments.html :: pageHeader"></div>-->
+
+<div class="header">
+    <!-- navigation -->
     <div class="container">
 
         <!--reCaptcha Key script-->
@@ -16,10 +18,46 @@
         </script>
 
         <div class="row">
+            <div class="col-lg-10 col-md-12">
+                <div id="navigation" class="navigation">
+                    <ul>
+                        <li class="active"><a th:href="@{/}" title="Home" class="animsition-link">Strona główna</a>
+                        </li>
+                        <li><a th:href="@{/#}" title="O_mnie" class="inactiveLink">O mnie</a>
+                            <ul>
+                                <li>
+                                    <a th:href="@{/certificates}" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/about}" title="Pasja" class="animsition-link">Kardiologia moją
+                                        pasją</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a th:href="@{/services}" title="Usługi" class="animsition-link">Usługi i diagnostyka</a>
+                        <li><a th:href="@{/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
+                        </li>
+                        <li><a th:href="@{/article/list}" title="Blog" class="animsition-link">Artykuły</a>
+                        </li>
+                        <li><a th:href="@{/contact}" title="Kontakt" class="animsition-link">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+
+
+
+
+        <div class="row">
             <div class="col-lg-4 col-md-4 aligncenter">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
-                        <div class="col-lg-12 col-md-12 text-center mb20">
+                        <div class="col-lg-12 col-md-12 text-center mt100 mb80">
                             <h1>Logowanie</h1>
                         </div>
                         <form action="askQuestion" id="ask_question_form" method="post" class="form">
@@ -69,7 +107,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" tabindex="-1" role="dialog" id="ask_question">
+<div class="modal fade" tabindex="-1" role="dialog" id="ask_question mb100" >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -88,6 +126,8 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<div data-th-replace="fragments/core_fragments.html :: footer"></div>
+<div class="mt100">
+    <div data-th-replace="fragments/core_fragments.html :: footer"></div>
+</div>
 </body>
 </html>
