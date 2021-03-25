@@ -1,7 +1,7 @@
 package pl.strefaserca.portal.error;
 
 
-public final class ReCaptchaInvalidException extends RuntimeException {
+public class ReCaptchaInvalidException extends RuntimeException {
 
 //    private static final long serialVersionUID = 5861310537366287163L;
 

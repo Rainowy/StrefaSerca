@@ -61,7 +61,7 @@ $('#send_question').click(function (e) {
                     alertMessage(response)
                 },
                 error: function (data) {
-                    alert("Nie Wysłano. Internal Server Error.");
+                    alert("Jeśteś botem lub wystąpił błąd serwera");
                 },
             });
         });

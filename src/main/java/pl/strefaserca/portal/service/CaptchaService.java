@@ -9,14 +9,18 @@ import pl.strefaserca.portal.error.ReCaptchaInvalidException;
 import pl.strefaserca.portal.validation.ICaptchaService;
 import pl.strefaserca.portal.validation.CaptchaSettings;
 import pl.strefaserca.portal.validation.GoogleResponse;
+
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.regex.Pattern;
 
 @Log4j2
 @Service
 public class CaptchaService implements ICaptchaService {
+
+
 
     @Autowired
     protected HttpServletRequest request;
@@ -42,7 +46,7 @@ public class CaptchaService implements ICaptchaService {
         RestTemplate restTemplate = new RestTemplate();
 
 //        !!!!!!!!!
-//        GoogleResponse googleResponse = restTemplate.getForObject(verifyUri, GoogleResponse.class);
+        GoogleResponse googleResponse = restTemplate.getForObject(verifyUri, GoogleResponse.class);
         return restTemplate.getForObject(verifyUri, GoogleResponse.class);
     }
 
@@ -59,6 +63,12 @@ public class CaptchaService implements ICaptchaService {
                 .append("ChallengeTs: " + response(token).getChallengeTs() + " ")
                 .append("From addr: " + getClientIP());
         log.error(stringBuilder);
+        String errorCode = Arrays.stream(response(token)
+                .getErrorCodes())
+                .findFirst()
+                .toString();
+
+        throw new ReCaptchaInvalidException(errorCode);
     }
 
     @Override
