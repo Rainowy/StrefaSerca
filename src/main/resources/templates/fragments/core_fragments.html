@@ -30,7 +30,7 @@
 <div th:fragment="topHeader" class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-12"><a class="logo" th:href="@{/}">
+            <div class="col-lg-3 col-md-12"><a class="logo" th:href="@{/home/main}">
                 <img th:src="@{/images/logo-main.jpg}" alt=""/></a>
             </div>
             <div class="col-lg-9">
@@ -46,7 +46,7 @@
                             <i class="fa fa-user-md"></i><a href="#">Kardiolog Katarzyna Czarnecka</a>
                         </div>
                         <div class="col-lg-3  top-link">
-                            <i class="fa fa-sign-in"></i> <a href="#">Zaloguj się</a>
+                            <i class="fa fa-sign-in"></i> <a th:href="@{/home/login}">Zaloguj się</a>
                         </div>
                     </div>
                 </div>

@@ -64,6 +64,4 @@ public class NewsLetterService {
         writer.flush();
         writer.close();
     }
-
-
 }

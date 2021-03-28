@@ -9,11 +9,9 @@ import pl.strefaserca.portal.error.ReCaptchaInvalidException;
 import pl.strefaserca.portal.validation.ICaptchaService;
 import pl.strefaserca.portal.validation.CaptchaSettings;
 import pl.strefaserca.portal.validation.GoogleResponse;
-
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.regex.Pattern;
 
 @Log4j2
@@ -45,8 +43,8 @@ public class CaptchaService implements ICaptchaService {
         final URI verifyUri = URI.create(String.format(RECAPTCHA_URL_TEMPLATE, getReCaptchaSecret(), token, getClientIP()));
         RestTemplate restTemplate = new RestTemplate();
 
-//        !!!!!!!!!
-        GoogleResponse googleResponse = restTemplate.getForObject(verifyUri, GoogleResponse.class);
+//        !!!!!!!!! Test timeout or duplicate exception
+//        GoogleResponse googleResponse = restTemplate.getForObject(verifyUri, GoogleResponse.class);
         return restTemplate.getForObject(verifyUri, GoogleResponse.class);
     }
 

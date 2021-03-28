@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="pl"  xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments/core_fragments.html :: headerfiles">
-    <title>O mnie</title>
+    <title>Kontakt</title>
+</head>
 <body class="animsition">
 <div th:replace="fragments/core_fragments.html :: topHeader"></div>
-<!--<div th:replace="fragments/core_fragments.html :: pageHeader">-->
+<!--<div th:replace="fragments/core_fragments.html :: pageHeader"></div>-->
+
 <div class="header">
     <!-- navigation -->
     <div class="container">
@@ -15,30 +17,29 @@
             var captchaKey = [[${@captchaSettings.getSite()}]];
         </script>
 
-
         <div class="row">
             <div class="col-lg-10 col-md-12">
                 <div id="navigation" class="navigation">
                     <ul>
-                        <li class="active"><a th:href="@{/}" title="Home" class="animsition-link">Strona główna</a>
+                        <li class="active"><a th:href="@{/home/main}" title="Home" class="animsition-link">Strona główna</a>
                         </li>
                         <li><a th:href="@{/#}" title="O_mnie" class="inactiveLink">O mnie</a>
                             <ul>
                                 <li>
-                                    <a th:href="@{/certificates}" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
+                                    <a th:href="@{/home/certificates}" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
                                 </li>
                                 <li>
-                                    <a th:href="@{/about}" title="Pasja" class="animsition-link">Kardiologia moją
+                                    <a th:href="@{/home/about}" title="Pasja" class="animsition-link">Kardiologia moją
                                         pasją</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a th:href="@{/services}" title="Usługi" class="animsition-link">Usługi i diagnostyka</a>
-                        <li><a th:href="@{/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
+                        <li><a th:href="@{/home/services}" title="Usługi" class="animsition-link">Usługi i diagnostyka</a>
+                        <li><a th:href="@{/home/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
                         </li>
                         <li><a th:href="@{/article/list}" title="Blog" class="animsition-link">Artykuły</a>
                         </li>
-                        <li><a th:href="@{/contact}" title="Kontakt" class="animsition-link">Kontakt</a>
+                        <li><a th:href="@{/home/contact}" title="Kontakt" class="animsition-link">Kontakt</a>
                         </li>
                     </ul>
                 </div>
@@ -48,63 +49,80 @@
 </div>
 <div class="content">
     <div class="container">
-        <div class="content-area">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 aligncenter">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="col-lg-12 col-md-12 text-center mt100 mb20">
-                                <h1>Logowanie</h1>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 aligncenter">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="col-lg-12 col-md-12 text-center mt60 mb60">
+                            <h1>Logowanie</h1>
+                        </div>
+                        <form action="askQuestion" id="ask_question_form" method="post" class="form">
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-lg-12 control-label" for="name">Imię/Mail</label>
+                                <div class="col-lg-12">
+                                    <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
+                                </div>
                             </div>
-                            <form action="askQuestion" id="ask_question_form" method="post" class="form">
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-lg-12 control-label" for="name">Imię/Mail</label>
-                                    <div class="col-lg-12">
-                                        <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
-                                    </div>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-lg-12 control-label " for="email">Hasło</span></label>
+                                <div class="col-lg-12">
+                                    <input id="email" name="email" type="email" placeholder="" class="form-control input-md">
                                 </div>
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-lg-12 control-label " for="email">Hasło</span></label>
-                                    <div class="col-lg-12">
-                                        <input id="email" name="email" type="email" placeholder="" class="form-control input-md">
-                                    </div>
-                                </div>
-                                <!-- Text input-->
-                                <!--                            <div class="form-group">-->
-                                <!--                                <label class="col-lg-10 control-label" for="phone">Telefon</label>-->
-                                <!--                                <div class="col-lg-10">-->
-                                <!--                                    <input id="phone" name="phone" type="text" placeholder="" class="form-control input-md">-->
-                                <!--                                </div>-->
-                                <!--                            </div>-->
-                                <!--                            <div class="form-group">-->
-                                <!--                                <label class="col-lg-10 control-label" for="textarea">Treść pytania-->
-                                <!--                                    <span class="required">*</span></label>-->
-                                <!--                                <div class="col-lg-10">-->
-                                <!--                                    <textarea class="form-control" rows="7" id="textarea" name="textarea"></textarea>-->
-                                <!--                                </div>-->
-                                <!--                            </div>-->
-                                <div class="col-lg-12 col-md-12">
-                                    <button id="question_submit_button" name="singlebutton" class="btn btn-default" type="button">
-                                        Zaloguj
-                                    </button>
+                            </div>
+                            <!-- Text input-->
+                            <!--                            <div class="form-group">-->
+                            <!--                                <label class="col-lg-10 control-label" for="phone">Telefon</label>-->
+                            <!--                                <div class="col-lg-10">-->
+                            <!--                                    <input id="phone" name="phone" type="text" placeholder="" class="form-control input-md">-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="form-group">-->
+                            <!--                                <label class="col-lg-10 control-label" for="textarea">Treść pytania-->
+                            <!--                                    <span class="required">*</span></label>-->
+                            <!--                                <div class="col-lg-10">-->
+                            <!--                                    <textarea class="form-control" rows="7" id="textarea" name="textarea"></textarea>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <div class="col-lg-12 col-md-12">
+                                <button id="question_submit_button" name="singlebutton" class="btn btn-default" type="button">
+                                    Zaloguj
+                                </button>
 
-                                    <span class="required pull-right">
+                                <span class="required pull-right">
                                      <button id="fakowy" name="singlebutton" class="btn btn-default" type="button">
                                     Rejestruj
                                 </button>
                                 </span>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="fixed-bottom">
+<div class="modal fade" tabindex="-1" role="dialog" id="ask_question mb100" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body d-block">
+                <h2 class="modal-title text-center">Wysłać wiadomość ?</h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="send_question" data-dismiss="modal">
+                    Wyślij
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="mt140">
     <div data-th-replace="fragments/core_fragments.html :: footer"></div>
 </div>
 </body>

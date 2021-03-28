@@ -33,7 +33,7 @@ public class HomeController {
 
     @GetMapping("/login")
     public ModelAndView login() {
-        return new ModelAndView("login-progress");
+        return new ModelAndView("login");
     }
 
     @GetMapping("/certificates")
