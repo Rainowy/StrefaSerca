@@ -56,10 +56,9 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewslett
         helper.setTo(emailToConfirm);
         helper.setSubject(subject);
         helper.setText(body, true);
-//        helper.addInline("logo", new File("/home/tomek/Workspace/portal/src/main/resources/static/images/logo-main.jpg"));
 //        helper.addInline("logo", new File("/home/kasiazen/workspace/Portfolio/StrefaSerca/src/main/resources/static/images/logo-main.jpg"));
-        helper.addInline("logo", new File("/home/tomek/Documents/StrefaHtml/images/logo-main.jpg"));
-//        helper.addInline("logo", new File("/volume1/web/StrefaHtml/images/logo-main.jpg"));
+//        helper.addInline("logo", new File("/home/tomek/Documents/StrefaHtml/images/logo-main.jpg"));
+        helper.addInline("logo", new File("/volume1/web/StrefaHtml/images/logo-main.jpg"));
         return mail;
     }
 
@@ -67,8 +66,8 @@ public class NewsLetterRequestListener implements ApplicationListener<OnNewslett
         Context context = new Context();
         context.setVariable("header", "Portal Strefa Serca zaprasza do Newslettera");
         context.setVariable("title", "Użyj linku poniżej aby zapisać się do biuletynu informacyjnego Strefy Serca");
-        context.setVariable("description", "http://localhost:8080" + confirmationUrl);
-//        context.setVariable("description", "http://strefaserca.pl" + confirmationUrl);
+//        context.setVariable("description", "http://localhost:8080" + confirmationUrl);
+        context.setVariable("description", "https://strefaserca.pl" + confirmationUrl);
         return templateEngine.process("template", context);
     }
 }
