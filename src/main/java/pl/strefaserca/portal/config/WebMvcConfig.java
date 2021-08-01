@@ -21,7 +21,9 @@ public class WebMvcConfig {
     @Bean
     public SpringResourceTemplateResolver externalTemplateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setPrefix("file:/home/tomek/Documents/StrefaHtml/");
+//        templateResolver.setPrefix("file:/home/tomek/Documents/StrefaHtml/");
+        templateResolver.setPrefix("https://strefa-bucket.s3.eu-central-1.amazonaws.com/");
+        file:https://strefa-bucket.s3.eu-central-1.amazonaws.com/
 //        templateResolver.setPrefix("file:/home/kasiazen/Documents/StrefaHtml/");
 //        templateResolver.setPrefix("file:/volume1/web/StrefaHtml/");
         templateResolver.setSuffix(".html");
