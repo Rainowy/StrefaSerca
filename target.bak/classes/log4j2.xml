@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable"/>
+        </Console>
+<!--        fileName="/home/tomek/Documents/StrefaHtml/log4j2.log"-->
+<!--        filePattern="/home/tomek/Documents/StrefaHtml/$${date:yyyy-MM}/log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz"-->
+
+<!--        fileName="/volume1/web/StrefaHtml/log4j2.log"-->
+<!--        filePattern="/volume1/web/StrefaHtml/$${date:yyyy-MM}/log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz">-->
+        <RollingFile name="RollingFile"
+                     fileName="/volume1/web/StrefaHtml/log4j2.log"
+                     filePattern="/volume1/web/StrefaHtml/$${date:yyyy-MM}/log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz"
+            >
+            <PatternLayout>
+                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <!-- rollover on startup, daily and when the file reaches
+                    10 MegaBytes -->
+                <OnStartupTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy
+                        size="10 MB"/>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <AsyncLogger name="pl.strefaserca.portal" level="debug" additivity="false" includeLocation="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </AsyncLogger>
+        <!-- LOG everything at INFO level -->
+        <Root level="info" includeLocation="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+
+    <!--    Sending mail on error-->
+<!--    <SMTP name="MailAppender"-->
+<!--          subject="Log4j2 Demo [PROD]"-->
+<!--          to="tomasz.czarny.czarnecki@gmail.com"-->
+<!--          from="pl.strefaserca.portal"-->
+<!--          smtpHost="smtp.gmail.com"-->
+<!--          smtpPort="587"-->
+<!--          smtpUsername="yourSMTPUsername"-->
+<!--          smtpPassword="yourSMTPPassword"-->
+<!--          bufferSize="1">-->
+<!--        <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>-->
+<!--        <PatternLayout>-->
+<!--            <Pattern>${LOG_PATTERN}</Pattern>-->
+<!--        </PatternLayout>-->
+<!--    </SMTP>-->
+
+</Configuration>
+
+

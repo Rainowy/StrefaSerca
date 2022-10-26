@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/core_fragments.html :: headerfiles">
+    <title>Holter EKG</title>
+<body class="animsition">
+<div th:replace="fragments/core_fragments.html :: topHeader"></div>
+<div th:replace="fragments/core_fragments.html :: pageHeader"></div>
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="content-area">
+                    <div class="row">
+                        <div th:replace="fragments/core_fragments.html :: sideNavigation"></div>
+                        <div class="col-md-10 col-sm-10">
+                            <div class="post-holder mb40">
+                                <div class="post-img mb30">
+                                    <img th:src="@{/images/cardio_services/holter.jpg}" alt="" class="img-responsive">
+                                </div>
+                                <div class="post-block">
+                                    <div class="post-header mb20">
+                                        <h1 class="post-title mb30">Holter EKG</h1>
+                                    </div>
+                                    <hr>
+                                    <div class="post-content">
+                                        <p style="text-align: justify">To bezinwazyjne, proste badanie jest bardzo ważną
+                                            częścią diagnostyki kardiologicznej. Na klatkę piersiową przylepiamy
+                                            elektrody, które kabelkami połączone są z urządzeniem rejestrującym zapis
+                                            EKG. Standardowy zapis trwa 24 godziny, w niektórych przypadkach sięgamy
+                                            nawet po zapisy 7 dniowe. Nowoczesne aparaty są bardzo małe, więc bez
+                                            problemu możesz iść z nimi do pracy, na zajęcia w szkole lub trening. Gdy w
+                                            trakcie rejestracji źle się czujesz, powinieneś zapisać sobie dokładny czas,
+                                            później będzie można porównać czy w tym czasie coś „ciekawego” się
+                                            nagrało. </p>
+                                        <h2 class="mb30">Kiedy powinienem zrobić sobie takie badanie?</h2>
+                                        <p style="text-align: justify">Jeśli masz utraty przytomności, zawroty głowy,
+                                            stany przedomdleniowe Holter EKG jest jednym z pierwszych badań, które
+                                            należy wykonać. Niestety nie jest to takie proste, żeby „uchwycić” arytmię,
+                                            czasem potrzebne jest trochę szczęścia. W każdym razie musimy od tego
+                                            zacząć, ponieważ, nawet jeśli w dniu badania nic Ci się nie dzieję, to może
+                                            się zdarzyć, że nagrają się poważne zaburzenia rytmu niewyczuwalne dla
+                                            Ciebie. Jeśli odczuwasz szybkie bicie serca, uczucie kołatania, szarpania,
+                                            stawania, nierównego bicia serca to Holter EKG również może opowiedzieć na
+                                            pytanie czy to coś poważnego. Często zdarza się, że badanie musimy
+                                            powtarzać, aby uchwycić, to na czym nam zależy. Nie zawsze się to udaje,
+                                            wtedy sięgamy po inne sposoby. Z badania holterowskiego korzystamy również
+                                            czasami do sprawdzenia działania stymulatora, skuteczności włączonego
+                                            leczenia antyarytmicznego, oceny po przebytych zabiegach
+                                            kardiochirurgicznych oraz przebytym zawale serca.</p>
+                                        <blockquote class="mt30">
+                                            <p>Jeśli odczuwasz szybkie bicie serca, uczucie kołatania, szarpania,
+                                                stawania, nierównego bicia serca, to Holter EKG może odpowiedzieć na
+                                                pytanie czy to coś poważnego. </p>
+                                        </blockquote>
+                                        <h2 class="mt30 mb30">Jak przygotować się do badania?</h2>
+                                        <p>W trakcie badania nie można się kąpać, naklejki mogą się odlepić a urządzenie
+                                            uszkodzić. Z tego powodu przed badaniem trzeba się wykąpać „na zapas”. Jeśli
+                                            jesteś mężczyzną, to musisz się przygotować na zgolenie włosów na klatce
+                                            piersiowej. Możesz to zrobić sam w domu. Przed badaniem nie smaruj się
+                                            balsamem, ponieważ elektrody mogą się odklejać. W dzień badania staraj
+                                            zachowywać się tak jak zawsze, idź do pracy, do kościoła, do szkoły,
+                                            pobiegać, tak aby odtworzyć warunki, w których wcześniej zauważyłeś
+                                            niepokojące objawy. Ostatnia rada: jeśli lekarza zalecił Ci wykonanie
+                                            Holtera EKG i testu wysiłkowego i planujesz zrobić dwa badania jednocześnie,
+                                            to pierwszym badaniem powinien być Holter EKG. W innym przypadku nie
+                                            będziesz się czuł komfortowo, gdy spocony po teście wysiłkowym, dostaniesz
+                                            Holter EKG i zakaz kąpieli przez następne 24 godziny;)</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div data-th-replace="fragments/core_fragments.html :: previousNext"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-th-replace="fragments/core_fragments.html :: footer"></div>
+</body>
+</html>

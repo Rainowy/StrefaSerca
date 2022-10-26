@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/core_fragments.html :: headerfiles">
+    <title>O mnie</title>
+<body class="animsition">
+<script>
+    history.replaceState(null, document.title, location.href); //kasuje historię back button, użytkownik nie wyśle jeszcze raz formularza
+</script>
+<div th:replace="fragments/core_fragments.html :: topHeader"></div>
+<div class="header">
+    <!-- navigation -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-12">
+                <div id="navigation" class="navigation">
+                    <ul>
+                        <li class="active"><a th:href="@{/home/main}" title="Home" class="animsition-link">Strona główna</a>
+                        </li>
+                        <li><a th:href="@{/#}" title="O_mnie" class="inactiveLink">O mnie</a>
+                            <ul>
+                                <li>
+                                    <a th:href="@{/home/certificates}" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/home/about}" title="Pasja" class="animsition-link">Kardiologia moją
+                                        pasją</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a th:href="@{/home/services}" title="Usługi" class="animsition-link">Usługi i diagnostyka</a>
+                        <li><a th:href="@{/home/testimonials}" title="Opinie" class="animsition-link">Opinie</a>
+                        </li>
+                        <li><a th:href="@{/article/list}" title="Blog" class="animsition-link">Artykuły</a>
+                        </li>
+                        <li><a th:href="@{/home/contact}" title="Kontakt" class="animsition-link">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="content-area">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="post-holder">
+                        <h1 class="text-center mb20"  th:text="${message}"></h1>
+                        <div class="post-img">
+                            <img th:src="@{/images/newsletter.jpg}" alt="" class="img-responsive"></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-th-replace="fragments/core_fragments.html :: footer"></div>
+</body>
+</html>
