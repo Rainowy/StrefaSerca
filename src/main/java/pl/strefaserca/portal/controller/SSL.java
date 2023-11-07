@@ -13,12 +13,12 @@ public class SSL {
     }
 
     @GetMapping(
-            value = {"/.well-known/acme-challenge/xmYR2day1UysCZ0kohcvRB-lu-7MI57f8GsyrM98MV4"},
+            value = {"/.well-known/acme-challenge/Yrv4JrVd-hNqhjAlTaK_yB-ngJDl7DIbxsVFRK7bBBg"},
             produces = {"application/octet-stream"}
     )
     @ResponseBody
     public byte[] getFile() throws IOException {
-        InputStream in = this.getClass().getResourceAsStream("/xmYR2day1UysCZ0kohcvRB-lu-7MI57f8GsyrM98MV4.txt");
+        InputStream in = this.getClass().getResourceAsStream("/Yrv4JrVd-hNqhjAlTaK_yB-ngJDl7DIbxsVFRK7bBBg.txt");
         return IOUtils.toByteArray(in);
     }
 }
