@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SSL {
-    public SSL() {
-    }
+
 
     @GetMapping(
             value = {"/.well-known/acme-challenge/Yrv4JrVd-hNqhjAlTaK_yB-ngJDl7DIbxsVFRK7bBBg"},
