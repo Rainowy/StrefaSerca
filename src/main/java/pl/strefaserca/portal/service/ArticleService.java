@@ -155,25 +155,50 @@ public class ArticleService {
     /**
      * Previous or next Article
      */
+//    public ArticleDto nextArticle(String fileName) {
+//        List<ArticleDto> articleInfo = getArticleInfo();
+//
+//        for (int i = 0; i < articleInfo.size(); i++) {
+//            if (articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() - 1) {
+//                return new ArticleDto(articleInfo.get(i + 1).getFileName(), articleInfo.get(i + 1).getTitle());
+//            }
+//        }
+//        return new ArticleDto(articleInfo.get(0).getFileName(), articleInfo.get(0).getTitle());
+//    }
     public ArticleDto nextArticle(String fileName) {
         List<ArticleDto> articleInfo = getArticleInfo();
 
-        for (int i = 0; i < articleInfo.size(); i++) {
-            if (articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() - 1) {
+        for (int i = 0; i < articleInfo.size() - 1; i++) {
+            if (articleInfo.get(i).getFileName().equals(fileName)) {
                 return new ArticleDto(articleInfo.get(i + 1).getFileName(), articleInfo.get(i + 1).getTitle());
             }
         }
+
         return new ArticleDto(articleInfo.get(0).getFileName(), articleInfo.get(0).getTitle());
     }
 
+
+//    public ArticleDto prevArticle(String fileName) {
+//        List<ArticleDto> articleInfo = getArticleInfo();
+//
+//        for (int i = 0; i < articleInfo.size(); i++) {
+//            if (articleInfo.get(i).getFileName().equals(fileName) && i != 0) {
+//                return new ArticleDto(articleInfo.get(i - 1).getFileName(), articleInfo.get(i - 1).getTitle());
+//            }
+//        }
+//        return new ArticleDto(articleInfo.get(articleInfo.size() - 1).getFileName(), articleInfo.get(articleInfo.size() - 1).getTitle());
+//    }
     public ArticleDto prevArticle(String fileName) {
         List<ArticleDto> articleInfo = getArticleInfo();
 
-        for (int i = 0; i < articleInfo.size(); i++) {
-            if (articleInfo.get(i).getFileName().equals(fileName) && i != 0) {
+        for (int i = 1; i < articleInfo.size(); i++) {
+            if (articleInfo.get(i).getFileName().equals(fileName)) {
                 return new ArticleDto(articleInfo.get(i - 1).getFileName(), articleInfo.get(i - 1).getTitle());
             }
         }
+
+        // If the given fileName is the first article, wrap around to the last article
         return new ArticleDto(articleInfo.get(articleInfo.size() - 1).getFileName(), articleInfo.get(articleInfo.size() - 1).getTitle());
     }
+
 }
