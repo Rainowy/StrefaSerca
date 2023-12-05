@@ -29,3 +29,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Personal ###
+#src/main/java/pl/strefaserca/portal/config/WebMvcConfig.java
+#src/main/java/pl/strefaserca/portal/service/ArticleService.java
+#src/main/resources/application.properties
+#src/main/resources/log4j2.xml
