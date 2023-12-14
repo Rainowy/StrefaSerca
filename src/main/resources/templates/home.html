@@ -5,19 +5,14 @@
     <title>Index</title>
 </head>
 <body class="animsition">
-<script>
-    const mydrScript = document.getElementsByTagName('script')[0];
-    const js = document.createElement('script');
-    js.src ="/js/mydr-pp.min.js"
-    mydrScript.parentNode.insertBefore(js, mydrScript);
-
-    js.onload = () => {
-        const PatientsPlugin = new window.PatientsPlugin;
-        PatientsPlugin.init({
-            app: 'https://mydr.pl/patients_plugin',
-            plugin: 'https://mydr.pl/static',
-        });
-    };
+<script>     const mydrScript = document.getElementsByTagName('script')[0];
+const js = document.createElement('script');
+js.src = "/js/mydr-pp.min.js";
+mydrScript.parentNode.insertBefore(js, mydrScript);
+js.onload = () => {
+    const PatientsPlugin = new window.PatientsPlugin();
+    PatientsPlugin.init({app: 'https://mydr.pl/patients_plugin', plugin: 'https://mydr.pl/static',});
+};
 </script>
 <div th:replace="fragments/core_fragments.html :: topHeader"></div>
 <div class="intro-section"> <!-- intro section -->
@@ -34,7 +29,8 @@
                                 <li><a th:href="@{/#}" title="O_mnie" class="inactiveLink">O mnie</a>
                                     <ul>
                                         <li>
-                                            <a th:href="@{/home/certificates}" title="Certyfikaty" class="animsition-link">Certyfikaty</a>
+                                            <a th:href="@{/home/certificates}" title="Certyfikaty"
+                                               class="animsition-link">Certyfikaty</a>
                                         </li>
                                         <li>
                                             <a th:href="@{/home/about}" title="Pasja" class="animsition-link">Kardiologia
@@ -64,7 +60,16 @@
                 <h1 class="intro-title">Kardiolog <br> Katarzyna Czarnecka</h1>
             </div>
             <div class="col-lg-4 col-md-4 d-none d-md-block">
-                <button class="btn-mydr-pp" data-doctor="katarzynaczarnecka" data-speciality="" data-visitkind="" data-evisit="false" data-appname="drw" data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYWNpbGl0eV9pZCI6NDY5M30.-b7TL-5eqlPjv8BucahmiMz7Agezg0DW-GEhIfI0IuM">Umów wizytę</button>
+                <button
+                        class="btn-mydr-pp"
+                        data-doctor="katarzynaczarnecka"
+                        data-speciality="kardiolog"
+                        data-visitkind="Prywatna"
+                        data-evisit="true"
+                        data-appname="drw"
+                        data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYWNpbGl0eV9pZCI6NDY5M30.-b7TL-5eqlPjv8BucahmiMz7Agezg0DW-GEhIfI0IuM">
+                    Umów wizytę
+                </button>
             </div>
         </div>
     </div>
@@ -81,7 +86,9 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Echokardiografia'}" class="imghover"><img th:src="@{/images/cardio_services/echo-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Echokardiografia'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/echo-thumbnail.jpg}" class="img-responsive"
+                                        alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Echokardiografia'}" class="heading-title">Echokardiografia</a>
                             </h2>
@@ -90,7 +97,9 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Holter_EKG'}" class="imghover"><img th:src="@{/images/cardio_services/holter-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Holter_EKG'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/holter-thumbnail.jpg}" class="img-responsive"
+                                        alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Holter_EKG'}" class="heading-title">Holter EKG</a></h2>
                         </div>
@@ -98,7 +107,9 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Holter_RR'}" class="imghover"><img th:src="@{/images/cardio_services/holter-RR-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Holter_RR'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/holter-RR-thumbnail.jpg}"
+                                        class="img-responsive" alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Holter_RR'}" class="heading-title">Holter
                                 ciśnieniowy</a></h2>
@@ -107,7 +118,9 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Kontrola_stymulatora'}" class="imghover"><img th:src="@{/images/cardio_services/stymulator-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Kontrola_stymulatora'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/stymulator-thumbnail.jpg}"
+                                        class="img-responsive" alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Kontrola_stymulatora'}" class="heading-title">Kontrola
                                 stymulatora</a></h2>
@@ -116,17 +129,22 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Koronarografia'}" class="imghover"><img th:src="@{/images/cardio_services/koro-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Koronarografia'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/koro-thumbnail.jpg}" class="img-responsive"
+                                        alt=""/></a>
                             </div>
                             <h2>
-                                <a th:href="@{'/service/selected/Koronarografia'}" class="heading-title">Koronarografia</a>
+                                <a th:href="@{'/service/selected/Koronarografia'}"
+                                   class="heading-title">Koronarografia</a>
                             </h2>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
                         <div class="service-block text-center mb60">
                             <div class="service-img mb30">
-                                <a th:href="@{'/service/selected/Test_wysiłkowy'}" class="imghover"><img th:src="@{/images/cardio_services/test-thumbnail.jpg}" class="img-responsive" alt=""/></a>
+                                <a th:href="@{'/service/selected/Test_wysiłkowy'}" class="imghover"><img
+                                        th:src="@{/images/cardio_services/test-thumbnail.jpg}" class="img-responsive"
+                                        alt=""/></a>
                             </div>
                             <h2><a th:href="@{'/service/selected/Test_wysiłkowy'}" class="heading-title">Test
                                 wysiłkowy</a></h2>
@@ -185,7 +203,16 @@
                 <h2 class="cta-num text-white">792 327 604 <br> 32 447 09 70</h2>
             </div>
             <div class="col-lg-3 col-md-3 cta-btn">
-                <button class="btn-mydr-pp" data-doctor="katarzynaczarnecka" data-speciality="" data-visitkind="" data-evisit="false" data-appname="drw" data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYWNpbGl0eV9pZCI6NDY5M30.-b7TL-5eqlPjv8BucahmiMz7Agezg0DW-GEhIfI0IuM">Umów wizytę</button>
+                <button
+                        class="btn-mydr-pp"
+                        data-doctor="katarzynaczarnecka"
+                        data-speciality="kardiolog"
+                        data-visitkind="Prywatna"
+                        data-evisit="true"
+                        data-appname="drw"
+                        data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYWNpbGl0eV9pZCI6NDY5M30.-b7TL-5eqlPjv8BucahmiMz7Agezg0DW-GEhIfI0IuM">
+                    Umów wizytę
+                </button>
             </div>
         </div>
     </div>
@@ -257,15 +284,18 @@
             <div class="col-md-4 col-sm-4" th:each="recentArticle : ${recentArticles}">
                 <div class="post-holder mb40">
                     <div class="post-img mb20">
-                        <a th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="imghover"><img th:src="@{${'/' + recentArticle.getImgSrc()}}" alt="" class="img-responsive"></a>
+                        <a th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="imghover"><img
+                                th:src="@{${'/' + recentArticle.getImgSrc()}}" alt="" class="img-responsive"></a>
                     </div>
                     <div class="post-block">
                         <div class="post-header mb20">
                             <h3 class="post-title mb20">
-                                <a th:text="${recentArticle.getTitle()}" th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="title"></a>
+                                <a th:text="${recentArticle.getTitle()}"
+                                   th:href="@{${'/article/selected/' + recentArticle.getFileName()}}" class="title"></a>
                             </h3>
                             <div class="post-meta">
-                                <span class="meta-date"><i class="fa fa-calendar"></i><th:block th:text="${#temporals.format(recentArticle.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>
+                                <span class="meta-date"><i class="fa fa-calendar"></i><th:block
+                                        th:text="${#temporals.format(recentArticle.getCreated(), 'dd-MMM-yyyy HH:mm')}"></th:block></span>
                             </div>
                         </div>
                     </div>
@@ -281,7 +311,16 @@
                 <h1 class="text-white">Zadbaj o swoje zdrowie!</h1>
             </div>
             <div class="col-lg-3 col-md-3">
-                <button class="btn-mydr-pp" data-doctor="katarzynaczarnecka" data-speciality="" data-visitkind="" data-evisit="false" data-appname="drw" data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYWNpbGl0eV9pZCI6NDY5M30.-b7TL-5eqlPjv8BucahmiMz7Agezg0DW-GEhIfI0IuM">Umów wizytę</button>
+                <button
+                        class="btn-mydr-pp"
+                        data-doctor="katarzynaczarnecka"
+                        data-speciality="kardiolog"
+                        data-visitkind="Prywatna"
+                        data-evisit="true"
+                        data-appname="drw"
+                        data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYWNpbGl0eV9pZCI6NDY5M30.-b7TL-5eqlPjv8BucahmiMz7Agezg0DW-GEhIfI0IuM">
+                    Umów wizytę
+                </button>
             </div>
         </div>
     </div>
