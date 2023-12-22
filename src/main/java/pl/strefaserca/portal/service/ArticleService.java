@@ -1,7 +1,5 @@
 package pl.strefaserca.portal.service;
 
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.SneakyThrows;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,8 +10,6 @@ import pl.strefaserca.portal.model.dto.ArticleDto;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -21,6 +17,7 @@ import java.nio.file.attribute.FileTime;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -32,47 +29,50 @@ public class ArticleService {
     @SneakyThrows
     public List<ArticleDto> getArticleInfo() {
 
-//        List<ArticleDto> articles;
-//        Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
-////        Stream<Path> paths = Files.walk(Paths.get("https://strefa-bucket.s3.eu-central-1.amazonaws.com"));
-////        Stream<Path> paths = Files.walk(Paths.get("/home/kasiazen/Documents/StrefaHtml"));
-////        Stream<Path> paths = Files.walk(Paths.get("/volume1/web/StrefaHtml"));
-//        articles = paths.map(Path::toString)
-//                .filter(p -> !p.contains("article"))
-//                .filter(p -> p.endsWith(".html"))
-//                .map(p -> new ArticleDto(parseTitle(p), parseImage(p), parseFileName(p), parseLead(p), getCreated(p))).collect(Collectors.toList());
-////                .map(p -> new ArticleDto(parseTitle(p), parseFileName(p), getCreated(p))).collect(Collectors.toList());
+        List<ArticleDto> articles;
+        Stream<Path> paths = Files.walk(Paths.get("/home/tomek/Documents/StrefaHtml"));
+//        Stream<Path> paths = Files.walk(Paths.get("/home/kasiazen/Documents/StrefaHtml"));
+//        Stream<Path> paths = Files.walk(Paths.get("/volume1/web/StrefaHtml"));
+        articles = paths.map(Path::toString)
+                .filter(p -> !p.contains("article"))
+                .filter(p -> p.endsWith(".html"))
+                .map(p -> new ArticleDto(parseTitle(p), parseImage(p), parseFileName(p), parseLead(p), getCreated(p))).collect(Collectors.toList());
 
-//        Collections.sort(articles, Comparator.comparing(ArticleDto::getCreated).reversed());
-
-        JsonMapper mapper = new JsonMapper();
-        mapper.registerModule(new JavaTimeModule());
-//        mapper.registerModule(new SimpleModule().addSerializer(
-//                new LocalDateTimeSerializer(DateTimeFormatter.ISO_LOCAL_DATE_TIME)));
-//        String s = mapper.writeValueAsString(articles);
-
-        //zapisuje do pliku
-//        Files.write(Paths.get("/home/tomek/Documents/StrefaHtml/articles"), s.getBytes());
-
-        String fileContent = URLReader();
-        ArticleDto[] articleDto = mapper.readValue(fileContent, ArticleDto[].class);
-
-        List<ArticleDto> articles = Arrays.asList(articleDto);
         Collections.sort(articles, Comparator.comparing(ArticleDto::getCreated).reversed());
-
         return articles;
     }
 
-    private String URLReader() throws IOException {
+/** Wersja powyższej motody, pobierająca listę artykułów z s3 bucket.
+ @SneakyThrows public List<ArticleDto> getArticleInfo() {
 
-        InputStream input = new URL("https://strefa-bucket.s3.eu-central-1.amazonaws.com/articles").openStream();
+ JsonMapper mapper = new JsonMapper();
+ mapper.registerModule(new JavaTimeModule());
+ //        mapper.registerModule(new SimpleModule().addSerializer(
+ //                new LocalDateTimeSerializer(DateTimeFormatter.ISO_LOCAL_DATE_TIME)));
+ //        String s = mapper.writeValueAsString(articles);
 
-        try (input) {
-            byte[] bytes = input.readAllBytes();
-            return new String(bytes);
-        }
-    }
+ //zapisuje do pliku
+ //        Files.write(Paths.get("/home/tomek/Documents/StrefaHtml/articles"), s.getBytes());
 
+ String fileContent = URLReader();
+ ArticleDto[] articleDto = mapper.readValue(fileContent, ArticleDto[].class);
+
+ List<ArticleDto> articles = Arrays.asList(articleDto);
+ Collections.sort(articles, Comparator.comparing(ArticleDto::getCreated).reversed());
+
+ return articles;
+ }
+
+ private String URLReader() throws IOException {
+
+ InputStream input = new URL("https://strefa-bucket.s3.eu-central-1.amazonaws.com/articles").openStream();
+
+ try (input) {
+ byte[] bytes = input.readAllBytes();
+ return new String(bytes);
+ }
+ }
+ */
     /**
      * Parse img, name, title and lead from article
      */
@@ -155,50 +155,25 @@ public class ArticleService {
     /**
      * Previous or next Article
      */
-//    public ArticleDto nextArticle(String fileName) {
-//        List<ArticleDto> articleInfo = getArticleInfo();
-//
-//        for (int i = 0; i < articleInfo.size(); i++) {
-//            if (articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() - 1) {
-//                return new ArticleDto(articleInfo.get(i + 1).getFileName(), articleInfo.get(i + 1).getTitle());
-//            }
-//        }
-//        return new ArticleDto(articleInfo.get(0).getFileName(), articleInfo.get(0).getTitle());
-//    }
     public ArticleDto nextArticle(String fileName) {
         List<ArticleDto> articleInfo = getArticleInfo();
 
-        for (int i = 0; i < articleInfo.size() - 1; i++) {
-            if (articleInfo.get(i).getFileName().equals(fileName)) {
+        for (int i = 0; i < articleInfo.size(); i++) {
+            if (articleInfo.get(i).getFileName().equals(fileName) && i != articleInfo.size() - 1) {
                 return new ArticleDto(articleInfo.get(i + 1).getFileName(), articleInfo.get(i + 1).getTitle());
             }
         }
-
         return new ArticleDto(articleInfo.get(0).getFileName(), articleInfo.get(0).getTitle());
     }
 
-
-//    public ArticleDto prevArticle(String fileName) {
-//        List<ArticleDto> articleInfo = getArticleInfo();
-//
-//        for (int i = 0; i < articleInfo.size(); i++) {
-//            if (articleInfo.get(i).getFileName().equals(fileName) && i != 0) {
-//                return new ArticleDto(articleInfo.get(i - 1).getFileName(), articleInfo.get(i - 1).getTitle());
-//            }
-//        }
-//        return new ArticleDto(articleInfo.get(articleInfo.size() - 1).getFileName(), articleInfo.get(articleInfo.size() - 1).getTitle());
-//    }
     public ArticleDto prevArticle(String fileName) {
         List<ArticleDto> articleInfo = getArticleInfo();
 
-        for (int i = 1; i < articleInfo.size(); i++) {
-            if (articleInfo.get(i).getFileName().equals(fileName)) {
+        for (int i = 0; i < articleInfo.size(); i++) {
+            if (articleInfo.get(i).getFileName().equals(fileName) && i != 0) {
                 return new ArticleDto(articleInfo.get(i - 1).getFileName(), articleInfo.get(i - 1).getTitle());
             }
         }
-
-        // If the given fileName is the first article, wrap around to the last article
         return new ArticleDto(articleInfo.get(articleInfo.size() - 1).getFileName(), articleInfo.get(articleInfo.size() - 1).getTitle());
     }
-
 }
