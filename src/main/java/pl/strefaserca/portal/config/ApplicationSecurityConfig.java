@@ -22,10 +22,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .requiresSecure();
 //    }
 
-
         http
 //                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()) //Cookie nie będzie możliwe do modyfikacji przez javascript
 //                .and()//chroni api , cross site request forgery
+                /** Jeżeli coś nie działa, być może dlatego, że włączyłem csrf. Na przykład po włączeniu csrf nie można wysłać wiadomości */
                 .csrf().disable()
 
                 /** JWT **/
