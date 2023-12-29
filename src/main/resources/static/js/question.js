@@ -40,20 +40,31 @@ function ValidateQuestionForm() {
 $('#send_question').click(function (e) {
     let form = $('#ask_question_form');
     e.preventDefault();
-    $.ajax({
-        type: form.attr('method'), // method attribute of form
-        url: form.attr('action'),  // action attribute of form
-        data: form.serialize(),
-        success: function (response) {
-            if (response) {
-                alertMessage(response)
-            } else {
-                alertMessage(response)
-            }
-        },
-        error: function (data) {
-            console.log(data + "NIE WYSŁANO")
-        },
+    grecaptcha.ready(function () {
+        grecaptcha.execute(captchaKey, {action: 'submit'}).then(function (token) {
+            const name = $("#name").val();
+            const email = $("#email").val();
+            const phone = $("#phone").val();
+            const textarea = $("#textarea").val();
+            $.ajax({
+                type: form.attr('method'),
+                url: form.attr('action'),
+                dataType: "json",
+                data: {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    textarea: textarea,
+                    token: token
+                },
+                success: function (response) {
+                    alertMessage(response)
+                },
+                error: function (data) {
+                    alert("Jeśteś botem lub wystąpił błąd serwera");
+                },
+            });
+        });
     });
 });
 
@@ -75,7 +86,9 @@ function alertMessage(response) {
         return false;
     }
 }
+
 /** */
+
 
 
 

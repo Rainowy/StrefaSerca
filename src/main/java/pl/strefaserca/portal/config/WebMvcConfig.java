@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+
 import java.util.concurrent.Executor;
 
 @Configuration
@@ -52,4 +53,5 @@ public class WebMvcConfig {
     public Executor threadPoolTaskExecutor() {
         return new ThreadPoolTaskExecutor();
     }
+
 }

@@ -42,6 +42,37 @@ public class ArticleService {
         return articles;
     }
 
+/** Wersja powyższej motody, pobierająca listę artykułów z s3 bucket.
+ @SneakyThrows public List<ArticleDto> getArticleInfo() {
+
+ JsonMapper mapper = new JsonMapper();
+ mapper.registerModule(new JavaTimeModule());
+ //        mapper.registerModule(new SimpleModule().addSerializer(
+ //                new LocalDateTimeSerializer(DateTimeFormatter.ISO_LOCAL_DATE_TIME)));
+ //        String s = mapper.writeValueAsString(articles);
+
+ //zapisuje do pliku
+ //        Files.write(Paths.get("/home/tomek/Documents/StrefaHtml/articles"), s.getBytes());
+
+ String fileContent = URLReader();
+ ArticleDto[] articleDto = mapper.readValue(fileContent, ArticleDto[].class);
+
+ List<ArticleDto> articles = Arrays.asList(articleDto);
+ Collections.sort(articles, Comparator.comparing(ArticleDto::getCreated).reversed());
+
+ return articles;
+ }
+
+ private String URLReader() throws IOException {
+
+ InputStream input = new URL("https://strefa-bucket.s3.eu-central-1.amazonaws.com/articles").openStream();
+
+ try (input) {
+ byte[] bytes = input.readAllBytes();
+ return new String(bytes);
+ }
+ }
+ */
     /**
      * Parse img, name, title and lead from article
      */
@@ -97,7 +128,9 @@ public class ArticleService {
         return articleLead;
     }
 
-    /** Get file creation time as FileTime and converts to LocalDateTime */
+    /**
+     * Get file creation time as FileTime and converts to LocalDateTime
+     */
     @SneakyThrows
     private LocalDateTime getCreated(String path) {
         FileTime creationTime = (FileTime) Files.getAttribute(Paths.get(path), "creationTime");
@@ -112,7 +145,7 @@ public class ArticleService {
         return recentArticles;
     }
 
-    public ArticleDto currentArticle(String fileName){
+    public ArticleDto currentArticle(String fileName) {
         return getArticleInfo().stream()
                 .filter(a -> a.getFileName().equals(fileName))
                 .findFirst()

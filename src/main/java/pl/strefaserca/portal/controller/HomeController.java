@@ -1,38 +1,39 @@
 package pl.strefaserca.portal.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.context.MessageSource;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.strefaserca.portal.email.OnContactQuestionEvent;
 import pl.strefaserca.portal.service.ArticleService;
+import pl.strefaserca.portal.service.CaptchaService;
 import pl.strefaserca.portal.service.ContactService;
-import pl.strefaserca.portal.service.NewsLetterService;
 import pl.strefaserca.portal.service.TestimonialService;
-
-import java.util.Locale;
-import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
+@Log4j2
 @Controller
 @AllArgsConstructor
+@RequestMapping("/home")
 public class HomeController {
 
     private ArticleService articleService;
     private TestimonialService testimonialService;
-    private NewsLetterService newsLetterService;
     private ContactService contactService;
-    private MessageSource messages;
+    private CaptchaService captchaService;
 
-    @GetMapping("/")
+    @GetMapping("/main")
     public ModelAndView home() {
         ModelAndView model = new ModelAndView("home", "recentArticles", articleService.recentArticles());
         model.addObject("testimonials", testimonialService.rotatedTestimonials());
         return model;
+    }
+
+    @GetMapping("/login")
+    public ModelAndView login() {
+        return new ModelAndView("login");
     }
 
     @GetMapping("/certificates")
@@ -65,51 +66,33 @@ public class HomeController {
         return new ModelAndView("about_me");
     }
 
-    @PostMapping("/newsletter")
-    public @ResponseBody
-    void setNewsLetter(@RequestParam("newsletter") String newsLetter) {
-        if (!newsLetter.isEmpty()) {
-            newsLetterService.sendConfirmationMail(newsLetter);
-        }
-    }
-
-    @GetMapping("/newsletterConfirm")
-    public String confirmNewsLetterRequest
-            (WebRequest request, @RequestParam("token") String token, RedirectAttributes redirectAttributes) {
-
-        Locale locale = request.getLocale();
-        String newsLetterConfirmed = messages.getMessage("auth.message.newsLetterConfirmed", null, locale);
-        String invalidEmail = messages.getMessage("auth.message.invalidEmail", null, locale);
-
-        Optional<String> confirmationToken = newsLetterService.getConfirmationToken(token);
-        confirmationToken.ifPresentOrElse(p -> redirectAttributes.addFlashAttribute("message", newsLetterConfirmed),
-                () -> redirectAttributes.addFlashAttribute("message", invalidEmail));
-
-        return "redirect:/newsletterMessage";
-    }
-
-    @GetMapping("/newsletterMessage")
-    public ModelAndView registrationMessage(@ModelAttribute("message") String message) {
-        return new ModelAndView("newsletter", "message", message);
-    }
-
     @PostMapping("/askQuestion")
     public @ResponseBody
-    Boolean askQuestion(@RequestParam String name,
+    boolean askQuestion(@RequestParam String name,
                         @RequestParam String email,
                         @RequestParam String phone,
-                        @RequestParam String textarea) throws InterruptedException, ExecutionException {
+                        @RequestParam String textarea,
+                        @RequestParam String token
+    ) throws InterruptedException, ExecutionException {
 
-        OnContactQuestionEvent event = new OnContactQuestionEvent(email, name, phone, textarea);
-
-        contactService.publishEvent(event);
-        Future<Boolean> future = contactService.sendQuestion();
+        Future<Boolean> future;
+        if (captchaService.processResponse(token)) {
+            OnContactQuestionEvent event = new OnContactQuestionEvent(email, name, phone, textarea);
+            contactService.publishEvent(event);
+            future = contactService.sendQuestion();
+        } else {
+            captchaService.logResponse(token);
+            return false;
+        }
 
         while (true) {
             if (future.isDone()) {
-                return future.get();
+                if (future.get()) {
+                    return true;
+                } else return false;
             }
         }
     }
 }
+
 

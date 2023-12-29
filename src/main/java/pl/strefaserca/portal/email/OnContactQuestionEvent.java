@@ -21,4 +21,8 @@ public class OnContactQuestionEvent extends ApplicationEvent {
         this.phone = phone;
         this.message = message;
     }
+
+    public OnContactQuestionEvent(String email) {
+        super(email);
+    }
 }

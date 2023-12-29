@@ -8,6 +8,13 @@
 <div th:replace="fragments/core_fragments.html :: pageHeader"></div>
 <div class="content">
     <div class="container">
+
+        <!--reCaptcha Key script-->
+        <script th:src="|https://www.google.com/recaptcha/api.js?render=${@captchaSettings.getSite()}|"></script>
+        <script th:inline="javascript">
+            var captchaKey = [[${@captchaSettings.getSite()}]];
+        </script>
+
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <div class="row">
@@ -18,7 +25,7 @@
                             <address><i class="fa fa-map-marker"></i> Bogedaina 41<br> 43-200, Pszczyna, śląskie
                             </address>
                             <ul class="listnone contact">
-                                <li><i class="fa fa-phone"></i>792 327 604 <br> 32 447 09 70</li>
+                                <li><i class="fa fa-phone"></i>792 327 604 <br> 32 447 09 70</li>
                                 <li><i class="fa fa-envelope-o"></i>strefaserca@gmail.com</li>
                             </ul>
                         </div>
@@ -56,16 +63,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-10 control-label" for="textarea">Treść
-                                    pytania <span class="required">*</span></label>
+                                <label class="col-lg-10 control-label" for="textarea">Treść pytania
+                                    <span class="required">*</span></label>
                                 <div class="col-lg-10">
                                     <textarea class="form-control" rows="7" id="textarea" name="textarea"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-10 col-md-10">
-                                <button id="question_submit_button" name="singlebutton" class="btn btn-primary" type="button">
+                                <button id="question_submit_button" name="singlebutton" class="btn btn-default" type="button">
                                     Wyślij
                                 </button>
+
                                 <span class="required pull-right">* Pola wymagane</span>
                             </div>
                         </form>
@@ -87,13 +95,19 @@
                 <h2 class="modal-title text-center">Wysłać wiadomość ?</h2>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="send_question" data-dismiss="modal">Wyślij
+                <button type="button" class="btn btn-primary" id="send_question" data-dismiss="modal">
+                    Wyślij
                 </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<!--<script>-->
+<!--    function onSubmit(token) {-->
+<!--        document.getElementById("send_question").submit();-->
+<!--    }-->
+<!--</script>-->
 
 <div class="map" id="googleMap"></div>
 <div data-th-replace="fragments/core_fragments.html :: footer"></div>
@@ -111,7 +125,7 @@
             scrollwheel: false,
 
         });
-        var image = 'images/map-pin.png';
+        var image = '/images/map-pin.png';
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
