@@ -10,8 +10,8 @@
         <!--        fileName="/home/tomek/Documents/StrefaHtml/log4j2.log"-git sta
              filePattern="/home/tomek/Documents/StrefaHtml/$${date:yyyy-MM}/log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz"-->
         <RollingFile name="RollingFile"
-                     fileName="/home/tomek/Documents/StrefaHtml/log4j2.log"
-                     filePattern="/home/tomek/Documents/StrefaHtml/$${date:yyyy-MM}/log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz">
+                     fileName="/volume1/web/StrefaHtml/log4j2.log"
+                     filePattern="/volume1/web/StrefaHtml/$${date:yyyy-MM}/log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz">
             <PatternLayout>
                 <pattern>%d %p %C{1.} [%t] %m%n</pattern>
             </PatternLayout>
